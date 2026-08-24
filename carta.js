@@ -299,19 +299,23 @@ function pintarPanel() {
   if (!sec) { carta.innerHTML = ''; return; }
 
   carta.setAttribute('aria-labelledby', `tab-${sec.id}`);
-  const imagen = sec.imagen
+
+  // Con imagen: el título se dibuja DENTRO del contenedor, superpuesto a la
+  // foto. Si la foto no llega a cargar, solo se quita la imagen (la clase
+  // --sin-imagen colapsa el contenedor); el título nunca desaparece.
+  const cabeceraTitulo = sec.imagen
     ? `<div class="panel__imagen-envoltorio">
         <img class="panel__imagen" src="${escapar(sec.imagen)}" alt=""
              loading="lazy"
-             onerror="this.closest('.panel__imagen-envoltorio').hidden=true">
+             onerror="this.closest('.panel__imagen-envoltorio').classList.add('panel__imagen-envoltorio--sin-imagen');this.remove()">
+        <h2 class="panel__titulo panel__titulo--sobre-imagen">${escapar(t(sec.nombre))}</h2>
       </div>`
-    : '';
+    : `<h2 class="panel__titulo">${escapar(t(sec.nombre))}</h2>`;
 
   carta.innerHTML = `
     <header class="panel__cabecera">
       <p class="panel__indice">${ui().seccionDe(i + 1, lista.length)}</p>
-      <h2 class="panel__titulo">${escapar(t(sec.nombre))}</h2>
-      ${imagen}
+      ${cabeceraTitulo}
       <span class="panel__filo" aria-hidden="true"></span>
     </header>
     ${(sec.grupos ?? []).map(pintarGrupo).join('')}`;
