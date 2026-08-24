@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantilla Lab</title>
+  <meta name="description" content="Carta online.">
+  <meta name="theme-color" content="#12100E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- Cabecera: rótulo del negocio -->
+  <header class="cabecera">
+    <div class="cabecera__halo" aria-hidden="true"></div>
+
+    <div class="idioma" role="group" aria-label="Idioma / Language">
+      <button class="idioma__btn" data-idioma="es" type="button">ES</button>
+      <span class="idioma__separador" aria-hidden="true"></span>
+      <button class="idioma__btn" data-idioma="en" type="button">EN</button>
+    </div>
+
+    <div class="cabecera__interior">
+      <p class="cabecera__lema" data-t="lema"></p>
+      <h1 class="cabecera__nombre" data-t="nombre">Cargando…</h1>
+    </div>
+  </header>
+
+  <!-- Barra superior: se elige una sección y debajo salen sus grupos -->
+  <nav class="barra" id="barra">
+    <div class="barra__lista" id="indice" role="tablist" aria-label="Secciones de la carta"></div>
+  </nav>
+
+  <!-- Filtro de alérgenos, plegado por defecto -->
+  <details class="filtro" id="filtro">
+    <summary class="filtro__resumen">
+      <span class="filtro__etiqueta" data-t="alergenosTitulo">Alérgenos</span>
+      <span class="filtro__marca" id="filtroMarca" hidden></span>
+      <svg class="filtro__flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="m6 9 6 6 6-6"/>
+      </svg>
+    </summary>
+    <div class="filtro__cuerpo">
+      <p class="filtro__ayuda" data-t="alergenosAyuda"></p>
+      <ul class="filtro__lista" id="leyenda"></ul>
+      <button class="filtro__limpiar" id="limpiarFiltros" type="button" hidden data-t="limpiar"></button>
+    </div>
+  </details>
+
+  <!-- Grupos de la sección elegida -->
+  <main class="lienzo" id="carta" role="tabpanel" tabindex="0">
+    <p class="estado" id="estado" data-t="cargando">Cargando la carta…</p>
+  </main>
+
+  <footer class="pie">
+    <span class="pie__marca" aria-hidden="true"></span>
+    <p class="pie__fecha"><span data-t="actualizadoPre"></span> <span data-campo="actualizado">—</span></p>
+    <p class="pie__nota" data-t="ivaNota"></p>
+  </footer>
+
+  <script src="carta.js"></script>
+</body>
+</html>

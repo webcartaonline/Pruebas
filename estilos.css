@@ -1,0 +1,404 @@
+/* =========================================================
+   Carta online — diseño "Nocturno" (editorial, oscuro)
+   Negro cálido, ámbar y hueso. Serif de display con cuerpo
+   geométrico. Estructura: barra superior de secciones y,
+   debajo, los grupos de la sección elegida.
+   La lógica va en carta.js.
+   ========================================================= */
+
+:root{
+  --noche:       #12100E;   /* fondo general */
+  --noche-alto:  #1A1613;   /* superficies elevadas */
+  --noche-hondo: #0C0A09;   /* barra y pie */
+  --borde:       #2C2620;
+  --borde-claro: #3A322A;
+
+  --hueso:       #F4EFE7;   /* texto principal */
+  --hueso-medio: #BFB5A6;   /* texto secundario */
+  --hueso-suave: #8E8578;   /* texto terciario */
+
+  --ambar:       #E9B44C;   /* acento principal */
+  --ambar-hondo: #C4902F;
+  --ladrillo:    #D2603A;   /* avisos de alérgeno */
+  --salvia:      #86A98C;   /* platos sin alérgenos */
+
+  --display: "Fraunces", Georgia, "Times New Roman", serif;
+  --ui:      "Space Grotesk", system-ui, -apple-system, sans-serif;
+
+  --ancho: 1080px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+[hidden]{ display:none !important; }
+
+body{
+  margin:0;
+  background:var(--noche);
+  color:var(--hueso);
+  font-family:var(--ui);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
+}
+
+:focus-visible{ outline:2px solid var(--ambar); outline-offset:3px; }
+
+/* =========================================================
+   CABECERA
+   ========================================================= */
+.cabecera{
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--borde);
+  /* En móvil el idioma va en el flujo, centrado sobre el rótulo. */
+  display:flex; flex-direction:column; align-items:center;
+}
+.cabecera__halo{
+  position:absolute; inset:-60% 0 auto 0; height:200%;
+  background:radial-gradient(58% 46% at 50% 34%, rgba(233,180,76,.16), transparent 68%);
+  pointer-events:none;
+}
+.cabecera__interior{
+  position:relative; width:100%;
+  max-width:var(--ancho); margin:0 auto;
+  padding:20px 20px 44px;
+  text-align:center;
+}
+.cabecera__lema{
+  margin:0 0 14px;
+  font-size:.66rem; font-weight:500;
+  letter-spacing:.32em; text-transform:uppercase;
+  color:var(--ambar);
+}
+.cabecera__nombre{
+  margin:0;
+  font-family:var(--display); font-weight:600;
+  font-size:clamp(2.6rem, 12vw, 5rem);
+  line-height:.98; letter-spacing:-.02em;
+  color:var(--hueso);
+}
+
+/* Selector de idioma: dos rótulos separados por una barra fina.
+   Móvil: centrado en el flujo, encima del lema.
+   Escritorio: anclado arriba a la derecha (ver media query). */
+.idioma{
+  position:relative; z-index:3;
+  margin-top:26px;
+  display:inline-flex; align-items:center; gap:2px;
+}
+.idioma__separador{
+  width:1px; height:12px; background:var(--borde-claro);
+}
+.idioma__btn{
+  border:none; background:none; cursor:pointer;
+  padding:6px 9px; min-height:32px;
+  font-family:var(--ui); font-weight:500; font-size:.68rem;
+  letter-spacing:.16em; color:var(--hueso-suave);
+  transition:color .15s ease;
+}
+.idioma__btn:hover{ color:var(--hueso-medio); }
+.idioma__btn[aria-pressed="true"]{ color:var(--ambar); }
+
+/* =========================================================
+   BARRA SUPERIOR DE SECCIONES
+   Pegada arriba. En móvil se desliza con el dedo.
+   ========================================================= */
+.barra{
+  position:sticky; top:0; z-index:20;
+  background:rgba(12,10,9,.9);
+  backdrop-filter:blur(12px) saturate(1.4);
+  border-bottom:1px solid var(--borde);
+}
+.barra__lista{
+  max-width:var(--ancho); margin:0 auto;
+  padding:0 8px;
+  display:flex;
+  overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.barra__lista::-webkit-scrollbar{ display:none; }
+
+.barra__btn{
+  position:relative; flex-shrink:0;
+  display:inline-flex; align-items:center; gap:8px;
+  padding:19px 14px 17px; min-height:56px;
+  border:none; background:none; cursor:pointer;
+  font-family:var(--ui); font-weight:500; font-size:.74rem;
+  letter-spacing:.15em; text-transform:uppercase;
+  color:var(--hueso-suave); white-space:nowrap;
+  transition:color .18s ease;
+}
+.barra__btn::after{
+  content:""; position:absolute; left:14px; right:14px; bottom:0;
+  height:2px; background:var(--ambar);
+  transform:scaleX(0); transform-origin:center;
+  transition:transform .24s cubic-bezier(.4,0,.2,1);
+}
+.barra__btn:hover{ color:var(--hueso-medio); }
+.barra__btn[aria-selected="true"]{ color:var(--hueso); }
+.barra__btn[aria-selected="true"]::after{ transform:scaleX(1); }
+
+.barra__num{
+  font-family:var(--display); font-weight:500; font-size:.7rem;
+  letter-spacing:0; color:var(--ambar-hondo);
+  transition:color .18s ease;
+}
+.barra__btn[aria-selected="true"] .barra__num{ color:var(--ambar); }
+
+/* =========================================================
+   FILTRO DE ALÉRGENOS (plegable)
+   ========================================================= */
+.filtro{
+  border-bottom:1px solid var(--borde);
+  background:var(--noche-alto);
+}
+.filtro__resumen{
+  display:flex; align-items:center; gap:10px;
+  max-width:var(--ancho); margin:0 auto;
+  padding:15px 20px; min-height:52px;
+  cursor:pointer; list-style:none;
+  font-size:.7rem; font-weight:500;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--hueso-medio);
+  transition:color .15s ease;
+}
+.filtro__resumen::-webkit-details-marker{ display:none; }
+.filtro__resumen:hover{ color:var(--hueso); }
+.filtro__marca{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:20px; height:20px; padding:0 6px; border-radius:100px;
+  background:var(--ladrillo); color:#fff;
+  font-size:.66rem; font-weight:700; letter-spacing:0;
+}
+.filtro__flecha{
+  width:16px; height:16px; margin-left:auto;
+  color:var(--hueso-suave);
+  transition:transform .2s ease;
+}
+.filtro[open] .filtro__flecha{ transform:rotate(180deg); }
+
+.filtro__cuerpo{
+  max-width:var(--ancho); margin:0 auto;
+  padding:0 20px 26px;
+}
+.filtro__ayuda{
+  margin:0 0 18px;
+  font-size:.86rem; line-height:1.5; color:var(--hueso-suave);
+  max-width:58ch; text-transform:none; letter-spacing:0;
+}
+.filtro__lista{
+  display:flex; flex-wrap:wrap; gap:8px;
+  margin:0; padding:0; list-style:none;
+}
+.filtro__boton{
+  display:inline-flex; align-items:center; gap:8px;
+  min-height:42px; padding:9px 15px;
+  border:1px solid var(--borde-claro); border-radius:100px;
+  background:transparent; color:var(--hueso-medio);
+  font-family:var(--ui); font-weight:500; font-size:.8rem;
+  cursor:pointer;
+  transition:border-color .15s ease, background .15s ease, color .15s ease;
+}
+.filtro__boton:hover{ border-color:var(--hueso-suave); color:var(--hueso); }
+.filtro__boton svg{ width:17px; height:17px; flex-shrink:0; color:var(--ambar-hondo); }
+.filtro__boton[aria-pressed="true"]{
+  background:var(--ladrillo); border-color:var(--ladrillo); color:#fff;
+}
+.filtro__boton[aria-pressed="true"] svg{ color:#fff; }
+
+.filtro__limpiar{
+  margin-top:18px; min-height:42px; padding:10px 22px;
+  border:none; border-bottom:1px solid var(--borde-claro);
+  background:none; color:var(--hueso-suave);
+  font-family:var(--ui); font-weight:500; font-size:.72rem;
+  letter-spacing:.14em; text-transform:uppercase; cursor:pointer;
+  transition:color .15s ease, border-color .15s ease;
+}
+.filtro__limpiar:hover{ color:var(--ambar); border-color:var(--ambar); }
+
+/* =========================================================
+   LIENZO: grupos de la sección elegida
+   ========================================================= */
+.lienzo{
+  max-width:var(--ancho); margin:0 auto;
+  padding:40px 20px 68px;
+}
+.lienzo:focus{ outline:none; }
+
+.estado{
+  padding:70px 10px; text-align:center;
+  color:var(--hueso-suave); font-size:.94rem;
+}
+.estado--error{ color:var(--ladrillo); font-weight:500; }
+
+/* Encabezado de la sección */
+.panel__cabecera{ margin:0 0 38px; }
+.panel__indice{
+  margin:0 0 10px;
+  font-size:.64rem; font-weight:500;
+  letter-spacing:.28em; text-transform:uppercase;
+  color:var(--hueso-suave);
+}
+.panel__titulo{
+  margin:0;
+  font-family:var(--display); font-weight:600;
+  font-size:clamp(2rem, 7vw, 3.1rem);
+  line-height:1.04; letter-spacing:-.015em;
+  color:var(--hueso);
+}
+.panel__filo{
+  display:block; width:52px; height:2px; margin-top:18px;
+  background:var(--ambar);
+}
+
+/* Imagen de la sección: una franja ancha y de tono apagado justo
+   debajo del título, para que decore sin competir con el texto. */
+.panel__imagen-envoltorio{
+  margin-top:20px;
+  aspect-ratio:3/1;
+  border-radius:12px;
+  overflow:hidden;
+  background:var(--noche-alto);
+  box-shadow:inset 0 0 0 1px var(--borde);
+}
+.panel__imagen{
+  width:100%; height:100%;
+  display:block;
+  object-fit:cover;
+  filter:grayscale(20%) brightness(.62) saturate(.85);
+}
+
+/* ---------- Grupo ---------- */
+.grupo{ margin:0 0 46px; }
+.grupo:last-child{ margin-bottom:0; }
+
+.grupo__cabecera{
+  display:flex; align-items:baseline; gap:16px;
+  margin:0 0 6px;
+}
+.grupo__titulo{
+  margin:0;
+  font-family:var(--display); font-style:italic; font-weight:500;
+  font-size:1.3rem; letter-spacing:-.01em;
+  color:var(--ambar);
+}
+.grupo__regla{
+  flex:1; height:1px; background:var(--borde);
+}
+.grupo__conteo{
+  flex-shrink:0;
+  font-size:.62rem; font-weight:500;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--hueso-suave);
+}
+
+.grupo__items{ display:grid; }
+
+/* ---------- Ítem ---------- */
+.item{
+  padding:18px 0;
+  border-bottom:1px solid var(--borde);
+}
+.item__linea{
+  display:flex; align-items:baseline; gap:16px;
+}
+.item__nombre{
+  margin:0;
+  font-family:var(--ui); font-weight:500; font-size:1.02rem;
+  line-height:1.35; color:var(--hueso);
+}
+.item__precio{
+  margin-left:auto; flex-shrink:0;
+  font-family:var(--display); font-weight:600; font-size:1.06rem;
+  color:var(--ambar); font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+.item__descripcion{
+  margin:7px 0 0;
+  font-size:.88rem; line-height:1.5; color:var(--hueso-suave);
+  max-width:52ch;
+}
+
+.item__alergenos{
+  display:flex; flex-wrap:wrap; gap:6px;
+  margin:13px 0 0; padding:0; list-style:none;
+}
+.ficha{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:28px; height:28px; border-radius:9px;
+  border:1px solid var(--borde-claro); background:var(--noche-alto);
+  color:var(--hueso-medio); cursor:help;
+}
+.ficha svg{ width:15px; height:15px; display:block; }
+.ficha--evitar{
+  background:var(--ladrillo); border-color:var(--ladrillo); color:#fff;
+}
+
+.item__limpio{
+  display:inline-block; margin-top:13px;
+  font-size:.68rem; font-weight:500;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:var(--salvia);
+}
+
+/* Plato con un alérgeno marcado */
+.item--evitar{
+  padding-left:16px;
+  border-left:2px solid var(--ladrillo);
+  background:linear-gradient(90deg, rgba(210,96,58,.09), transparent 55%);
+}
+.item__aviso{
+  display:flex; align-items:center; gap:7px;
+  margin:12px 0 0;
+  font-size:.74rem; font-weight:500;
+  letter-spacing:.06em; color:var(--ladrillo);
+}
+.item__aviso::before{
+  content:""; width:5px; height:5px; border-radius:50%;
+  background:var(--ladrillo); flex-shrink:0;
+}
+
+/* =========================================================
+   PIE
+   ========================================================= */
+.pie{
+  border-top:1px solid var(--borde);
+  background:var(--noche-hondo);
+  padding:40px 20px 48px;
+  text-align:center;
+  color:var(--hueso-suave); font-size:.76rem;
+}
+.pie__marca{
+  display:block; width:26px; height:1px; margin:0 auto 22px;
+  background:var(--ambar);
+}
+.pie p{ margin:0 0 6px; }
+.pie__nota{ font-size:.72rem; color:#6E665B; }
+
+/* =========================================================
+   PANTALLA ANCHA (>= 760px)
+   Los platos de cada grupo pasan a dos columnas.
+   ========================================================= */
+@media (min-width:760px){
+  .grupo__items{ grid-template-columns:1fr 1fr; column-gap:56px; }
+  .cabecera__interior{ padding:78px 24px 62px; }
+  .idioma{ position:absolute; top:18px; right:24px; margin-top:0; }
+  .lienzo{ padding:56px 24px 84px; }
+  .barra__lista{ padding:0 16px; }
+  .barra__btn{ padding:20px 18px 18px; }
+  .barra__btn::after{ left:18px; right:18px; }
+  .filtro__resumen,
+  .filtro__cuerpo{ padding-left:24px; padding-right:24px; }
+}
+
+/* Encima de 1128px la barra se centra bajo el rótulo */
+@media (min-width:1128px){
+  .barra__lista{ justify-content:center; }
+}
