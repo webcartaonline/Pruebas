@@ -145,13 +145,6 @@ body{
 .barra__btn[aria-selected="true"]{ color:var(--hueso); }
 .barra__btn[aria-selected="true"]::after{ transform:scaleX(1); }
 
-.barra__num{
-  font-family:var(--display); font-weight:500; font-size:.7rem;
-  letter-spacing:0; color:var(--ambar-hondo);
-  transition:color .18s ease;
-}
-.barra__btn[aria-selected="true"] .barra__num{ color:var(--ambar); }
-
 /* =========================================================
    FILTRO DE ALÉRGENOS (plegable)
    ========================================================= */
@@ -240,12 +233,6 @@ body{
 
 /* Encabezado de la sección */
 .panel__cabecera{ margin:0 0 38px; }
-.panel__indice{
-  margin:0 0 10px;
-  font-size:.64rem; font-weight:500;
-  letter-spacing:.28em; text-transform:uppercase;
-  color:var(--hueso-suave);
-}
 .panel__titulo{
   margin:0;
   font-family:var(--display); font-weight:600;
@@ -264,7 +251,7 @@ body{
 .panel__imagen-envoltorio{
   position:relative;
   margin-top:20px;
-  aspect-ratio:3/1;
+  aspect-ratio:5/2;
   border-radius:12px;
   overflow:hidden;
   display:flex;

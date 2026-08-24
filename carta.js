@@ -60,7 +60,6 @@ const UI = {
     contiene: 'Contiene',
     actualizadoPre: 'Precios actualizados el',
     ivaNota: 'IVA incluido. Los precios pueden variar sin previo aviso.',
-    seccionDe: (i, total) => `Sección ${i} de ${total}`,
     unidades: (n) => `${n} ${n === 1 ? 'plato' : 'platos'}`
   },
   en: {
@@ -73,7 +72,6 @@ const UI = {
     contiene: 'Contains',
     actualizadoPre: 'Prices updated on',
     ivaNota: 'VAT included. Prices may change without notice.',
-    seccionDe: (i, total) => `Section ${i} of ${total}`,
     unidades: (n) => `${n} ${n === 1 ? 'item' : 'items'}`
   }
 };
@@ -274,7 +272,7 @@ function pintarNegocio() {
 
 /* Barra superior: una pestaña por sección. */
 function pintarBarra() {
-  $('#indice').innerHTML = secciones().map((sec, i) => {
+  $('#indice').innerHTML = secciones().map((sec) => {
     const activa = sec.id === app.seccionActiva;
     return `
       <button class="barra__btn" type="button" role="tab"
@@ -283,7 +281,6 @@ function pintarBarra() {
               aria-selected="${activa}"
               aria-controls="carta"
               tabindex="${activa ? '0' : '-1'}">
-        <span class="barra__num" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
         <span class="barra__nombre">${escapar(t(sec.nombre))}</span>
       </button>`;
   }).join('');
@@ -314,7 +311,6 @@ function pintarPanel() {
 
   carta.innerHTML = `
     <header class="panel__cabecera">
-      <p class="panel__indice">${ui().seccionDe(i + 1, lista.length)}</p>
       ${cabeceraTitulo}
       <span class="panel__filo" aria-hidden="true"></span>
     </header>
