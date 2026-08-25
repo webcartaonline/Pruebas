@@ -351,15 +351,27 @@ function pintarItem(item) {
 
   const descripcion = t(item.descripcion);
 
+  // Foto cuadrada del plato. Va a la derecha a propósito: como solo algunos
+  // platos tendrán foto, así el texto de todos empieza siempre alineado.
+  const foto = item.imagen
+    ? `<div class="item__foto">
+        <img src="${escapar(item.imagen)}" alt="" loading="lazy" decoding="async"
+             onerror="this.closest('.item__foto').remove()">
+      </div>`
+    : '';
+
   return `
     <article class="item ${enConflicto.length ? 'item--evitar' : ''}">
-      <div class="item__linea">
-        <h4 class="item__nombre">${escapar(t(item.nombre))}</h4>
-        <span class="item__precio">${euros(item.precio)}</span>
+      <div class="item__cuerpo">
+        <div class="item__linea">
+          <h4 class="item__nombre">${escapar(t(item.nombre))}</h4>
+          <span class="item__precio">${euros(item.precio)}</span>
+        </div>
+        ${descripcion ? `<p class="item__descripcion">${escapar(descripcion)}</p>` : ''}
+        ${listaFichas}
+        ${aviso}
       </div>
-      ${descripcion ? `<p class="item__descripcion">${escapar(descripcion)}</p>` : ''}
-      ${listaFichas}
-      ${aviso}
+      ${foto}
     </article>`;
 }
 

@@ -321,9 +321,27 @@ body{
 
 /* ---------- Ítem ---------- */
 .item{
+  display:flex; align-items:flex-start; gap:16px;
   padding:18px 0;
   border-bottom:1px solid var(--borde);
 }
+/* El texto ocupa el ancho sobrante. min-width:0 evita que un nombre
+   largo ensanche la fila y aplaste la foto. */
+.item__cuerpo{ flex:1; min-width:0; }
+
+/* Foto del plato: cuadrada exacta, a la derecha. Solo aparece si el
+   plato tiene imagen; los demás se ven igual que antes. */
+.item__foto{
+  flex:0 0 auto;
+  width:88px; aspect-ratio:1/1;
+  border-radius:10px; overflow:hidden;
+  border:1px solid var(--borde); background:var(--noche-alto);
+}
+.item__foto img{
+  width:100%; height:100%;
+  display:block; object-fit:cover;
+}
+
 .item__linea{
   display:flex; align-items:baseline; gap:16px;
 }
@@ -406,6 +424,7 @@ body{
    ========================================================= */
 @media (min-width:760px){
   .grupo__items{ grid-template-columns:1fr 1fr; column-gap:56px; }
+  .item__foto{ width:104px; }
   .cabecera__interior{ padding:78px 24px 62px; }
   .idioma{ position:absolute; top:18px; right:24px; margin-top:0; }
   .lienzo{ padding:56px 24px 84px; }

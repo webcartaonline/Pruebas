@@ -1,153 +1,77 @@
 {
   "negocio": {
     "nombre": "Plantilla Lab",
-    "lema": {
-      "es": "Desayunos con sol · a cualquier hora",
-      "en": "Sunny brunch · any time of day"
-    },
-    "idiomas": [
-      "es",
-      "en"
-    ],
-    "actualizado": "2026-08-24T11:45:25.896Z"
+    "lema": { "es": "Desayunos con sol · a cualquier hora", "en": "Sunny brunch · any time of day" },
+    "idiomas": ["es", "en"],
+    "actualizado": "2026-08-12T09:00:00Z"
   },
   "secciones": [
     {
       "id": "s-desayunar",
-      "nombre": {
-        "es": "Para desayunar",
-        "en": "Breakfast"
-      },
-      "imagen": "img/secciones/s-desayunar.jpg?v=mt764zxu",
+      "nombre": { "es": "Para desayunar", "en": "Breakfast" },
+      "imagen": "img/secciones/s-desayunar.jpg",
       "grupos": [
         {
           "id": "g-tostas",
-          "nombre": {
-            "es": "Tostas",
-            "en": "Toasts"
-          },
+          "nombre": { "es": "Tostas", "en": "Toasts" },
           "items": [
             {
               "id": "i-tosta-aguacate",
-              "nombre": {
-                "es": "Tosta de aguacate",
-                "en": "Avocado toast"
-              },
-              "descripcion": {
-                "es": "Pan de masa madre, aguacate, tomate cherry y semillas",
-                "en": "Sourdough bread, avocado, cherry tomato and seeds"
-              },
+              "nombre": { "es": "Tosta de aguacate", "en": "Avocado toast" },
+              "descripcion": { "es": "Pan de masa madre, aguacate, tomate cherry y semillas", "en": "Sourdough bread, avocado, cherry tomato and seeds" },
+              "imagen": "img/items/i-tosta-aguacate.jpg",
               "precio": 7.9,
-              "alergenos": [
-                "gluten",
-                "sesamo"
-              ]
+              "alergenos": ["gluten", "sesamo"]
             },
             {
               "id": "i-tosta-salmon",
-              "nombre": {
-                "es": "Tosta de salmón",
-                "en": "Salmon toast"
-              },
-              "descripcion": {
-                "es": "Queso crema, salmón ahumado y eneldo",
-                "en": "Cream cheese, smoked salmon and dill"
-              },
+              "nombre": { "es": "Tosta de salmón", "en": "Salmon toast" },
+              "descripcion": { "es": "Queso crema, salmón ahumado y eneldo", "en": "Cream cheese, smoked salmon and dill" },
+              "imagen": "img/items/i-tosta-salmon.jpg",
               "precio": 9.5,
-              "alergenos": [
-                "gluten",
-                "pescado",
-                "lacteos"
-              ]
+              "alergenos": ["gluten", "pescado", "lacteos"]
             },
             {
               "id": "i-tosta-tomate",
-              "nombre": {
-                "es": "Tosta de tomate y jamón",
-                "en": "Tomato & ham toast"
-              },
-              "descripcion": {
-                "es": "Tomate rallado, jamón curado y aceite de oliva",
-                "en": "Grated tomato, cured ham and olive oil"
-              },
+              "nombre": { "es": "Tosta de tomate y jamón", "en": "Tomato & ham toast" },
+              "descripcion": { "es": "Tomate rallado, jamón curado y aceite de oliva", "en": "Grated tomato, cured ham and olive oil" },
               "precio": 6.5,
-              "alergenos": [
-                "gluten"
-              ]
+              "alergenos": ["gluten"]
             },
             {
               "id": "i-tosta-cacao",
-              "nombre": {
-                "es": "Brioche con cacao",
-                "en": "Cocoa brioche"
-              },
-              "descripcion": {
-                "es": "Brioche templado con crema de cacao y avellana",
-                "en": "Warm brioche with cocoa-hazelnut spread"
-              },
+              "nombre": { "es": "Brioche con cacao", "en": "Cocoa brioche" },
+              "descripcion": { "es": "Brioche templado con crema de cacao y avellana", "en": "Warm brioche with cocoa-hazelnut spread" },
               "precio": 5.9,
-              "alergenos": [
-                "gluten",
-                "lacteos",
-                "frutos-secos",
-                "soja"
-              ]
+              "alergenos": ["gluten", "lacteos", "frutos-secos", "soja"]
             }
           ]
         },
         {
           "id": "g-huevos",
-          "nombre": {
-            "es": "Huevos",
-            "en": "Eggs"
-          },
+          "nombre": { "es": "Huevos", "en": "Eggs" },
           "items": [
             {
               "id": "i-benedictinos",
-              "nombre": {
-                "es": "Huevos benedictinos",
-                "en": "Eggs benedict"
-              },
-              "descripcion": {
-                "es": "Muffin, huevo poché y salsa holandesa",
-                "en": "Muffin, poached egg and hollandaise"
-              },
+              "nombre": { "es": "Huevos benedictinos", "en": "Eggs benedict" },
+              "descripcion": { "es": "Muffin, huevo poché y salsa holandesa", "en": "Muffin, poached egg and hollandaise" },
+              "imagen": "img/items/i-benedictinos.jpg",
               "precio": 10.9,
-              "alergenos": [
-                "gluten",
-                "huevos",
-                "lacteos"
-              ]
+              "alergenos": ["gluten", "huevos", "lacteos"]
             },
             {
               "id": "i-revuelto",
-              "nombre": {
-                "es": "Revuelto de la casa",
-                "en": "House scramble"
-              },
-              "descripcion": {
-                "es": "Huevo cremoso con champiñón y cebollino",
-                "en": "Creamy egg with mushroom and chives"
-              },
+              "nombre": { "es": "Revuelto de la casa", "en": "House scramble" },
+              "descripcion": { "es": "Huevo cremoso con champiñón y cebollino", "en": "Creamy egg with mushroom and chives" },
               "precio": 8.5,
-              "alergenos": [
-                "huevos"
-              ]
+              "alergenos": ["huevos"]
             },
             {
               "id": "i-tortilla-francesa",
-              "nombre": {
-                "es": "Tortilla francesa",
-                "en": "French omelette"
-              },
-              "descripcion": {
-                "es": "Con una pequeña ensalada de brotes",
-                "en": "With a small side of leaves"
-              },
+              "nombre": { "es": "Tortilla francesa", "en": "French omelette" },
+              "descripcion": { "es": "Con una pequeña ensalada de brotes", "en": "With a small side of leaves" },
               "precio": 6.9,
-              "alergenos": [
-                "huevos"
-              ]
+              "alergenos": ["huevos"]
             }
           ]
         }
@@ -155,127 +79,60 @@
     },
     {
       "id": "s-dulce",
-      "nombre": {
-        "es": "Dulce",
-        "en": "Something sweet"
-      },
+      "nombre": { "es": "Dulce", "en": "Something sweet" },
       "imagen": "img/secciones/s-dulce.jpg",
       "grupos": [
         {
           "id": "g-tortitas",
-          "nombre": {
-            "es": "Tortitas y gofres",
-            "en": "Pancakes & waffles"
-          },
+          "nombre": { "es": "Tortitas y gofres", "en": "Pancakes & waffles" },
           "items": [
             {
               "id": "i-tortitas-clasicas",
-              "nombre": {
-                "es": "Tortitas clásicas",
-                "en": "Classic pancakes"
-              },
-              "descripcion": {
-                "es": "Con sirope de arce y mantequilla",
-                "en": "With maple syrup and butter"
-              },
+              "nombre": { "es": "Tortitas clásicas", "en": "Classic pancakes" },
+              "descripcion": { "es": "Con sirope de arce y mantequilla", "en": "With maple syrup and butter" },
               "precio": 7.5,
-              "alergenos": [
-                "gluten",
-                "huevos",
-                "lacteos"
-              ]
+              "alergenos": ["gluten", "huevos", "lacteos"]
             },
             {
               "id": "i-gofre-rojos",
-              "nombre": {
-                "es": "Gofre de frutos rojos",
-                "en": "Berry waffle"
-              },
-              "descripcion": {
-                "es": "Nata montada y frutos rojos de temporada",
-                "en": "Whipped cream and seasonal berries"
-              },
+              "nombre": { "es": "Gofre de frutos rojos", "en": "Berry waffle" },
+              "descripcion": { "es": "Nata montada y frutos rojos de temporada", "en": "Whipped cream and seasonal berries" },
               "precio": 8.2,
-              "alergenos": [
-                "gluten",
-                "huevos",
-                "lacteos"
-              ]
+              "alergenos": ["gluten", "huevos", "lacteos"]
             },
             {
               "id": "i-tortitas-veganas",
-              "nombre": {
-                "es": "Tortitas veganas",
-                "en": "Vegan pancakes"
-              },
-              "descripcion": {
-                "es": "De avena y plátano, con sirope de agave",
-                "en": "Oat and banana, with agave syrup"
-              },
+              "nombre": { "es": "Tortitas veganas", "en": "Vegan pancakes" },
+              "descripcion": { "es": "De avena y plátano, con sirope de agave", "en": "Oat and banana, with agave syrup" },
               "precio": 7.9,
-              "alergenos": [
-                "gluten"
-              ]
+              "alergenos": ["gluten"]
             }
           ]
         },
         {
           "id": "g-bolleria",
-          "nombre": {
-            "es": "Bollería",
-            "en": "Pastries"
-          },
+          "nombre": { "es": "Bollería", "en": "Pastries" },
           "items": [
             {
               "id": "i-croissant",
-              "nombre": {
-                "es": "Croissant artesano",
-                "en": "Artisan croissant"
-              },
-              "descripcion": {
-                "es": "De mantequilla, horneado cada mañana",
-                "en": "All-butter, baked every morning"
-              },
+              "nombre": { "es": "Croissant artesano", "en": "Artisan croissant" },
+              "descripcion": { "es": "De mantequilla, horneado cada mañana", "en": "All-butter, baked every morning" },
               "precio": 2.2,
-              "alergenos": [
-                "gluten",
-                "lacteos",
-                "huevos"
-              ]
+              "alergenos": ["gluten", "lacteos", "huevos"]
             },
             {
               "id": "i-muffin",
-              "nombre": {
-                "es": "Muffin de arándanos",
-                "en": "Blueberry muffin"
-              },
-              "descripcion": {
-                "es": "Esponjoso, con arándanos frescos",
-                "en": "Fluffy, with fresh blueberries"
-              },
+              "nombre": { "es": "Muffin de arándanos", "en": "Blueberry muffin" },
+              "descripcion": { "es": "Esponjoso, con arándanos frescos", "en": "Fluffy, with fresh blueberries" },
               "precio": 3.1,
-              "alergenos": [
-                "gluten",
-                "huevos",
-                "lacteos"
-              ]
+              "alergenos": ["gluten", "huevos", "lacteos"]
             },
             {
               "id": "i-roll-canela",
-              "nombre": {
-                "es": "Roll de canela",
-                "en": "Cinnamon roll"
-              },
-              "descripcion": {
-                "es": "Con glaseado de queso crema",
-                "en": "With cream cheese glaze"
-              },
+              "nombre": { "es": "Roll de canela", "en": "Cinnamon roll" },
+              "descripcion": { "es": "Con glaseado de queso crema", "en": "With cream cheese glaze" },
               "precio": 3.8,
-              "alergenos": [
-                "gluten",
-                "huevos",
-                "lacteos"
-              ]
+              "alergenos": ["gluten", "huevos", "lacteos"]
             }
           ]
         }
@@ -283,57 +140,31 @@
     },
     {
       "id": "s-zumos",
-      "nombre": {
-        "es": "Zumos y batidos",
-        "en": "Juices & smoothies"
-      },
+      "nombre": { "es": "Zumos y batidos", "en": "Juices & smoothies" },
       "imagen": "img/secciones/s-zumos.jpg",
       "grupos": [
         {
           "id": "g-zumos",
-          "nombre": {
-            "es": "Zumos naturales",
-            "en": "Fresh juices"
-          },
+          "nombre": { "es": "Zumos naturales", "en": "Fresh juices" },
           "items": [
             {
               "id": "i-naranja",
-              "nombre": {
-                "es": "Naranja exprimida",
-                "en": "Fresh orange"
-              },
-              "descripcion": {
-                "es": "Exprimido al momento",
-                "en": "Squeezed to order"
-              },
+              "nombre": { "es": "Naranja exprimida", "en": "Fresh orange" },
+              "descripcion": { "es": "Exprimido al momento", "en": "Squeezed to order" },
               "precio": 3.2,
               "alergenos": []
             },
             {
               "id": "i-verde",
-              "nombre": {
-                "es": "Verde detox",
-                "en": "Green detox"
-              },
-              "descripcion": {
-                "es": "Manzana, apio, pepino y jengibre",
-                "en": "Apple, celery, cucumber and ginger"
-              },
+              "nombre": { "es": "Verde detox", "en": "Green detox" },
+              "descripcion": { "es": "Manzana, apio, pepino y jengibre", "en": "Apple, celery, cucumber and ginger" },
               "precio": 4.5,
-              "alergenos": [
-                "apio"
-              ]
+              "alergenos": ["apio"]
             },
             {
               "id": "i-sandia",
-              "nombre": {
-                "es": "Sandía y menta",
-                "en": "Watermelon & mint"
-              },
-              "descripcion": {
-                "es": "Refrescante, sin azúcares añadidos",
-                "en": "Refreshing, no added sugar"
-              },
+              "nombre": { "es": "Sandía y menta", "en": "Watermelon & mint" },
+              "descripcion": { "es": "Refrescante, sin azúcares añadidos", "en": "Refreshing, no added sugar" },
               "precio": 4.2,
               "alergenos": []
             }
@@ -341,57 +172,28 @@
         },
         {
           "id": "g-batidos",
-          "nombre": {
-            "es": "Batidos y bowls",
-            "en": "Smoothies & bowls"
-          },
+          "nombre": { "es": "Batidos y bowls", "en": "Smoothies & bowls" },
           "items": [
             {
               "id": "i-fresa-platano",
-              "nombre": {
-                "es": "Batido de fresa y plátano",
-                "en": "Strawberry-banana smoothie"
-              },
-              "descripcion": {
-                "es": "Con leche de avena",
-                "en": "With oat milk"
-              },
+              "nombre": { "es": "Batido de fresa y plátano", "en": "Strawberry-banana smoothie" },
+              "descripcion": { "es": "Con leche de avena", "en": "With oat milk" },
               "precio": 4.9,
-              "alergenos": [
-                "gluten"
-              ]
+              "alergenos": ["gluten"]
             },
             {
               "id": "i-acai-bowl",
-              "nombre": {
-                "es": "Bowl de açaí",
-                "en": "Açaí bowl"
-              },
-              "descripcion": {
-                "es": "Açaí, granola, plátano y coco",
-                "en": "Açaí, granola, banana and coconut"
-              },
+              "nombre": { "es": "Bowl de açaí", "en": "Açaí bowl" },
+              "descripcion": { "es": "Açaí, granola, plátano y coco", "en": "Açaí, granola, banana and coconut" },
               "precio": 6.9,
-              "alergenos": [
-                "gluten",
-                "frutos-secos"
-              ]
+              "alergenos": ["gluten", "frutos-secos"]
             },
             {
               "id": "i-proteico",
-              "nombre": {
-                "es": "Batido proteico",
-                "en": "Protein shake"
-              },
-              "descripcion": {
-                "es": "Cacao, plátano y crema de cacahuete",
-                "en": "Cocoa, banana and peanut butter"
-              },
+              "nombre": { "es": "Batido proteico", "en": "Protein shake" },
+              "descripcion": { "es": "Cacao, plátano y crema de cacahuete", "en": "Cocoa, banana and peanut butter" },
               "precio": 5.5,
-              "alergenos": [
-                "cacahuetes",
-                "soja"
-              ]
+              "alergenos": ["cacahuetes", "soja"]
             }
           ]
         }
@@ -399,131 +201,66 @@
     },
     {
       "id": "s-cafe",
-      "nombre": {
-        "es": "Café y algo salado",
-        "en": "Coffee & savory"
-      },
+      "nombre": { "es": "Café y algo salado", "en": "Coffee & savory" },
       "grupos": [
         {
           "id": "g-cafes",
-          "nombre": {
-            "es": "Cafés",
-            "en": "Coffee"
-          },
+          "nombre": { "es": "Cafés", "en": "Coffee" },
           "items": [
             {
               "id": "i-espresso",
-              "nombre": {
-                "es": "Espresso",
-                "en": "Espresso"
-              },
-              "descripcion": {
-                "es": "De tueste natural",
-                "en": "Naturally roasted"
-              },
+              "nombre": { "es": "Espresso", "en": "Espresso" },
+              "descripcion": { "es": "De tueste natural", "en": "Naturally roasted" },
               "precio": 1.4,
               "alergenos": []
             },
             {
               "id": "i-flat-white",
-              "nombre": {
-                "es": "Flat white",
-                "en": "Flat white"
-              },
-              "descripcion": {
-                "es": "Con leche entera, de avena o de soja",
-                "en": "With whole, oat or soy milk"
-              },
+              "nombre": { "es": "Flat white", "en": "Flat white" },
+              "descripcion": { "es": "Con leche entera, de avena o de soja", "en": "With whole, oat or soy milk" },
               "precio": 2.6,
-              "alergenos": [
-                "lacteos",
-                "soja"
-              ]
+              "alergenos": ["lacteos", "soja"]
             },
             {
               "id": "i-cappuccino",
-              "nombre": {
-                "es": "Cappuccino",
-                "en": "Cappuccino"
-              },
-              "descripcion": {
-                "es": "Espuma cremosa y cacao por encima",
-                "en": "Creamy foam dusted with cocoa"
-              },
+              "nombre": { "es": "Cappuccino", "en": "Cappuccino" },
+              "descripcion": { "es": "Espuma cremosa y cacao por encima", "en": "Creamy foam dusted with cocoa" },
               "precio": 2.2,
-              "alergenos": [
-                "lacteos"
-              ]
+              "alergenos": ["lacteos"]
             },
             {
               "id": "i-chai",
-              "nombre": {
-                "es": "Chai latte",
-                "en": "Chai latte"
-              },
-              "descripcion": {
-                "es": "Especias y leche vaporizada",
-                "en": "Spices and steamed milk"
-              },
+              "nombre": { "es": "Chai latte", "en": "Chai latte" },
+              "descripcion": { "es": "Especias y leche vaporizada", "en": "Spices and steamed milk" },
               "precio": 3.2,
-              "alergenos": [
-                "lacteos"
-              ]
+              "alergenos": ["lacteos"]
             }
           ]
         },
         {
           "id": "g-picar",
-          "nombre": {
-            "es": "Para picar",
-            "en": "Savory bites"
-          },
+          "nombre": { "es": "Para picar", "en": "Savory bites" },
           "items": [
             {
               "id": "i-bikini",
-              "nombre": {
-                "es": "Bikini de la casa",
-                "en": "Ham & cheese toastie"
-              },
-              "descripcion": {
-                "es": "Jamón, queso fundido y un toque de trufa",
-                "en": "Ham, melted cheese and a touch of truffle"
-              },
+              "nombre": { "es": "Bikini de la casa", "en": "Ham & cheese toastie" },
+              "descripcion": { "es": "Jamón, queso fundido y un toque de trufa", "en": "Ham, melted cheese and a touch of truffle" },
               "precio": 6.5,
-              "alergenos": [
-                "gluten",
-                "lacteos"
-              ]
+              "alergenos": ["gluten", "lacteos"]
             },
             {
               "id": "i-nachos",
-              "nombre": {
-                "es": "Nachos con guacamole",
-                "en": "Nachos with guacamole"
-              },
-              "descripcion": {
-                "es": "Maíz crujiente y guacamole fresco",
-                "en": "Crunchy corn chips and fresh guacamole"
-              },
+              "nombre": { "es": "Nachos con guacamole", "en": "Nachos with guacamole" },
+              "descripcion": { "es": "Maíz crujiente y guacamole fresco", "en": "Crunchy corn chips and fresh guacamole" },
               "precio": 7.2,
               "alergenos": []
             },
             {
               "id": "i-croquetas",
-              "nombre": {
-                "es": "Croquetas caseras",
-                "en": "Homemade croquettes"
-              },
-              "descripcion": {
-                "es": "Seis unidades de jamón",
-                "en": "Six ham croquettes"
-              },
+              "nombre": { "es": "Croquetas caseras", "en": "Homemade croquettes" },
+              "descripcion": { "es": "Seis unidades de jamón", "en": "Six ham croquettes" },
               "precio": 7.9,
-              "alergenos": [
-                "gluten",
-                "lacteos",
-                "huevos"
-              ]
+              "alergenos": ["gluten", "lacteos", "huevos"]
             }
           ]
         }
