@@ -9,7 +9,7 @@
       "es",
       "en"
     ],
-    "actualizado": "2026-08-26T14:07:12.991Z"
+    "actualizado": "2026-08-26T14:56:05.795Z"
   },
   "secciones": [
     {
@@ -186,8 +186,20 @@
               "alergenos": [
                 "gluten",
                 "huevos",
-                "lacteos"
-              ]
+                "lacteos",
+                "crustaceos",
+                "cacahuetes",
+                "pescado",
+                "soja",
+                "frutos-secos",
+                "apio",
+                "mostaza",
+                "sesamo",
+                "sulfitos",
+                "altramuces",
+                "moluscos"
+              ],
+              "imagen": "img/items/i-tortitas-clasicas.jpg?v=mta7sqhu"
             },
             {
               "id": "i-gofre-rojos",
