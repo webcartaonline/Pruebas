@@ -9,7 +9,7 @@
       "es",
       "en"
     ],
-    "actualizado": "2026-08-26T20:08:13.794Z"
+    "actualizado": "2026-08-26T20:56:52.858Z"
   },
   "secciones": [
     {
@@ -18,7 +18,7 @@
         "es": "Para desayunar",
         "en": "Breakfast"
       },
-      "imagen": "img/secciones/s-desayunar.jpg?v=mtaiz2pe",
+      "imagen": "img/secciones/s-desayunar.jpg?v=mtakhd3z",
       "grupos": [
         {
           "id": "g-tostas",
@@ -101,57 +101,23 @@
         {
           "id": "g-huevos",
           "nombre": {
-            "es": "Huevos",
-            "en": "Eggs"
+            "es": "Café",
+            "en": "Cofee"
           },
           "items": [
             {
               "id": "i-benedictinos",
               "nombre": {
-                "es": "Huevos benedictinos",
-                "en": "Eggs benedict"
+                "es": "Espreso",
+                "en": "Expreso"
               },
               "descripcion": {
-                "es": "Muffin, huevo poché y salsa holandesa",
-                "en": "Muffin, poached egg and hollandaise"
+                "es": "Café solo en taza pequeña",
+                "en": "Naturally roasted"
               },
-              "precio": 10.9,
-              "alergenos": [
-                "gluten",
-                "huevos",
-                "lacteos"
-              ],
-              "imagen": "img/items/i-benedictinos.jpg?v=mtaizt85"
-            },
-            {
-              "id": "i-revuelto",
-              "nombre": {
-                "es": "Revuelto de la casa",
-                "en": "House scramble"
-              },
-              "descripcion": {
-                "es": "Huevo cremoso con champiñón y cebollino",
-                "en": "Creamy egg with mushroom and chives"
-              },
-              "precio": 8.5,
-              "alergenos": [
-                "huevos"
-              ]
-            },
-            {
-              "id": "i-tortilla-francesa",
-              "nombre": {
-                "es": "Tortilla francesa",
-                "en": "French omelette"
-              },
-              "descripcion": {
-                "es": "Con una pequeña ensalada de brotes",
-                "en": "With a small side of leaves"
-              },
-              "precio": 6.9,
-              "alergenos": [
-                "huevos"
-              ]
+              "precio": 1.3,
+              "alergenos": [],
+              "imagen": "img/items/i-benedictinos.jpg?v=mtakl8wt"
             }
           ]
         }
@@ -163,7 +129,7 @@
         "es": "Dulce",
         "en": "Something sweet"
       },
-      "imagen": "img/secciones/s-dulce.jpg",
+      "imagen": "img/secciones/s-dulce.jpg?v=mtakmsdy",
       "grupos": [
         {
           "id": "g-tortitas",
@@ -291,7 +257,7 @@
         "es": "Zumos y batidos",
         "en": "Juices & smoothies"
       },
-      "imagen": "img/secciones/s-zumos.jpg",
+      "imagen": "img/secciones/s-zumos.jpg?v=mtaknf0q",
       "grupos": [
         {
           "id": "g-zumos",
