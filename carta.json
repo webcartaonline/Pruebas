@@ -9,7 +9,7 @@
       "es",
       "en"
     ],
-    "actualizado": "2026-08-26T18:44:24.764Z"
+    "actualizado": "2026-08-26T20:08:13.794Z"
   },
   "secciones": [
     {
@@ -18,7 +18,7 @@
         "es": "Para desayunar",
         "en": "Breakfast"
       },
-      "imagen": "img/secciones/s-desayunar.jpg",
+      "imagen": "img/secciones/s-desayunar.jpg?v=mtaiz2pe",
       "grupos": [
         {
           "id": "g-tostas",
@@ -120,7 +120,8 @@
                 "gluten",
                 "huevos",
                 "lacteos"
-              ]
+              ],
+              "imagen": "img/items/i-benedictinos.jpg?v=mtaizt85"
             },
             {
               "id": "i-revuelto",
