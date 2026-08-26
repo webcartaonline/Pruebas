@@ -9,7 +9,7 @@
       "es",
       "en"
     ],
-    "actualizado": "2026-08-26T14:56:05.795Z"
+    "actualizado": "2026-08-26T18:44:24.764Z"
   },
   "secciones": [
     {
@@ -115,7 +115,6 @@
                 "es": "Muffin, huevo poché y salsa holandesa",
                 "en": "Muffin, poached egg and hollandaise"
               },
-              "imagen": "img/items/i-benedictinos.jpg",
               "precio": 10.9,
               "alergenos": [
                 "gluten",
@@ -185,19 +184,7 @@
               "precio": 7.5,
               "alergenos": [
                 "gluten",
-                "huevos",
-                "lacteos",
-                "crustaceos",
-                "cacahuetes",
-                "pescado",
-                "soja",
-                "frutos-secos",
-                "apio",
-                "mostaza",
-                "sesamo",
-                "sulfitos",
-                "altramuces",
-                "moluscos"
+                "huevos"
               ],
               "imagen": "img/items/i-tortitas-clasicas.jpg?v=mta7sqhu"
             },
@@ -392,8 +379,7 @@
                 "gluten",
                 "frutos-secos",
                 "cacahuetes"
-              ],
-              "imagen": "img/items/i-acai-bowl.jpg?v=mt98si5e"
+              ]
             },
             {
               "id": "i-proteico",
