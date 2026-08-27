@@ -9,7 +9,7 @@
       "es",
       "en"
     ],
-    "actualizado": "2026-08-27T01:14:43.831Z"
+    "actualizado": "2026-08-27T08:26:14.063Z"
   },
   "secciones": [
     {
@@ -476,7 +476,8 @@
             }
           ]
         }
-      ]
+      ],
+      "imagen": "img/secciones/s-cafe.jpg?v=mtb8gnd9"
     }
   ]
 }
