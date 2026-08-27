@@ -9,7 +9,7 @@
       "es",
       "en"
     ],
-    "actualizado": "2026-08-26T22:50:23.220Z"
+    "actualizado": "2026-08-27T01:14:43.831Z"
   },
   "secciones": [
     {
@@ -94,7 +94,8 @@
                 "lacteos",
                 "frutos-secos",
                 "soja"
-              ]
+              ],
+              "imagen": "img/items/i-tosta-cacao.jpg?v=mtatvqja"
             }
           ]
         },
@@ -116,8 +117,7 @@
                 "en": "Naturally roasted"
               },
               "precio": 1.4,
-              "alergenos": [],
-              "imagen": "img/items/i-espresso-ef5q.jpg?v=mtaoh5hd"
+              "alergenos": []
             },
             {
               "id": "i-flat-white-72wv",
