@@ -9,7 +9,7 @@
       "es",
       "en"
     ],
-    "actualizado": "2026-08-27T08:26:14.063Z"
+    "actualizado": "2026-08-28T14:46:47.153Z"
   },
   "secciones": [
     {
@@ -216,7 +216,8 @@
                 "gluten",
                 "huevos",
                 "lacteos"
-              ]
+              ],
+              "imagen": "img/items/i-gofre-rojos.jpg?v=mtd2edf9"
             },
             {
               "id": "i-tortitas-veganas",
