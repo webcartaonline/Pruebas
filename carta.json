@@ -9,19 +9,24 @@
       "es",
       "en"
     ],
-    "actualizado": "2026-08-29T12:41:32.860Z"
+    "actualizado": "2026-08-30T20:42:38.585Z"
   },
   "secciones": [
     {
       "id": "s-desayunar",
-      "nombre": { "es": "Para desayunar", "en": "Breakfast" },
+      "nombre": {
+        "es": "Para desayunar",
+        "en": "Breakfast"
+      },
       "imagen": "img/secciones/s-desayunar.jpg",
       "foco": "abajo",
       "grupos": [
         {
           "id": "g-tostas",
-          "nombre": { "es": "Tostas", "en": "Toasts" },
-          "imagen": "img/grupos/g-tostas.jpg",
+          "nombre": {
+            "es": "Tostas",
+            "en": "Toasts"
+          },
           "foco": "centro",
           "items": [
             {
@@ -94,7 +99,8 @@
               ],
               "imagen": "img/items/i-tosta-cacao.jpg?v=mtatvqja"
             }
-          ]
+          ],
+          "imagen": "img/grupos/g-tostas.jpg?v=mtg9x81e"
         },
         {
           "id": "g-cafe",
@@ -162,20 +168,26 @@
                 "lacteos"
               ]
             }
-          ]
+          ],
+          "imagen": "img/grupos/g-cafe.jpg?v=mtg9y4zx"
         }
       ]
     },
     {
       "id": "s-dulce",
-      "nombre": { "es": "Dulce", "en": "Something sweet" },
+      "nombre": {
+        "es": "Dulce",
+        "en": "Something sweet"
+      },
       "imagen": "img/secciones/s-dulce.jpg",
       "foco": "arriba",
       "grupos": [
         {
           "id": "g-tortitas",
-          "nombre": { "es": "Tortitas y gofres", "en": "Pancakes & waffles" },
-          "imagen": "img/grupos/g-tortitas.jpg",
+          "nombre": {
+            "es": "Tortitas y gofres",
+            "en": "Pancakes & waffles"
+          },
           "foco": "arriba-izquierda",
           "items": [
             {
@@ -228,12 +240,16 @@
                 "gluten"
               ]
             }
-          ]
+          ],
+          "imagen": "img/grupos/g-tortitas.jpg?v=mtg9ymdm"
         },
         {
           "id": "g-bolleria",
-          "nombre": { "es": "Bollería", "en": "Pastries" },
-          "imagen": "img/grupos/g-bolleria.jpg",
+          "nombre": {
+            "es": "Bollería",
+            "en": "Pastries"
+          },
+          "imagen": "img/grupos/g-bolleria.jpg?v=mtg9z0jj",
           "foco": "abajo",
           "items": [
             {
@@ -286,7 +302,8 @@
                 "gluten",
                 "huevos",
                 "lacteos"
-              ]
+              ],
+              "imagen": "img/items/i-roll-canela.jpg?v=mtg9znxg"
             }
           ]
         }
@@ -294,7 +311,10 @@
     },
     {
       "id": "s-zumos",
-      "nombre": { "es": "Zumos y batidos", "en": "Juices & smoothies" },
+      "nombre": {
+        "es": "Zumos y batidos",
+        "en": "Juices & smoothies"
+      },
       "imagen": "img/secciones/s-zumos.jpg",
       "foco": "derecha",
       "grupos": [
