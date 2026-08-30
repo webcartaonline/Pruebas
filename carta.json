@@ -97,17 +97,11 @@
           ]
         },
         {
-          "id": "g-huevos",
-<<<<<<< HEAD
-          "nombre": { "es": "Huevos", "en": "Eggs" },
-          "imagen": "img/grupos/g-huevos.jpg",
-          "foco": "derecha",
-=======
+          "id": "g-cafe",
           "nombre": {
             "es": "Café",
             "en": "Cofee"
           },
->>>>>>> 772ecf6baa595f268582b96438dca6f680f043d7
           "items": [
             {
               "id": "i-espresso-ef5q",
@@ -174,7 +168,6 @@
     },
     {
       "id": "s-dulce",
-<<<<<<< HEAD
       "nombre": { "es": "Dulce", "en": "Something sweet" },
       "imagen": "img/secciones/s-dulce.jpg",
       "foco": "arriba",
@@ -184,20 +177,6 @@
           "nombre": { "es": "Tortitas y gofres", "en": "Pancakes & waffles" },
           "imagen": "img/grupos/g-tortitas.jpg",
           "foco": "arriba-izquierda",
-=======
-      "nombre": {
-        "es": "Dulce",
-        "en": "Something sweet"
-      },
-      "imagen": "img/secciones/s-dulce.jpg?v=mtakmsdy",
-      "grupos": [
-        {
-          "id": "g-tortitas",
-          "nombre": {
-            "es": "Tortitas y gofres",
-            "en": "Pancakes & waffles"
-          },
->>>>>>> 772ecf6baa595f268582b96438dca6f680f043d7
           "items": [
             {
               "id": "i-tortitas-clasicas",
@@ -253,16 +232,9 @@
         },
         {
           "id": "g-bolleria",
-<<<<<<< HEAD
           "nombre": { "es": "Bollería", "en": "Pastries" },
           "imagen": "img/grupos/g-bolleria.jpg",
           "foco": "abajo",
-=======
-          "nombre": {
-            "es": "Bollería",
-            "en": "Pastries"
-          },
->>>>>>> 772ecf6baa595f268582b96438dca6f680f043d7
           "items": [
             {
               "id": "i-croissant",
@@ -322,17 +294,9 @@
     },
     {
       "id": "s-zumos",
-<<<<<<< HEAD
       "nombre": { "es": "Zumos y batidos", "en": "Juices & smoothies" },
       "imagen": "img/secciones/s-zumos.jpg",
       "foco": "derecha",
-=======
-      "nombre": {
-        "es": "Zumos y batidos",
-        "en": "Juices & smoothies"
-      },
-      "imagen": "img/secciones/s-zumos.jpg?v=mtaknf0q",
->>>>>>> 772ecf6baa595f268582b96438dca6f680f043d7
       "grupos": [
         {
           "id": "g-zumos",
