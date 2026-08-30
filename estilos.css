@@ -147,9 +147,11 @@ body{
 
 /* =========================================================
    FILTRO DE ALÉRGENOS (plegable)
+   Va al final de la página, justo encima del pie y pegado a él:
+   por eso lleva el borde ARRIBA (antes lo llevaba abajo).
    ========================================================= */
 .filtro{
-  border-bottom:1px solid var(--borde);
+  border-top:1px solid var(--borde);
   background:var(--noche-alto);
 }
 .filtro__resumen{
@@ -218,12 +220,23 @@ body{
 
 /* =========================================================
    LIENZO: grupos de la sección elegida
+
+   El lienzo ya NO limita el ancho ni deja márgenes laterales: así las
+   bandas con foto pueden llegar de borde a borde de la pantalla.
+   Quien centra y limita el ancho es la clase .columna, que se aplica
+   solo a los bloques de texto (títulos sin foto, platos, avisos).
    ========================================================= */
 .lienzo{
-  max-width:var(--ancho); margin:0 auto;
-  padding:40px 20px 68px;
+  padding:0 0 68px;
 }
 .lienzo:focus{ outline:none; }
+
+/* Carril de lectura: centra y deja aire a los lados. */
+.columna{
+  max-width:var(--ancho);
+  margin-inline:auto;
+  padding-inline:20px;
+}
 
 .estado{
   padding:70px 10px; text-align:center;
@@ -231,8 +244,13 @@ body{
 }
 .estado--error{ color:var(--ladrillo); font-weight:500; }
 
-/* Encabezado de la sección */
-.panel__cabecera{ margin:0 0 38px; }
+/* ---------- Encabezado de la sección ---------- */
+
+/* Sin foto: título normal, con su filo ámbar debajo. */
+.panel__cabecera--simple{
+  margin:0 0 34px;
+  padding-top:38px;
+}
 .panel__titulo{
   margin:0;
   font-family:var(--display); font-weight:600;
@@ -245,19 +263,19 @@ body{
   background:var(--ambar);
 }
 
-/* Imagen de la sección: una franja ancha y de tono apagado, con el
-   título de la sección SUPERPUESTO encima (no debajo). Un degradado
-   oscuro en la base asegura que el texto se lea con cualquier foto. */
-.panel__imagen-envoltorio{
+/* Con foto: banda a todo el ancho de la pantalla, pegada a la barra de
+   secciones (sin hueco arriba) y con el título superpuesto abajo.
+   El degradado oscuro de la base garantiza que el texto se lea sea cual
+   sea la foto. */
+.panel__cabecera--imagen{
   position:relative;
-  margin-top:20px;
-  aspect-ratio:5/2;
-  border-radius:12px;
+  height:clamp(120px, 30vw, 230px);
+  margin:0 0 30px;
   overflow:hidden;
   display:flex;
   align-items:flex-end;
   background:var(--noche-alto);
-  box-shadow:inset 0 0 0 1px var(--borde);
+  border-bottom:1px solid var(--borde);
 }
 .panel__imagen{
   position:absolute; inset:0;
@@ -266,38 +284,40 @@ body{
   object-fit:cover;
   filter:grayscale(20%) brightness(.55) saturate(.85);
 }
-.panel__imagen-envoltorio::after{
+.panel__cabecera--imagen::after{
   content:"";
   position:absolute; inset:0;
   z-index:1;
-  background:linear-gradient(180deg, rgba(12,10,9,0) 35%, rgba(12,10,9,.82) 100%);
+  background:linear-gradient(180deg, rgba(12,10,9,0) 30%, rgba(12,10,9,.85) 100%);
   pointer-events:none;
 }
-.panel__titulo--sobre-imagen{
+.panel__rotulo{
   position:relative;
   z-index:2;
-  padding:20px 22px;
-  text-shadow:0 2px 14px rgba(0,0,0,.5);
+  width:100%;
+  padding-bottom:16px;
+}
+.panel__cabecera--imagen .panel__titulo{
+  text-shadow:0 2px 14px rgba(0,0,0,.55);
 }
 
-/* Si la foto no llega a cargar, el contenedor colapsa al mismo aspecto
-   que una sección sin imagen: el título queda igual que si nunca hubiera
-   habido campo "imagen". */
-.panel__imagen-envoltorio--sin-imagen{
-  aspect-ratio:auto;
+/* Si la foto no llega a cargar, la banda se convierte en un título
+   normal: el nombre de la sección nunca desaparece. */
+.panel__cabecera--sin-imagen{
+  height:auto;
   background:none;
-  box-shadow:none;
+  border-bottom:none;
+  padding-top:38px;
 }
-.panel__imagen-envoltorio--sin-imagen .panel__titulo--sobre-imagen{
-  padding:0;
-  text-shadow:none;
-}
+.panel__cabecera--sin-imagen::after{ display:none; }
+.panel__cabecera--sin-imagen .panel__rotulo{ padding-bottom:0; }
+.panel__cabecera--sin-imagen .panel__titulo{ text-shadow:none; }
 
 /* ---------- Grupo ---------- */
-.grupo{ margin:0 0 46px; }
-.grupo:last-child{ margin-bottom:0; }
+.grupo{ margin:32px 0 0; }
 
-.grupo__cabecera{
+/* Sin foto: título en cursiva, línea fina y recuento, como hasta ahora. */
+.grupo__cabecera--simple{
   display:flex; align-items:baseline; gap:16px;
   margin:0 0 6px;
 }
@@ -316,6 +336,61 @@ body{
   letter-spacing:.18em; text-transform:uppercase;
   color:var(--hueso-suave);
 }
+
+/* Con foto: misma idea que la sección, pero en una banda más baja para
+   que se note la jerarquía (sección grande, grupo mediano). */
+.grupo__cabecera--imagen{
+  position:relative;
+  height:clamp(88px, 21vw, 160px);
+  margin:0 0 18px;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  background:var(--noche-alto);
+  border-block:1px solid var(--borde);
+}
+.grupo__imagen{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  display:block;
+  object-fit:cover;
+  filter:grayscale(20%) brightness(.5) saturate(.85);
+}
+.grupo__cabecera--imagen::after{
+  content:"";
+  position:absolute; inset:0;
+  z-index:1;
+  background:linear-gradient(180deg, rgba(12,10,9,0) 30%, rgba(12,10,9,.85) 100%);
+  pointer-events:none;
+}
+.grupo__rotulo{
+  position:relative;
+  z-index:2;
+  width:100%;
+  padding-bottom:13px;
+  display:flex; align-items:baseline; gap:14px;
+}
+.grupo__cabecera--imagen .grupo__titulo{
+  font-size:1.5rem;
+  text-shadow:0 2px 12px rgba(0,0,0,.6);
+}
+.grupo__cabecera--imagen .grupo__conteo{
+  margin-left:auto;
+  color:var(--hueso-medio);
+  text-shadow:0 2px 12px rgba(0,0,0,.6);
+}
+
+/* Si la foto del grupo falla, se cae al encabezado de siempre. */
+.grupo__cabecera--sin-imagen{
+  height:auto;
+  background:none;
+  border-block:none;
+  margin-bottom:6px;
+}
+.grupo__cabecera--sin-imagen::after{ display:none; }
+.grupo__cabecera--sin-imagen .grupo__rotulo{ padding-bottom:0; }
+.grupo__cabecera--sin-imagen .grupo__titulo{ font-size:1.3rem; text-shadow:none; }
+.grupo__cabecera--sin-imagen .grupo__conteo{ text-shadow:none; }
 
 .grupo__items{ display:grid; }
 
@@ -427,7 +502,10 @@ body{
   .item__foto{ width:104px; }
   .cabecera__interior{ padding:78px 24px 62px; }
   .idioma{ position:absolute; top:18px; right:24px; margin-top:0; }
-  .lienzo{ padding:56px 24px 84px; }
+  .lienzo{ padding:0 0 84px; }
+  .columna{ padding-inline:24px; }
+  .panel__cabecera--simple,
+  .panel__cabecera--sin-imagen{ padding-top:56px; }
   .barra__lista{ padding:0 16px; }
   .barra__btn{ padding:20px 18px 18px; }
   .barra__btn::after{ left:18px; right:18px; }

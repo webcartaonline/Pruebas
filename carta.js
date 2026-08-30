@@ -176,6 +176,25 @@ function normalizar(nombre) {
     .replace(/[\s_]+/g, '-');
 }
 
+/* El editor guarda en cada sección y grupo un campo "foco": qué parte de
+   la foto interesa que se vea. Como las bandas son anchas y bajas, la foto
+   se recorta; esto decide por dónde se recorta. Si no hay foco, se centra. */
+const FOCOS = {
+  'centro': 'center',
+  'arriba': 'center top',
+  'abajo': 'center bottom',
+  'izquierda': 'left center',
+  'derecha': 'right center',
+  'arriba-izquierda': 'left top',
+  'arriba-derecha': 'right top',
+  'abajo-izquierda': 'left bottom',
+  'abajo-derecha': 'right bottom'
+};
+
+function posicionFoco(foco) {
+  return FOCOS[normalizar(foco)] || 'center';
+}
+
 function datosAlergeno(nombre) {
   const clave = normalizar(nombre);
   const ficha = ALERGENOS[clave];
@@ -297,36 +316,54 @@ function pintarPanel() {
 
   carta.setAttribute('aria-labelledby', `tab-${sec.id}`);
 
-  // Con imagen: el título se dibuja DENTRO del contenedor, superpuesto a la
-  // foto. Si la foto no llega a cargar, solo se quita la imagen (la clase
-  // --sin-imagen colapsa el contenedor); el título nunca desaparece.
-  const cabeceraTitulo = sec.imagen
-    ? `<div class="panel__imagen-envoltorio">
+  // Con imagen: banda de borde a borde de la pantalla, con el nombre de la
+  // sección superpuesto abajo. Si la foto no llega a cargar, la clase
+  // --sin-imagen convierte la banda en un título normal: el nombre de la
+  // sección nunca desaparece.
+  const cabecera = sec.imagen
+    ? `<header class="panel__cabecera panel__cabecera--imagen">
         <img class="panel__imagen" src="${escapar(sec.imagen)}" alt=""
-             loading="lazy"
-             onerror="this.closest('.panel__imagen-envoltorio').classList.add('panel__imagen-envoltorio--sin-imagen');this.remove()">
-        <h2 class="panel__titulo panel__titulo--sobre-imagen">${escapar(t(sec.nombre))}</h2>
-      </div>`
-    : `<h2 class="panel__titulo">${escapar(t(sec.nombre))}</h2>`;
+             loading="lazy" decoding="async"
+             style="object-position:${posicionFoco(sec.foco)}"
+             onerror="this.closest('.panel__cabecera').classList.add('panel__cabecera--sin-imagen');this.remove()">
+        <div class="panel__rotulo columna">
+          <h2 class="panel__titulo">${escapar(t(sec.nombre))}</h2>
+        </div>
+      </header>`
+    : `<header class="panel__cabecera panel__cabecera--simple columna">
+        <h2 class="panel__titulo">${escapar(t(sec.nombre))}</h2>
+        <span class="panel__filo" aria-hidden="true"></span>
+      </header>`;
 
-  carta.innerHTML = `
-    <header class="panel__cabecera">
-      ${cabeceraTitulo}
-      <span class="panel__filo" aria-hidden="true"></span>
-    </header>
-    ${(sec.grupos ?? []).map(pintarGrupo).join('')}`;
+  carta.innerHTML = `${cabecera}${(sec.grupos ?? []).map(pintarGrupo).join('')}`;
 }
 
+/* El grupo funciona igual que la sección: si tiene foto, el título va
+   superpuesto sobre una banda; si no, se queda el encabezado de siempre
+   (título en cursiva, línea fina y recuento de platos). */
 function pintarGrupo(grupo) {
   const items = grupo.items ?? [];
+  const titulo = `<h3 class="grupo__titulo">${escapar(t(grupo.nombre))}</h3>`;
+  const conteo = `<span class="grupo__conteo">${ui().unidades(items.length)}</span>`;
+
+  const cabecera = grupo.imagen
+    ? `<header class="grupo__cabecera grupo__cabecera--imagen">
+        <img class="grupo__imagen" src="${escapar(grupo.imagen)}" alt=""
+             loading="lazy" decoding="async"
+             style="object-position:${posicionFoco(grupo.foco)}"
+             onerror="this.closest('.grupo__cabecera').classList.add('grupo__cabecera--sin-imagen');this.remove()">
+        <div class="grupo__rotulo columna">${titulo}${conteo}</div>
+      </header>`
+    : `<header class="grupo__cabecera grupo__cabecera--simple columna">
+        ${titulo}
+        <span class="grupo__regla" aria-hidden="true"></span>
+        ${conteo}
+      </header>`;
+
   return `
     <section class="grupo">
-      <header class="grupo__cabecera">
-        <h3 class="grupo__titulo">${escapar(t(grupo.nombre))}</h3>
-        <span class="grupo__regla" aria-hidden="true"></span>
-        <span class="grupo__conteo">${ui().unidades(items.length)}</span>
-      </header>
-      <div class="grupo__items">${items.map(pintarItem).join('')}</div>
+      ${cabecera}
+      <div class="grupo__items columna">${items.map(pintarItem).join('')}</div>
     </section>`;
 }
 

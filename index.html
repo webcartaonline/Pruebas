@@ -36,7 +36,13 @@
     <div class="barra__lista" id="indice" role="tablist" aria-label="Secciones de la carta"></div>
   </nav>
 
-  <!-- Filtro de alérgenos, plegado por defecto -->
+  <!-- Grupos de la sección elegida -->
+  <main class="lienzo" id="carta" role="tabpanel" tabindex="0">
+    <p class="estado" id="estado" data-t="cargando">Cargando la carta…</p>
+  </main>
+
+  <!-- Filtro de alérgenos, plegado por defecto.
+       Va al final de la página, pegado al pie. -->
   <details class="filtro" id="filtro">
     <summary class="filtro__resumen">
       <span class="filtro__etiqueta" data-t="alergenosTitulo">Alérgenos</span>
@@ -52,11 +58,6 @@
       <button class="filtro__limpiar" id="limpiarFiltros" type="button" hidden data-t="limpiar"></button>
     </div>
   </details>
-
-  <!-- Grupos de la sección elegida -->
-  <main class="lienzo" id="carta" role="tabpanel" tabindex="0">
-    <p class="estado" id="estado" data-t="cargando">Cargando la carta…</p>
-  </main>
 
   <footer class="pie">
     <span class="pie__marca" aria-hidden="true"></span>
