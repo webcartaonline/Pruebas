@@ -26,6 +26,15 @@
   --ui:      "Space Grotesk", system-ui, -apple-system, sans-serif;
 
   --ancho: 1080px;
+
+  /* Alto de las fotos de cabecera. La de la sección es una franja baja
+     y la del grupo, bastante más alta: así se distingue de un vistazo
+     dónde empieza cada nivel de la carta.
+     El mínimo del grupo es bajo a propósito: en una pantalla estrecha,
+     un alto pensado para escritorio deja la foto casi cuadrada, y se
+     quiere que siga leyéndose apaisada como allí. */
+  --alto-foto-seccion: clamp(96px, 17vw, 150px);
+  --alto-foto-grupo:   clamp(140px, 25vw, 280px);
 }
 
 *,*::before,*::after{ box-sizing:border-box; }
@@ -220,8 +229,13 @@ body{
    LIENZO: grupos de la sección elegida
    ========================================================= */
 .lienzo{
+  padding:0 0 68px;
+}
+
+/* Ancho de lectura de los grupos y sus platos. */
+.panel__cuerpo{
   max-width:var(--ancho); margin:0 auto;
-  padding:40px 20px 68px;
+  padding:0 20px;
 }
 .lienzo:focus{ outline:none; }
 
@@ -231,8 +245,14 @@ body{
 }
 .estado--error{ color:var(--ladrillo); font-weight:500; }
 
-/* Encabezado de la sección */
-.panel__cabecera{ margin:0 0 38px; }
+/* Encabezado de la sección. Sin foto es un título normal dentro del ancho
+   de lectura; con foto pasa a ser una franja de lado a lado (ver abajo).
+   El hueco de debajo es generoso a propósito: separa la franja de la
+   lista de grupos, que es lo que de verdad se lee. */
+.panel__cabecera{
+  max-width:var(--ancho); margin:0 auto clamp(46px, 8vw, 78px);
+  padding:40px 20px 0;
+}
 .panel__titulo{
   margin:0;
   font-family:var(--display); font-weight:600;
@@ -245,19 +265,25 @@ body{
   background:var(--ambar);
 }
 
-/* Imagen de la sección: una franja ancha y de tono apagado, con el
-   título de la sección SUPERPUESTO encima (no debajo). Un degradado
-   oscuro en la base asegura que el texto se lea con cualquier foto. */
+/* Imagen de la sección: una franja baja que cruza la pantalla de lado a
+   lado y se pega al filtro de alérgenos, sin esquinas redondeadas, para
+   que se lea como una barra con el título y no como una tarjeta más del
+   contenido. El título va SUPERPUESTO (no debajo), apoyado abajo y
+   alineado con el texto de los grupos; un degradado oscuro en la base
+   asegura que se lea con cualquier foto. Es deliberadamente más baja que
+   la del grupo. */
+.panel__cabecera--con-imagen{
+  max-width:none;
+  padding:0;
+}
 .panel__imagen-envoltorio{
   position:relative;
-  margin-top:20px;
-  aspect-ratio:5/2;
-  border-radius:12px;
+  height:var(--alto-foto-seccion);
   overflow:hidden;
   display:flex;
   align-items:flex-end;
   background:var(--noche-alto);
-  box-shadow:inset 0 0 0 1px var(--borde);
+  border-bottom:1px solid var(--borde);
 }
 .panel__imagen{
   position:absolute; inset:0;
@@ -270,13 +296,14 @@ body{
   content:"";
   position:absolute; inset:0;
   z-index:1;
-  background:linear-gradient(180deg, rgba(12,10,9,0) 35%, rgba(12,10,9,.82) 100%);
+  background:linear-gradient(180deg, rgba(12,10,9,0) 20%, rgba(12,10,9,.82) 100%);
   pointer-events:none;
 }
 .panel__titulo--sobre-imagen{
   position:relative;
   z-index:2;
-  padding:20px 22px;
+  width:100%; max-width:var(--ancho); margin:0 auto;
+  padding:16px 20px;
   text-shadow:0 2px 14px rgba(0,0,0,.5);
 }
 
@@ -284,12 +311,13 @@ body{
    que una sección sin imagen: el título queda igual que si nunca hubiera
    habido campo "imagen". */
 .panel__imagen-envoltorio--sin-imagen{
-  aspect-ratio:auto;
+  display:block;
+  height:auto;
   background:none;
-  box-shadow:none;
+  border-bottom:none;
 }
 .panel__imagen-envoltorio--sin-imagen .panel__titulo--sobre-imagen{
-  padding:0;
+  padding:40px 20px 0;
   text-shadow:none;
 }
 
@@ -310,11 +338,72 @@ body{
 .grupo__regla{
   flex:1; height:1px; background:var(--borde);
 }
-.grupo__conteo{
-  flex-shrink:0;
-  font-size:.62rem; font-weight:500;
-  letter-spacing:.18em; text-transform:uppercase;
-  color:var(--hueso-suave);
+/* Foto del grupo: más alta que la franja de la sección y con el título
+   centrado, no abajo a la izquierda. Son las dos señas que separan de un
+   vistazo "dónde empieza la sección" de "dónde empieza el grupo". */
+.grupo__cabecera--con-imagen{
+  display:block;
+  margin:0 0 20px;
+}
+.grupo__imagen-envoltorio{
+  position:relative;
+  height:var(--alto-foto-grupo);
+  border-radius:14px;
+  overflow:hidden;
+  display:flex;
+  align-items:center; justify-content:center;
+  background:var(--noche-alto);
+  box-shadow:inset 0 0 0 1px var(--borde);
+}
+.grupo__imagen{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  display:block;
+  object-fit:cover;
+  filter:grayscale(20%) brightness(.48) saturate(.85);
+}
+/* Velo centrado (no de abajo arriba, como en la sección): oscurece más el
+   medio, que es donde cae el título. */
+.grupo__imagen-envoltorio::after{
+  content:"";
+  position:absolute; inset:0;
+  z-index:1;
+  background:radial-gradient(72% 62% at 50% 50%, rgba(12,10,9,.7), rgba(12,10,9,.34) 100%);
+  pointer-events:none;
+}
+.grupo__titulo--sobre-imagen{
+  position:relative;
+  z-index:2;
+  padding:18px 24px;
+  text-align:center;
+  font-size:clamp(1.6rem, 6vw, 2.2rem);
+  line-height:1.15;
+  text-shadow:0 2px 14px rgba(0,0,0,.55);
+}
+/* Mismo remate fino que la regla del grupo sin foto, aquí centrado bajo el
+   título para que ambos casos se lean como el mismo nivel. */
+.grupo__titulo--sobre-imagen::after{
+  content:"";
+  display:block; width:30px; height:1px; margin:12px auto 0;
+  background:var(--ambar);
+}
+
+/* Si la foto no llega a cargar, el título vuelve a verse como el de un
+   grupo sin imagen. */
+.grupo__imagen-envoltorio--sin-imagen{
+  display:block;
+  height:auto;
+  background:none;
+  box-shadow:none;
+}
+.grupo__imagen-envoltorio--sin-imagen .grupo__titulo--sobre-imagen{
+  padding:0;
+  text-align:left;
+  font-size:1.3rem;
+  text-shadow:none;
+}
+.grupo__imagen-envoltorio--sin-imagen .grupo__titulo--sobre-imagen::after{
+  display:none;
 }
 
 .grupo__items{ display:grid; }
@@ -402,6 +491,24 @@ body{
 }
 
 /* =========================================================
+   FOCO DE LAS FOTOS
+   Qué parte de la foto se conserva cuando el recorte tiene que quitar algo.
+   Lo elige el cliente en la app administradora y manda siempre, sea cual
+   sea el ancho de la pantalla: si marca "derecha", el lado derecho sigue a
+   la vista aunque el hueco se vuelva estrecho y alto, o ancho y bajo.
+   Solo tienen efecto sobre fotos recortadas con object-fit:cover.
+   ========================================================= */
+.foco--arriba-izquierda{ object-position:0% 0%; }
+.foco--arriba{          object-position:50% 0%; }
+.foco--arriba-derecha{  object-position:100% 0%; }
+.foco--izquierda{       object-position:0% 50%; }
+.foco--centro{          object-position:50% 50%; }
+.foco--derecha{         object-position:100% 50%; }
+.foco--abajo-izquierda{ object-position:0% 100%; }
+.foco--abajo{           object-position:50% 100%; }
+.foco--abajo-derecha{   object-position:100% 100%; }
+
+/* =========================================================
    PIE
    ========================================================= */
 .pie{
@@ -427,7 +534,12 @@ body{
   .item__foto{ width:104px; }
   .cabecera__interior{ padding:78px 24px 62px; }
   .idioma{ position:absolute; top:18px; right:24px; margin-top:0; }
-  .lienzo{ padding:56px 24px 84px; }
+  .lienzo{ padding:0 0 84px; }
+  .panel__cuerpo{ padding:0 24px; }
+  .panel__cabecera{ padding:56px 24px 0; }
+  .panel__cabecera--con-imagen{ padding:0; }
+  .panel__titulo--sobre-imagen{ padding:18px 24px; }
+  .panel__imagen-envoltorio--sin-imagen .panel__titulo--sobre-imagen{ padding:56px 24px 0; }
   .barra__lista{ padding:0 16px; }
   .barra__btn{ padding:20px 18px 18px; }
   .barra__btn::after{ left:18px; right:18px; }

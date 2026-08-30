@@ -59,8 +59,7 @@ const UI = {
     sinAlergenos: 'Sin alérgenos declarados',
     contiene: 'Contiene',
     actualizadoPre: 'Precios actualizados el',
-    ivaNota: 'IVA incluido. Los precios pueden variar sin previo aviso.',
-    unidades: (n) => `${n} ${n === 1 ? 'plato' : 'platos'}`
+    ivaNota: 'IVA incluido. Los precios pueden variar sin previo aviso.'
   },
   en: {
     cargando: 'Loading the menu…',
@@ -71,8 +70,7 @@ const UI = {
     sinAlergenos: 'No declared allergens',
     contiene: 'Contains',
     actualizadoPre: 'Prices updated on',
-    ivaNota: 'VAT included. Prices may change without notice.',
-    unidades: (n) => `${n} ${n === 1 ? 'item' : 'items'}`
+    ivaNota: 'VAT included. Prices may change without notice.'
   }
 };
 
@@ -109,6 +107,21 @@ const ALERGENOS = {
 };
 
 const ICONO_DESCONOCIDO = '<circle cx="12" cy="12" r="8.5"/><path d="M9.8 9.4a2.3 2.3 0 1 1 2.9 2.2c-.5.2-.7.6-.7 1.1v.6"/><circle cx="12" cy="16.4" r=".9" fill="currentColor" stroke="none"/>';
+
+/* ---------- Zonas de foco de una foto ----------
+   La foto de una sección o de un grupo siempre llena su hueco, y ese hueco
+   cambia de forma según el ancho de la pantalla: al recortarla, algo se
+   pierde. El "foco" es la parte que el cliente marca como importante en la
+   app administradora, y es la que se conserva pase lo que pase.
+   Nombres válidos (los mismos nueve que ofrece la app administradora):
+   arriba-izquierda, arriba, arriba-derecha, izquierda, centro, derecha,
+   abajo-izquierda, abajo, abajo-derecha. */
+const FOCOS = [
+  'arriba-izquierda', 'arriba', 'arriba-derecha',
+  'izquierda',        'centro', 'derecha',
+  'abajo-izquierda',  'abajo',  'abajo-derecha'
+];
+const FOCO_POR_DEFECTO = 'centro';
 
 /* ---------- Estado ---------- */
 const app = {
@@ -184,6 +197,15 @@ function datosAlergeno(nombre) {
     etiqueta: ficha ? (ficha[app.idioma] || ficha.es) : nombre,
     icono: ficha ? ficha.icono : ICONO_DESCONOCIDO
   };
+}
+
+/* Traduce el foco elegido en la app administradora a la clase que recorta la
+   foto por ahí. Se admite cualquier grafía razonable ("Arriba Derecha",
+   "arriba_derecha"…); si el foco falta o no se reconoce, se centra, que es
+   lo que hacen las fotos de la carta cuando nadie dice nada. */
+function claseFoco(foco) {
+  const clave = normalizar(foco);
+  return `foco--${FOCOS.includes(clave) ? clave : FOCO_POR_DEFECTO}`;
 }
 
 function svg(contenido) {
@@ -286,6 +308,28 @@ function pintarBarra() {
   }).join('');
 }
 
+/* Título sobre foto: lo comparten las secciones y los grupos. La foto va de
+   fondo, oscurecida, y el título encima. Se escribe una sola vez para que
+   ambos se comporten igual; lo único que cambia es el bloque BEM —que en la
+   hoja de estilos decide el alto de la foto y dónde se coloca el título— y
+   la etiqueta del encabezado. El foco decide por dónde se recorta la foto.
+   Si la foto no llega a cargar, solo se quita la imagen: la clase
+   --sin-imagen colapsa el contenedor y el título queda igual que si nunca
+   hubiera habido campo "imagen". */
+function tituloConImagen({ bloque, etiqueta, texto, imagen, foco }) {
+  const titulo = `${bloque}__titulo`;
+  if (!imagen) return `<${etiqueta} class="${titulo}">${escapar(texto)}</${etiqueta}>`;
+
+  const envoltorio = `${bloque}__imagen-envoltorio`;
+  return `
+    <div class="${envoltorio}">
+      <img class="${bloque}__imagen ${claseFoco(foco)}" src="${escapar(imagen)}" alt=""
+           loading="lazy" decoding="async"
+           onerror="this.closest('.${envoltorio}').classList.add('${envoltorio}--sin-imagen');this.remove()">
+      <${etiqueta} class="${titulo} ${titulo}--sobre-imagen">${escapar(texto)}</${etiqueta}>
+    </div>`;
+}
+
 /* Debajo de la barra: los grupos de la sección elegida. */
 function pintarPanel() {
   const lista = secciones();
@@ -297,34 +341,29 @@ function pintarPanel() {
 
   carta.setAttribute('aria-labelledby', `tab-${sec.id}`);
 
-  // Con imagen: el título se dibuja DENTRO del contenedor, superpuesto a la
-  // foto. Si la foto no llega a cargar, solo se quita la imagen (la clase
-  // --sin-imagen colapsa el contenedor); el título nunca desaparece.
-  const cabeceraTitulo = sec.imagen
-    ? `<div class="panel__imagen-envoltorio">
-        <img class="panel__imagen" src="${escapar(sec.imagen)}" alt=""
-             loading="lazy"
-             onerror="this.closest('.panel__imagen-envoltorio').classList.add('panel__imagen-envoltorio--sin-imagen');this.remove()">
-        <h2 class="panel__titulo panel__titulo--sobre-imagen">${escapar(t(sec.nombre))}</h2>
-      </div>`
-    : `<h2 class="panel__titulo">${escapar(t(sec.nombre))}</h2>`;
-
+  // Con foto, la cabecera se sale de los márgenes y cruza la pantalla de lado
+  // a lado, pegada al filtro: hace de barra con el título, no de encabezado
+  // del contenido, así que se queda sin el filo ámbar. Los grupos van en su
+  // propio contenedor para conservar el ancho de lectura de siempre.
   carta.innerHTML = `
-    <header class="panel__cabecera">
-      ${cabeceraTitulo}
-      <span class="panel__filo" aria-hidden="true"></span>
+    <header class="panel__cabecera ${sec.imagen ? 'panel__cabecera--con-imagen' : ''}">
+      ${tituloConImagen({ bloque: 'panel', etiqueta: 'h2', texto: t(sec.nombre), imagen: sec.imagen, foco: sec.foco })}
+      ${sec.imagen ? '' : '<span class="panel__filo" aria-hidden="true"></span>'}
     </header>
-    ${(sec.grupos ?? []).map(pintarGrupo).join('')}`;
+    <div class="panel__cuerpo">
+      ${(sec.grupos ?? []).map(pintarGrupo).join('')}
+    </div>`;
 }
 
+/* Cabecera del grupo: con foto, el título va centrado encima de ella; sin
+   foto, se queda la línea fina que lo acompaña de lado a lado. */
 function pintarGrupo(grupo) {
   const items = grupo.items ?? [];
   return `
     <section class="grupo">
-      <header class="grupo__cabecera">
-        <h3 class="grupo__titulo">${escapar(t(grupo.nombre))}</h3>
-        <span class="grupo__regla" aria-hidden="true"></span>
-        <span class="grupo__conteo">${ui().unidades(items.length)}</span>
+      <header class="grupo__cabecera ${grupo.imagen ? 'grupo__cabecera--con-imagen' : ''}">
+        ${tituloConImagen({ bloque: 'grupo', etiqueta: 'h3', texto: t(grupo.nombre), imagen: grupo.imagen, foco: grupo.foco })}
+        ${grupo.imagen ? '' : '<span class="grupo__regla" aria-hidden="true"></span>'}
       </header>
       <div class="grupo__items">${items.map(pintarItem).join('')}</div>
     </section>`;

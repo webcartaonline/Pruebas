@@ -10,10 +10,13 @@
       "id": "s-desayunar",
       "nombre": { "es": "Para desayunar", "en": "Breakfast" },
       "imagen": "img/secciones/s-desayunar.jpg",
+      "foco": "abajo",
       "grupos": [
         {
           "id": "g-tostas",
           "nombre": { "es": "Tostas", "en": "Toasts" },
+          "imagen": "img/grupos/g-tostas.jpg",
+          "foco": "centro",
           "items": [
             {
               "id": "i-tosta-aguacate",
@@ -50,6 +53,8 @@
         {
           "id": "g-huevos",
           "nombre": { "es": "Huevos", "en": "Eggs" },
+          "imagen": "img/grupos/g-huevos.jpg",
+          "foco": "derecha",
           "items": [
             {
               "id": "i-benedictinos",
@@ -81,10 +86,13 @@
       "id": "s-dulce",
       "nombre": { "es": "Dulce", "en": "Something sweet" },
       "imagen": "img/secciones/s-dulce.jpg",
+      "foco": "arriba",
       "grupos": [
         {
           "id": "g-tortitas",
           "nombre": { "es": "Tortitas y gofres", "en": "Pancakes & waffles" },
+          "imagen": "img/grupos/g-tortitas.jpg",
+          "foco": "arriba-izquierda",
           "items": [
             {
               "id": "i-tortitas-clasicas",
@@ -112,6 +120,8 @@
         {
           "id": "g-bolleria",
           "nombre": { "es": "Bollería", "en": "Pastries" },
+          "imagen": "img/grupos/g-bolleria.jpg",
+          "foco": "abajo",
           "items": [
             {
               "id": "i-croissant",
@@ -142,6 +152,7 @@
       "id": "s-zumos",
       "nombre": { "es": "Zumos y batidos", "en": "Juices & smoothies" },
       "imagen": "img/secciones/s-zumos.jpg",
+      "foco": "derecha",
       "grupos": [
         {
           "id": "g-zumos",
