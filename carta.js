@@ -115,6 +115,7 @@ const app = {
   datos: null,
   idioma: 'es',
   idiomas: ['es'],   // se rellena al cargar el JSON
+  imagenes: false,   // se rellena al cargar el JSON
   evitar: new Set(),
   seccionActiva: null
 };
@@ -145,6 +146,22 @@ function detectarIdiomas(datos) {
   const lista = [...claves];
   lista.sort((a, b) => (a === 'es' ? -1 : b === 'es' ? 1 : a.localeCompare(b)));
   return lista.length ? lista : ['es'];
+}
+
+/* ¿Esta carta puede enseñar fotos?
+   Lo dice el propio JSON, en negocio.imagenes. Es un interruptor
+   general: manda por encima de todo lo demás.
+
+   Si está apagado (o si no viene escrito), la carta se pinta como si
+   ningún plato, grupo ni sección tuviera foto, aunque el JSON las
+   traiga. No se borra nada: las rutas siguen guardadas y basta con
+   volver a encender el interruptor para que reaparezcan.
+
+   Que no venga escrito cuenta como apagado a propósito: las fotos se
+   encienden queriendo, no por descuido. */
+function detectarImagenes(datos) {
+  const v = datos?.negocio?.imagenes;
+  return v === true || v === 1 || /^(true|si|sí|1)$/i.test(String(v ?? ''));
 }
 
 /* ---------- Utilidades ---------- */
@@ -232,6 +249,7 @@ async function cargar() {
       app.datos.secciones = [{ id: 's-general', nombre: { es: 'Carta', en: 'Menu' }, grupos: app.datos.grupos }];
     }
     app.idiomas = detectarIdiomas(app.datos);
+    app.imagenes = detectarImagenes(app.datos);
     if (!app.idiomas.includes(app.idioma)) app.idioma = app.idiomas[0];
     if (!app.seccionActiva && secciones().length) app.seccionActiva = secciones()[0].id;
 
@@ -320,7 +338,9 @@ function pintarPanel() {
   // sección superpuesto abajo. Si la foto no llega a cargar, la clase
   // --sin-imagen convierte la banda en un título normal: el nombre de la
   // sección nunca desaparece.
-  const cabecera = sec.imagen
+  // Si el interruptor de imágenes está apagado, se va siempre por la rama
+  // de abajo, la de toda la vida: título y línea fina.
+  const cabecera = (app.imagenes && sec.imagen)
     ? `<header class="panel__cabecera panel__cabecera--imagen">
         <img class="panel__imagen" src="${escapar(sec.imagen)}" alt=""
              loading="lazy" decoding="async"
@@ -346,7 +366,7 @@ function pintarGrupo(grupo) {
   const titulo = `<h3 class="grupo__titulo">${escapar(t(grupo.nombre))}</h3>`;
   const conteo = `<span class="grupo__conteo">${ui().unidades(items.length)}</span>`;
 
-  const cabecera = grupo.imagen
+  const cabecera = (app.imagenes && grupo.imagen)
     ? `<header class="grupo__cabecera grupo__cabecera--imagen">
         <img class="grupo__imagen" src="${escapar(grupo.imagen)}" alt=""
              loading="lazy" decoding="async"
@@ -390,7 +410,7 @@ function pintarItem(item) {
 
   // Foto cuadrada del plato. Va a la derecha a propósito: como solo algunos
   // platos tendrán foto, así el texto de todos empieza siempre alineado.
-  const foto = item.imagen
+  const foto = (app.imagenes && item.imagen)
     ? `<div class="item__foto">
         <img src="${escapar(item.imagen)}" alt="" loading="lazy" decoding="async"
              onerror="this.closest('.item__foto').remove()">
