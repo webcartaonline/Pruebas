@@ -5,9 +5,12 @@
       "es": "Desayunos con sol · a cualquier hora",
       "en": "Sunny brunch · any time of day"
     },
-    "idiomas": ["es", "en"],
+    "idiomas": [
+      "es",
+      "en"
+    ],
     "imagenes": true,
-    "actualizado": "2026-08-31T00:02:22.345Z"
+    "actualizado": "2026-09-01T09:26:56.780Z"
   },
   "secciones": [
     {
@@ -168,6 +171,32 @@
             }
           ],
           "imagen": "img/grupos/g-cafe.jpg?v=mtg9y4zx"
+        },
+        {
+          "id": "g-grupo-h050",
+          "nombre": {
+            "es": "Bollería",
+            "en": ""
+          },
+          "items": [
+            {
+              "id": "i-item-n5b8",
+              "nombre": {
+                "es": "Croassant",
+                "en": "Croaassant"
+              },
+              "descripcion": {
+                "es": "",
+                "en": ""
+              },
+              "precio": 2.5,
+              "alergenos": [
+                "huevos",
+                "gluten",
+                "lacteos"
+              ]
+            }
+          ]
         }
       ]
     },
