@@ -60,7 +60,7 @@ const UI = {
     sinAlergenos: 'Sin alérgenos declarados',
     contiene: 'Contiene',
     actualizadoPre: 'Precios actualizados el',
-    ivaNota: 'IVA incluido. Los precios pueden variar sin previo aviso.'
+    ivaNota: 'IVA incluido'
   },
   en: {
     cargando: 'Loading the menu…',
@@ -71,7 +71,7 @@ const UI = {
     sinAlergenos: 'No declared allergens',
     contiene: 'Contains',
     actualizadoPre: 'Prices updated on',
-    ivaNota: 'VAT included. Prices may change without notice.'
+    ivaNota: 'VAT included'
   }
 };
 
@@ -362,6 +362,13 @@ const REDES_ORDEN = ['tiktok', 'instagram', 'x', 'youtube', 'facebook', 'snapcha
 function pintarPie() {
   const pie = app.apariencia?.pie;
 
+  // «IVA incluido · © 2026 - 2027»: el rango de años se calcula solo,
+  // así el pie nunca se queda con un año antiguo aunque nadie publique
+  // nada. El año siguiente se enseña siempre, aunque acabe de empezar
+  // el actual, porque el negocio suele seguir abierto entrado el año.
+  const hoy = new Date().getFullYear();
+  $('[data-t="ivaNota"]').textContent = `${ui().ivaNota} · © ${hoy} - ${hoy + 1}`;
+
   // Mensajes: solo los que tengan algo escrito.
   const bloques = (pie?.bloques ?? [])
     .filter((b) => String(b?.titulo ?? '').trim() || String(b?.texto ?? '').trim());
@@ -456,7 +463,7 @@ function pintarTextosFijos() {
   const dic = ui();
   document.querySelectorAll('[data-t]').forEach((el) => {
     const clave = el.dataset.t;
-    if (clave === 'nombre' || clave === 'lema') return; // salen del JSON
+    if (clave === 'nombre' || clave === 'lema' || clave === 'ivaNota') return; // se completan aparte
     if (typeof dic[clave] === 'string') el.textContent = dic[clave];
   });
 }
