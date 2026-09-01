@@ -22,6 +22,12 @@
   --ladrillo:    #D2603A;   /* avisos de alérgeno */
   --salvia:      #86A98C;   /* platos sin alérgenos */
 
+  /* Colores derivados. Son los de siempre escritos de otra forma;
+     existen como variables para que carta.js pueda recalcularlos
+     cuando el negocio elige sus propios colores en apariencia.json. */
+  --acento-halo: rgba(233,180,76,.16);   /* iluminación de la cabecera */
+  --barra-fondo: rgba(12,10,9,.9);       /* fondo translúcido de la barra */
+
   --display: "Fraunces", Georgia, "Times New Roman", serif;
   --ui:      "Space Grotesk", system-ui, -apple-system, sans-serif;
 
@@ -63,7 +69,7 @@ body{
 }
 .cabecera__halo{
   position:absolute; inset:-60% 0 auto 0; height:200%;
-  background:radial-gradient(58% 46% at 50% 34%, rgba(233,180,76,.16), transparent 68%);
+  background:radial-gradient(58% 46% at 50% 34%, var(--acento-halo), transparent 68%);
   pointer-events:none;
 }
 .cabecera__interior{
@@ -84,6 +90,29 @@ body{
   font-size:clamp(2.6rem, 12vw, 5rem);
   line-height:.98; letter-spacing:-.02em;
   color:var(--hueso);
+}
+
+/* La marca del negocio: el logotipo y el título conviven en fila y,
+   si no caben (móvil con logo ancho), el título baja debajo del logo.
+   El logotipo conserva siempre su forma: sea apaisado o cuadrado,
+   nunca se estira ni se recorta. */
+.cabecera__marca{
+  display:flex; align-items:center; justify-content:center;
+  flex-wrap:wrap;
+  gap:10px 22px;
+}
+.cabecera__logo{
+  display:block;
+  width:auto; height:auto;
+  max-height:clamp(56px, 12vw, 110px);
+  max-width:min(72vw, 420px);
+  object-fit:contain;
+}
+/* Sin título (el logo ya lleva el nombre dentro): el logotipo
+   protagoniza la portada y puede crecer un poco más. */
+.cabecera__marca--solo-logo .cabecera__logo{
+  max-height:clamp(84px, 18vw, 170px);
+  max-width:min(86vw, 560px);
 }
 
 /* Selector de idioma: dos rótulos separados por una barra fina.
@@ -113,7 +142,7 @@ body{
    ========================================================= */
 .barra{
   position:sticky; top:0; z-index:20;
-  background:rgba(12,10,9,.9);
+  background:var(--barra-fondo);
   backdrop-filter:blur(12px) saturate(1.4);
   border-bottom:1px solid var(--borde);
 }
@@ -486,7 +515,7 @@ body{
   background:var(--ambar);
 }
 .pie p{ margin:0 0 6px; }
-.pie__nota{ font-size:.72rem; color:#6E665B; }
+.pie__nota{ font-size:.72rem; color:var(--hueso-suave); }
 
 /* =========================================================
    PANTALLA ANCHA (>= 760px)

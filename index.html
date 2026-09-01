@@ -27,7 +27,13 @@
 
     <div class="cabecera__interior">
       <p class="cabecera__lema" data-t="lema"></p>
-      <h1 class="cabecera__nombre" data-t="nombre">Cargando…</h1>
+      <!-- La marca del negocio: logotipo y título. Puede haber los dos,
+           solo el logotipo o solo el título; lo decide apariencia.json
+           y lo pinta carta.js. -->
+      <div class="cabecera__marca" id="cabeceraMarca">
+        <img class="cabecera__logo" id="cabeceraLogo" alt="" hidden>
+        <h1 class="cabecera__nombre" data-t="nombre">Cargando…</h1>
+      </div>
     </div>
   </header>
 

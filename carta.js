@@ -9,6 +9,7 @@
    ========================================================= */
 
 const RUTA_JSON = 'carta.json';
+const RUTA_APARIENCIA = 'apariencia.json';
 const CLAVE_IDIOMA = 'barCerveceria.idioma';
 
 /* ---------- Estadísticas de uso (opcional) ----------
@@ -111,6 +112,7 @@ const ICONO_DESCONOCIDO = '<circle cx="12" cy="12" r="8.5"/><path d="M9.8 9.4a2.
 /* ---------- Estado ---------- */
 const app = {
   datos: null,
+  apariencia: null,  // colores, marca y fuentes elegidos por el negocio (apariencia.json)
   idioma: 'es',
   idiomas: ['es'],   // se rellena al cargar el JSON
   imagenes: false,   // se rellena al cargar el JSON
@@ -233,14 +235,136 @@ function indiceActivo() {
   return i < 0 ? 0 : i;
 }
 
+/* =========================================================
+   APARIENCIA DEL NEGOCIO
+   apariencia.json lo escribe la aplicación de administración
+   y guarda lo que el negocio ha personalizado: sus colores,
+   su título, su eslogan, su logotipo y sus fuentes.
+   Si el archivo no existe o algo viene mal, la carta se
+   pinta con el diseño de siempre: nada de esto es
+   imprescindible para que funcione.
+   ========================================================= */
+
+const COLORES_DEFECTO = { principal: '#E9B44C', fondo: '#12100E', texto: 'auto' };
+
+/* ---------- Cocina de colores ----------
+   El negocio elige DOS colores (principal y fondo) y, si quiere,
+   el del texto. De esos dos o tres se cocinan aquí todos los
+   demás: bordes, textos apagados, sombras de la barra… Así toda
+   la página cambia de traje a la vez y siempre queda a juego. */
+
+function hexARgb(hex) {
+  const limpio = String(hex ?? '').trim().replace('#', '');
+  const largo = limpio.length === 3 ? limpio.split('').map((c) => c + c).join('') : limpio;
+  if (!/^[0-9a-fA-F]{6}$/.test(largo)) return null;
+  const n = parseInt(largo, 16);
+  return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
+}
+
+function rgbAHex({ r, g, b }) {
+  const c = (x) => Math.round(Math.min(255, Math.max(0, x))).toString(16).padStart(2, '0');
+  return `#${c(r)}${c(g)}${c(b)}`;
+}
+
+// Mezcla dos colores: cuanto = 0 devuelve el primero, cuanto = 1 el segundo.
+function mezclar(hexA, hexB, cuanto) {
+  const a = hexARgb(hexA), b = hexARgb(hexB);
+  if (!a || !b) return hexA;
+  return rgbAHex({
+    r: a.r + (b.r - a.r) * cuanto,
+    g: a.g + (b.g - a.g) * cuanto,
+    b: a.b + (b.b - a.b) * cuanto
+  });
+}
+
+function conTransparencia(hex, alfa) {
+  const c = hexARgb(hex);
+  return c ? `rgba(${c.r},${c.g},${c.b},${alfa})` : hex;
+}
+
+// ¿Es un color claro? Sirve para decidir si el texto automático va negro o blanco.
+function esColorClaro(hex) {
+  const c = hexARgb(hex);
+  if (!c) return false;
+  return (0.2126 * c.r + 0.7152 * c.g + 0.0722 * c.b) / 255 > 0.55;
+}
+
+function aplicarColores(colores) {
+  const c = { ...COLORES_DEFECTO, ...(colores || {}) };
+  const principal = hexARgb(c.principal) ? c.principal : COLORES_DEFECTO.principal;
+  const fondo = hexARgb(c.fondo) ? c.fondo : COLORES_DEFECTO.fondo;
+  const claro = esColorClaro(fondo);
+  // El texto: el que elija el negocio o, en automático, blanco roto
+  // sobre fondos oscuros y casi negro sobre fondos claros.
+  const texto = hexARgb(c.texto) ? c.texto : (claro ? '#1A1611' : '#F4EFE7');
+  const hondo = mezclar(fondo, claro ? '#FFFFFF' : '#000000', 0.35);
+
+  const raiz = document.documentElement.style;
+  raiz.setProperty('--ambar', principal);
+  raiz.setProperty('--ambar-hondo', mezclar(principal, '#000000', 0.22));
+  raiz.setProperty('--noche', fondo);
+  raiz.setProperty('--noche-alto', mezclar(fondo, texto, 0.05));
+  raiz.setProperty('--noche-hondo', hondo);
+  raiz.setProperty('--borde', mezclar(fondo, texto, 0.14));
+  raiz.setProperty('--borde-claro', mezclar(fondo, texto, 0.22));
+  raiz.setProperty('--hueso', texto);
+  raiz.setProperty('--hueso-medio', mezclar(texto, fondo, 0.3));
+  raiz.setProperty('--hueso-suave', mezclar(texto, fondo, 0.48));
+  raiz.setProperty('--acento-halo', conTransparencia(principal, 0.16));
+  raiz.setProperty('--barra-fondo', conTransparencia(hondo, 0.9));
+  $('meta[name="theme-color"]')?.setAttribute('content', fondo);
+}
+
+/* ---------- Fuentes del negocio ----------
+   Si el negocio subió sus propios archivos de letra, se cargan y
+   sustituyen a las de siempre. Si un archivo falla o tarda, la
+   página sigue con la letra de serie: nunca se queda sin texto. */
+function aplicarFuentes(fuentes) {
+  const destinos = [
+    { clave: 'titulo', familia: 'FuenteTituloNegocio', variable: '--display',
+      reserva: 'Georgia, "Times New Roman", serif' },
+    { clave: 'texto', familia: 'FuenteTextoNegocio', variable: '--ui',
+      reserva: 'system-ui, -apple-system, sans-serif' }
+  ];
+  destinos.forEach(async (d) => {
+    const f = fuentes?.[d.clave];
+    if (!f?.archivo) return;
+    try {
+      const fuente = new FontFace(d.familia, `url("${f.archivo}")`);
+      await fuente.load();
+      document.fonts.add(fuente);
+      document.documentElement.style.setProperty(d.variable, `"${d.familia}", ${d.reserva}`);
+    } catch { /* la fuente no cargó: se queda la de serie */ }
+  });
+}
+
+// Trae apariencia.json. Que no exista no es un error: es lo normal
+// mientras el negocio no haya personalizado nada.
+async function cargarApariencia() {
+  try {
+    const r = await fetch(RUTA_APARIENCIA, { cache: 'no-store' });
+    return r.ok ? await r.json() : null;
+  } catch { return null; }
+}
+
+function aplicarApariencia(apariencia) {
+  aplicarColores(apariencia?.colores);
+  aplicarFuentes(apariencia?.fuentes);
+}
+
 /* ---------- Carga ---------- */
 
 async function cargar() {
   const estado = $('#estado');
   try {
-    const r = await fetch(RUTA_JSON, { cache: 'no-store' });
+    const [r, apariencia] = await Promise.all([
+      fetch(RUTA_JSON, { cache: 'no-store' }),
+      cargarApariencia()
+    ]);
     if (!r.ok) throw new Error(`${r.status}`);
     app.datos = await r.json();
+    app.apariencia = apariencia;
+    aplicarApariencia(app.apariencia);
     // Compatibilidad: si el JSON viene sin secciones pero con grupos sueltos,
     // los envolvemos en una sección para no romper el pintado.
     if (!app.datos.secciones && app.datos.grupos) {
@@ -293,9 +417,42 @@ function pintarTextosFijos() {
 
 function pintarNegocio() {
   const n = app.datos.negocio ?? {};
-  $('[data-t="nombre"]').textContent = n.nombre ?? 'Carta';
-  $('[data-t="lema"]').textContent = t(n.lema);
-  document.title = n.nombre ?? 'Carta';
+  const marca = app.apariencia?.identidad;
+
+  /* El título: manda lo que se escribiera en los ajustes de la página;
+     si no hay nada configurado, el nombre de siempre de la carta.
+     Dejarlo vacío A PROPÓSITO solo vale si hay logotipo: la portada
+     nunca se queda en blanco. */
+  const logo = marca?.logo || '';
+  const tituloConfigurado = typeof marca?.titulo === 'string';
+  let titulo = tituloConfigurado ? marca.titulo.trim() : (n.nombre ?? 'Carta');
+  if (!titulo && !logo) titulo = n.nombre ?? 'Carta';
+
+  // El eslogan: si los ajustes de la página lo definen (aunque sea
+  // vacío, para quitarlo), manda; si no, el lema de la carta.
+  const eslogan = marca?.eslogan != null ? t(marca.eslogan) : t(n.lema);
+
+  const nombreEl = $('[data-t="nombre"]');
+  nombreEl.textContent = titulo;
+  nombreEl.hidden = !titulo;
+
+  const lemaEl = $('[data-t="lema"]');
+  lemaEl.textContent = eslogan;
+  lemaEl.hidden = !eslogan;
+
+  const imgLogo = $('#cabeceraLogo');
+  if (logo) {
+    if (imgLogo.getAttribute('src') !== logo) imgLogo.src = logo;
+    imgLogo.alt = titulo || n.nombre || '';
+    imgLogo.hidden = false;
+  } else {
+    imgLogo.hidden = true;
+    imgLogo.removeAttribute('src');
+  }
+  $('#cabeceraMarca').classList.toggle('cabecera__marca--solo-logo', !!logo && !titulo);
+
+  // El nombre de la pestaña del navegador nunca va vacío.
+  document.title = titulo || n.nombre || 'Carta';
 
   if (n.actualizado) {
     const loc = app.idioma === 'en' ? 'en-GB' : 'es-ES';
@@ -304,6 +461,19 @@ function pintarNegocio() {
         .format(new Date(n.actualizado));
   }
 }
+
+/* Si el archivo del logotipo no llega a cargar, se esconde y se
+   recupera el título: la portada nunca se queda vacía. */
+$('#cabeceraLogo').addEventListener('error', () => {
+  const img = $('#cabeceraLogo');
+  img.hidden = true;
+  const nombreEl = $('[data-t="nombre"]');
+  if (nombreEl.hidden) {
+    nombreEl.textContent = app.datos?.negocio?.nombre ?? 'Carta';
+    nombreEl.hidden = false;
+    $('#cabeceraMarca').classList.remove('cabecera__marca--solo-logo');
+  }
+});
 
 /* Barra superior: una pestaña por sección. */
 function pintarBarra() {
