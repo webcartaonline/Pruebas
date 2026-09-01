@@ -1,0 +1,20 @@
+{
+  "colores": {
+    "principal": "#E9B44C",
+    "fondo": "#12100E",
+    "texto": "auto"
+  },
+  "identidad": {
+    "titulo": "Pruebas Lab",
+    "eslogan": {
+      "es": "Este es un concepto de texto",
+      "en": "this is a lab concept text"
+    },
+    "logo": ""
+  },
+  "fuentes": {
+    "titulo": null,
+    "texto": null
+  },
+  "actualizado": "2026-09-01T18:18:43.476Z"
+}
