@@ -71,8 +71,16 @@
 
   <footer class="pie">
     <span class="pie__marca" aria-hidden="true"></span>
+
+    <!-- Mensajes del negocio (horarios, avisos, agradecimientos…).
+         Los escribe el dueño en los ajustes de la página; los pinta carta.js. -->
+    <div class="pie__bloques" id="pieBloques" hidden></div>
+
     <p class="pie__fecha"><span data-t="actualizadoPre"></span> <span data-campo="actualizado">—</span></p>
     <p class="pie__nota" data-t="ivaNota"></p>
+
+    <!-- Redes sociales del negocio, abajo del todo. También de los ajustes. -->
+    <nav class="pie__redes" id="pieRedes" aria-label="Redes sociales" hidden></nav>
   </footer>
 
   <script src="carta.js"></script>

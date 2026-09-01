@@ -338,6 +338,51 @@ function aplicarFuentes(fuentes) {
   });
 }
 
+/* ---------- Redes sociales ----------
+   Las seis que puede elegir el negocio, con su icono dibujado a
+   juego con el resto de la carta. Se pintan en el orden de esta
+   lista y solo las que tengan enlace. */
+const REDES = {
+  tiktok:   { nombre: 'TikTok',
+    icono: '<path d="M15 4.2c.4 2.3 2 3.9 4.2 4.1"/><path d="M15 4.2v9.3a4.1 4.1 0 1 1-3.4-4.04"/>' },
+  instagram:{ nombre: 'Instagram',
+    icono: '<rect x="4" y="4" width="16" height="16" rx="4.6"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.7" cy="7.3" r=".9" fill="currentColor" stroke="none"/>' },
+  x:        { nombre: 'X',
+    icono: '<path d="M5.3 4.5h3.5l9.9 15h-3.5Z"/><path d="M10.6 13.4 5 19.5"/><path d="M18.7 4.5 13.3 10.4"/>' },
+  youtube:  { nombre: 'YouTube',
+    icono: '<rect x="3.5" y="6" width="17" height="12" rx="3.6"/><path d="M10.4 9.5v5l4.4-2.5Z"/>' },
+  facebook: { nombre: 'Facebook',
+    icono: '<path d="M15.6 4.5h-1.9a3.5 3.5 0 0 0-3.5 3.5V20"/><path d="M8 11.6h6.6"/>' },
+  snapchat: { nombre: 'Snapchat',
+    icono: '<path d="M12 4c2.5 0 4.3 1.9 4.3 4.5v1.6c0 .3.2.5.5.5l1.7.4c-.6 1.3-1.6 2.2-2.9 2.7.9 1.2 2.2 1.9 3.9 2.1-1 1.2-2.4 1.9-4 1.9-.5.8-1.9 1.4-3.5 1.4s-3-.6-3.5-1.4c-1.6 0-3-.7-4-1.9 1.7-.2 3-.9 3.9-2.1-1.3-.5-2.3-1.4-2.9-2.7l1.7-.4c.3 0 .5-.2.5-.5V8.5C7.7 5.9 9.5 4 12 4Z"/>' }
+};
+const REDES_ORDEN = ['tiktok', 'instagram', 'x', 'youtube', 'facebook', 'snapchat'];
+
+/* Los mensajes del negocio y sus redes, en el pie de la página. */
+function pintarPie() {
+  const pie = app.apariencia?.pie;
+
+  // Mensajes: solo los que tengan algo escrito.
+  const bloques = (pie?.bloques ?? [])
+    .filter((b) => String(b?.titulo ?? '').trim() || String(b?.texto ?? '').trim());
+  const cajaBloques = $('#pieBloques');
+  cajaBloques.innerHTML = bloques.map((b) => `
+    <div class="pie__bloque">
+      ${String(b.titulo ?? '').trim() ? `<h3 class="pie__bloque-titulo">${escapar(b.titulo.trim())}</h3>` : ''}
+      ${String(b.texto ?? '').trim() ? `<p class="pie__bloque-texto">${escapar(b.texto.trim())}</p>` : ''}
+    </div>`).join('');
+  cajaBloques.hidden = !bloques.length;
+
+  // Redes: solo las que tengan enlace. Se abren en una pestaña nueva.
+  const redes = REDES_ORDEN.filter((r) => String(pie?.redes?.[r] ?? '').trim());
+  const cajaRedes = $('#pieRedes');
+  cajaRedes.innerHTML = redes.map((r) => `
+    <a class="pie__red" href="${escapar(pie.redes[r].trim())}"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="${REDES[r].nombre}" title="${REDES[r].nombre}">${svg(REDES[r].icono)}</a>`).join('');
+  cajaRedes.hidden = !redes.length;
+}
+
 // Trae apariencia.json. Que no exista no es un error: es lo normal
 // mientras el negocio no haya personalizado nada.
 async function cargarApariencia() {
@@ -389,6 +434,7 @@ async function cargar() {
 function pintarTodo() {
   pintarTextosFijos();
   pintarNegocio();
+  pintarPie();
   pintarBarra();
   pintarPanel();
   pintarLeyenda();

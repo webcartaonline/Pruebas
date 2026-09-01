@@ -517,6 +517,50 @@ body{
 .pie p{ margin:0 0 6px; }
 .pie__nota{ font-size:.72rem; color:var(--hueso-suave); }
 
+/* ---------- Mensajes del negocio ----------
+   Tarjetitas de texto que el dueño escribe desde la aplicación de
+   administración: horarios, avisos, agradecimientos… En pantalla
+   ancha se reparten en columnas; en el móvil van una debajo de otra. */
+.pie__bloques{
+  max-width:var(--ancho); margin:0 auto 30px;
+  display:grid; gap:22px 40px;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 340px));
+  justify-content:center;
+  text-align:center;
+}
+.pie__bloque-titulo{
+  margin:0 0 8px;
+  font-family:var(--display); font-weight:600; font-style:italic;
+  font-size:1.05rem; letter-spacing:-.01em;
+  color:var(--ambar);
+}
+.pie__bloque-texto{
+  margin:0;
+  font-size:.82rem; line-height:1.65;
+  color:var(--hueso-medio);
+  white-space:pre-line;   /* respeta los saltos de línea que escriba el dueño */
+}
+
+/* ---------- Redes sociales ----------
+   Abajo del todo. Iconos del color principal; al pasar por encima
+   se avivan un poco. */
+.pie__redes{
+  margin:30px auto 0; padding-top:26px;
+  max-width:var(--ancho);
+  border-top:1px solid var(--borde);
+  display:flex; justify-content:center; align-items:center;
+  gap:10px; flex-wrap:wrap;
+}
+.pie__red{
+  display:grid; place-items:center;
+  width:44px; height:44px;             /* zona cómoda para el dedo */
+  border-radius:50%;
+  color:var(--ambar);
+  transition:background .15s ease, transform .12s ease;
+}
+.pie__red svg{ width:22px; height:22px; }
+.pie__red:hover{ background:var(--acento-halo); transform:translateY(-1px); }
+
 /* =========================================================
    PANTALLA ANCHA (>= 760px)
    Los platos de cada grupo pasan a dos columnas.
