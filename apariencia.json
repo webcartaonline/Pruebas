@@ -1,20 +1,20 @@
 {
   "colores": {
-    "principal": "#00ccff",
-    "fondo": "#0b1023",
+    "principal": "#000000",
+    "fondo": "#a27aff",
     "texto": "auto"
   },
   "identidad": {
     "titulo": "",
     "eslogan": {
-      "es": "Esta es una prueba de texto",
+      "es": "HOLA CARACOLAAAA !!!!",
       "en": "this is a lab concept text"
     },
-    "logo": "img/logo.png?v=mtizci1d"
+    "logo": "img/logo.jpg?v=mtizmcjw"
   },
   "fuentes": {
     "titulo": null,
     "texto": null
   },
-  "actualizado": "2026-09-01T18:09:17.138Z"
+  "actualizado": "2026-09-01T18:16:01.913Z"
 }
