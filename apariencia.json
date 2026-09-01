@@ -1,0 +1,23 @@
+{
+  "colores": {
+    "principal": "#00ffee",
+    "fondo": "#132d49",
+    "texto": "auto"
+  },
+  "identidad": {
+    "titulo": "Hello World",
+    "eslogan": {
+      "es": "Esta es una prueba de texto",
+      "en": "this is a lab concept text"
+    },
+    "logo": "img/logo.jpg?v=mtiytjed"
+  },
+  "fuentes": {
+    "titulo": null,
+    "texto": {
+      "archivo": "fuentes/texto.ttf?v=mtiyy7fa",
+      "nombre": "GoogleSans-VariableFont_GRAD,opsz,wght.ttf"
+    }
+  },
+  "actualizado": "2026-09-01T17:56:58.431Z"
+}
