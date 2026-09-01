@@ -59,7 +59,6 @@ const UI = {
     limpiar: 'Quitar todos los avisos',
     sinAlergenos: 'Sin alérgenos declarados',
     contiene: 'Contiene',
-    actualizadoPre: 'Precios actualizados el',
     ivaNota: 'IVA incluido'
   },
   en: {
@@ -70,7 +69,6 @@ const UI = {
     limpiar: 'Clear all warnings',
     sinAlergenos: 'No declared allergens',
     contiene: 'Contains',
-    actualizadoPre: 'Prices updated on',
     ivaNota: 'VAT included'
   }
 };
@@ -506,13 +504,6 @@ function pintarNegocio() {
 
   // El nombre de la pestaña del navegador nunca va vacío.
   document.title = titulo || n.nombre || 'Carta';
-
-  if (n.actualizado) {
-    const loc = app.idioma === 'en' ? 'en-GB' : 'es-ES';
-    $('[data-campo="actualizado"]').textContent =
-      new Intl.DateTimeFormat(loc, { day: 'numeric', month: 'long', year: 'numeric' })
-        .format(new Date(n.actualizado));
-  }
 }
 
 /* Si el archivo del logotipo no llega a cargar, se esconde y se
