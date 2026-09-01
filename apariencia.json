@@ -1,16 +1,16 @@
 {
   "colores": {
-    "principal": "#E9B44C",
-    "fondo": "#12100E",
+    "principal": "#ff00ff",
+    "fondo": "#fec9ff",
     "texto": "auto"
   },
   "identidad": {
-    "titulo": "Pruebas Lab",
+    "titulo": "KAWAY KAFÉ",
     "eslogan": {
-      "es": "Este es un concepto de texto",
-      "en": "this is a lab concept text"
+      "es": "",
+      "en": ""
     },
-    "logo": ""
+    "logo": "img/logo.png?v=mtj7x21w"
   },
   "fuentes": {
     "titulo": null,
@@ -19,22 +19,26 @@
   "pie": {
     "bloques": [
       {
-        "titulo": "Horario de verano",
-        "texto": "Mañanas: 9:00 - 16:00 (Cocina: 9:00 - 15:00)\n\nTardes: 20:00 - 00:00 (Cocina: 20:00 - 23:30)"
+        "titulo": "Lunes - Jueves",
+        "texto": "Mañanas: Cerrado\n\nTardes: 16:30 - 21:30"
       },
       {
-        "titulo": "Muchas gracias por su visita",
-        "texto": "Esperamos volver a verle pronto"
+        "titulo": "Viernes",
+        "texto": "Mañanas: Cerrado\n\nTardes: 15:00 - 22:00"
+      },
+      {
+        "titulo": "Sabado - Domingo",
+        "texto": "Mañanas: 10:00 - 13:30\n\nTardes: 15:00 - 22:00"
       }
     ],
     "redes": {
       "tiktok": "",
       "instagram": "",
       "x": "https://x.com/SpaceX",
-      "youtube": "https://www.youtube.com/@VeritasiumES",
+      "youtube": "https://www.youtube.com/VeritasiumES",
       "facebook": "",
       "snapchat": ""
     }
   },
-  "actualizado": "2026-09-01T18:58:38.650Z"
+  "actualizado": "2026-09-01T22:16:14.861Z"
 }
