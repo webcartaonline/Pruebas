@@ -10,104 +10,43 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-01T10:18:16.370Z"
+    "actualizado": "2026-09-01T22:40:40.896Z"
   },
   "secciones": [
     {
       "id": "s-desayunar",
       "nombre": {
-        "es": "Para desayunar",
-        "en": "Breakfast"
+        "es": "Dulce",
+        "en": ""
       },
-      "imagen": "img/secciones/s-desayunar.jpg",
-      "foco": "derecha",
       "grupos": [
         {
           "id": "g-tostas",
           "nombre": {
-            "es": "Tostas",
+            "es": "Gofres y tortitas",
             "en": "Toasts"
           },
-          "foco": "centro",
           "items": [
             {
-              "id": "i-tosta-aguacate",
+              "id": "i-item-dufx",
               "nombre": {
-                "es": "Tosta de aguacate",
-                "en": "Avocado toast"
+                "es": "Nuevo ítem",
+                "en": ""
               },
               "descripcion": {
-                "es": "Pan de masa madre, aguacate, tomate cherry y semillas",
-                "en": "Sourdough bread, avocado, cherry tomato and seeds"
+                "es": "",
+                "en": ""
               },
-              "imagen": "img/items/i-tosta-aguacate.jpg?v=mt98p9y1",
-              "precio": 7.9,
-              "alergenos": [
-                "gluten",
-                "sesamo"
-              ]
-            },
-            {
-              "id": "i-tosta-salmon",
-              "nombre": {
-                "es": "Tosta de salmón",
-                "en": "Salmon toast"
-              },
-              "descripcion": {
-                "es": "Queso crema, salmón ahumado y eneldo",
-                "en": "Cream cheese, smoked salmon and dill"
-              },
-              "imagen": "img/items/i-tosta-salmon.jpg?v=mt98qp6i",
-              "precio": 9.5,
-              "alergenos": [
-                "gluten",
-                "pescado",
-                "lacteos"
-              ]
-            },
-            {
-              "id": "i-tosta-tomate",
-              "nombre": {
-                "es": "Tosta de tomate y jamón",
-                "en": "Tomato & ham toast"
-              },
-              "descripcion": {
-                "es": "Tomate rallado, jamón curado y aceite de oliva",
-                "en": "Grated tomato, cured ham and olive oil"
-              },
-              "precio": 6.5,
-              "alergenos": [
-                "gluten"
-              ],
-              "imagen": "img/items/i-tosta-tomate.jpg?v=mta63kcd"
-            },
-            {
-              "id": "i-tosta-cacao",
-              "nombre": {
-                "es": "Brioche con cacao",
-                "en": "Cocoa brioche"
-              },
-              "descripcion": {
-                "es": "Brioche templado con crema de cacao y avellana",
-                "en": "Warm brioche with cocoa-hazelnut spread"
-              },
-              "precio": 5.9,
-              "alergenos": [
-                "gluten",
-                "lacteos",
-                "frutos-secos",
-                "soja"
-              ],
-              "imagen": "img/items/i-tosta-cacao.jpg?v=mtatvqja"
+              "precio": 0,
+              "alergenos": []
             }
-          ],
-          "imagen": "img/grupos/g-tostas.jpg?v=mtg9x81e"
+          ]
         },
         {
           "id": "g-cafe",
           "nombre": {
-            "es": "Café",
-            "en": "Cofee"
+            "es": "Crepes",
+            "en": ""
           },
           "items": [
             {
@@ -169,90 +108,32 @@
                 "lacteos"
               ]
             }
-          ],
-          "imagen": "img/grupos/g-cafe.jpg?v=mtiihwfc",
-          "foco": "derecha"
+          ]
         },
         {
-          "id": "g-grupo-h050",
+          "id": "g-grupo-fimi",
           "nombre": {
-            "es": "Bollería",
+            "es": "Brownie",
             "en": ""
           },
-          "items": [
-            {
-              "id": "i-item-n5b8",
-              "nombre": {
-                "es": "Croassant",
-                "en": "Croaassant"
-              },
-              "descripcion": {
-                "es": "",
-                "en": ""
-              },
-              "precio": 2.5,
-              "alergenos": [
-                "huevos",
-                "gluten",
-                "lacteos"
-              ]
-            }
-          ]
+          "items": []
         }
       ]
     },
     {
       "id": "s-dulce",
       "nombre": {
-        "es": "Dulce",
-        "en": "Something sweet"
+        "es": "Batidos",
+        "en": ""
       },
-      "imagen": "img/secciones/s-dulce.jpg",
-      "foco": "arriba",
       "grupos": [
         {
           "id": "g-tortitas",
           "nombre": {
-            "es": "Tortitas y gofres",
-            "en": "Pancakes & waffles"
+            "es": "Smoothie Bowls",
+            "en": ""
           },
-          "foco": "arriba-izquierda",
           "items": [
-            {
-              "id": "i-tortitas-clasicas",
-              "nombre": {
-                "es": "Tortitas clásicas",
-                "en": "Classic pancakes"
-              },
-              "descripcion": {
-                "es": "Con sirope de arce y mantequilla",
-                "en": "With maple syrup and butter"
-              },
-              "precio": 7.5,
-              "alergenos": [
-                "gluten",
-                "huevos"
-              ],
-              "imagen": "img/items/i-tortitas-clasicas.jpg?v=mta7sqhu"
-            },
-            {
-              "id": "i-gofre-rojos",
-              "nombre": {
-                "es": "Gofre de frutos rojos",
-                "en": "Berry waffle"
-              },
-              "descripcion": {
-                "es": "Nata montada y frutos rojos de temporada",
-                "en": "Whipped cream and seasonal berries"
-              },
-              "precio": 8.2,
-              "alergenos": [
-                "gluten",
-                "huevos",
-                "lacteos"
-              ],
-              "imagen": "img/items/i-gofre-rojos.jpg?v=mtd2edf9"
-            },
             {
               "id": "i-tortitas-veganas",
               "nombre": {
@@ -268,17 +149,14 @@
                 "gluten"
               ]
             }
-          ],
-          "imagen": "img/grupos/g-tortitas.jpg?v=mtg9ymdm"
+          ]
         },
         {
           "id": "g-bolleria",
           "nombre": {
-            "es": "Bollería",
+            "es": "Batidos",
             "en": "Pastries"
           },
-          "imagen": "img/grupos/g-bolleria.jpg?v=mtg9z0jj",
-          "foco": "abajo",
           "items": [
             {
               "id": "i-croissant",
@@ -296,61 +174,31 @@
                 "lacteos",
                 "huevos"
               ]
-            },
-            {
-              "id": "i-muffin",
-              "nombre": {
-                "es": "Muffin de arándanos",
-                "en": "Blueberry muffin"
-              },
-              "descripcion": {
-                "es": "Esponjoso, con arándanos frescos",
-                "en": "Fluffy, with fresh blueberries"
-              },
-              "precio": 3.1,
-              "alergenos": [
-                "gluten",
-                "huevos",
-                "lacteos"
-              ],
-              "imagen": "img/items/i-muffin.jpg?v=mtedcwyj"
-            },
-            {
-              "id": "i-roll-canela",
-              "nombre": {
-                "es": "Roll de canela",
-                "en": "Cinnamon roll"
-              },
-              "descripcion": {
-                "es": "Con glaseado de queso crema",
-                "en": "With cream cheese glaze"
-              },
-              "precio": 3.8,
-              "alergenos": [
-                "gluten",
-                "huevos",
-                "lacteos"
-              ],
-              "imagen": "img/items/i-roll-canela.jpg?v=mtg9znxg"
             }
           ]
+        },
+        {
+          "id": "g-grupo-k9tm",
+          "nombre": {
+            "es": "Smoothies",
+            "en": ""
+          },
+          "items": []
         }
       ]
     },
     {
       "id": "s-zumos",
       "nombre": {
-        "es": "Zumos y batidos",
-        "en": "Juices & smoothies"
+        "es": "Bebidas",
+        "en": ""
       },
-      "imagen": "img/secciones/s-zumos.jpg",
-      "foco": "derecha",
       "grupos": [
         {
           "id": "g-zumos",
           "nombre": {
-            "es": "Zumos naturales",
-            "en": "Fresh juices"
+            "es": "Frappés",
+            "en": ""
           },
           "items": [
             {
@@ -399,8 +247,8 @@
         {
           "id": "g-batidos",
           "nombre": {
-            "es": "Batidos y bowls",
-            "en": "Smoothies & bowls"
+            "es": "Zumos",
+            "en": ""
           },
           "items": [
             {
@@ -452,21 +300,61 @@
               ]
             }
           ]
+        },
+        {
+          "id": "g-grupo-wuw9",
+          "nombre": {
+            "es": "Refrescos y Cervezas",
+            "en": ""
+          },
+          "items": []
+        },
+        {
+          "id": "g-grupo-3cky",
+          "nombre": {
+            "es": "Cafés",
+            "en": ""
+          },
+          "items": []
+        },
+        {
+          "id": "g-grupo-rgg7",
+          "nombre": {
+            "es": "Infusiones",
+            "en": ""
+          },
+          "items": []
+        },
+        {
+          "id": "g-grupo-6smp",
+          "nombre": {
+            "es": "Superlattes",
+            "en": ""
+          },
+          "items": []
         }
       ]
     },
     {
       "id": "s-cafe",
       "nombre": {
-        "es": "Café y algo salado",
-        "en": "Coffee & savory"
+        "es": "Para picar",
+        "en": ""
       },
       "grupos": [
         {
+          "id": "g-grupo-ws6s",
+          "nombre": {
+            "es": "Tostadas",
+            "en": ""
+          },
+          "items": []
+        },
+        {
           "id": "g-picar",
           "nombre": {
-            "es": "Para picar",
-            "en": "Savory bites"
+            "es": "Cookies",
+            "en": ""
           },
           "items": [
             {
@@ -516,9 +404,66 @@
               ]
             }
           ]
+        },
+        {
+          "id": "g-grupo-c61p",
+          "nombre": {
+            "es": "Brownie",
+            "en": ""
+          },
+          "items": []
+        },
+        {
+          "id": "g-grupo-0nek",
+          "nombre": {
+            "es": "Bollería",
+            "en": ""
+          },
+          "items": []
         }
-      ],
-      "imagen": "img/secciones/s-cafe.jpg?v=mtb8gnd9"
+      ]
+    },
+    {
+      "id": "s-seccion-mdlv",
+      "nombre": {
+        "es": "Con alcohol",
+        "en": ""
+      },
+      "grupos": [
+        {
+          "id": "g-grupo-7sq4",
+          "nombre": {
+            "es": "Cocktails",
+            "en": ""
+          },
+          "items": []
+        },
+        {
+          "id": "g-grupo-3pp0",
+          "nombre": {
+            "es": "Galaxy Korean Drink",
+            "en": ""
+          },
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "s-seccion-kr4y",
+      "nombre": {
+        "es": "Cumpleaños",
+        "en": ""
+      },
+      "grupos": [
+        {
+          "id": "g-grupo-jqu4",
+          "nombre": {
+            "es": "Kawai",
+            "en": ""
+          },
+          "items": []
+        }
+      ]
     }
   ]
 }
