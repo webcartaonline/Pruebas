@@ -1,20 +1,20 @@
 {
   "colores": {
-    "principal": "#000000",
-    "fondo": "#a27aff",
+    "principal": "#E9B44C",
+    "fondo": "#12100E",
     "texto": "auto"
   },
   "identidad": {
-    "titulo": "",
+    "titulo": "Pruebas Lab",
     "eslogan": {
-      "es": "HOLA CARACOLAAAA !!!!",
+      "es": "Este es un concepto de texto",
       "en": "this is a lab concept text"
     },
-    "logo": "img/logo.jpg?v=mtizmcjw"
+    "logo": ""
   },
   "fuentes": {
     "titulo": null,
     "texto": null
   },
-  "actualizado": "2026-09-01T18:16:01.913Z"
+  "actualizado": "2026-09-01T18:18:43.476Z"
 }
