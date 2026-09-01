@@ -10,7 +10,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-01T09:26:56.780Z"
+    "actualizado": "2026-09-01T10:18:16.370Z"
   },
   "secciones": [
     {
@@ -20,7 +20,7 @@
         "en": "Breakfast"
       },
       "imagen": "img/secciones/s-desayunar.jpg",
-      "foco": "abajo",
+      "foco": "derecha",
       "grupos": [
         {
           "id": "g-tostas",
@@ -170,7 +170,8 @@
               ]
             }
           ],
-          "imagen": "img/grupos/g-cafe.jpg?v=mtg9y4zx"
+          "imagen": "img/grupos/g-cafe.jpg?v=mtiihwfc",
+          "foco": "derecha"
         },
         {
           "id": "g-grupo-h050",
