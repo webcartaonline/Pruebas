@@ -16,5 +16,25 @@
     "titulo": null,
     "texto": null
   },
-  "actualizado": "2026-09-01T18:18:43.476Z"
+  "pie": {
+    "bloques": [
+      {
+        "titulo": "Horario de verano",
+        "texto": "Mañanas: 9:00 - 16:00 (Cocina: 9:00 - 15:00)\n\nTardes: 20:00 - 00:00 (Cocina: 20:00 - 23:30)"
+      },
+      {
+        "titulo": "Muchas gracias por su visita",
+        "texto": "Esperamos volver a verle pronto"
+      }
+    ],
+    "redes": {
+      "tiktok": "",
+      "instagram": "",
+      "x": "https://x.com/SpaceX",
+      "youtube": "https://www.youtube.com/@VeritasiumES",
+      "facebook": "",
+      "snapchat": ""
+    }
+  },
+  "actualizado": "2026-09-01T18:58:38.650Z"
 }
