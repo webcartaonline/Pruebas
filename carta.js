@@ -59,8 +59,7 @@ const UI = {
     sinAlergenos: 'Sin alérgenos declarados',
     contiene: 'Contiene',
     actualizadoPre: 'Precios actualizados el',
-    ivaNota: 'IVA incluido. Los precios pueden variar sin previo aviso.',
-    unidades: (n) => `${n} ${n === 1 ? 'plato' : 'platos'}`
+    ivaNota: 'IVA incluido. Los precios pueden variar sin previo aviso.'
   },
   en: {
     cargando: 'Loading the menu…',
@@ -71,8 +70,7 @@ const UI = {
     sinAlergenos: 'No declared allergens',
     contiene: 'Contains',
     actualizadoPre: 'Prices updated on',
-    ivaNota: 'VAT included. Prices may change without notice.',
-    unidades: (n) => `${n} ${n === 1 ? 'item' : 'items'}`
+    ivaNota: 'VAT included. Prices may change without notice.'
   }
 };
 
@@ -323,14 +321,15 @@ function pintarBarra() {
   }).join('');
 }
 
-/* Debajo de la barra: los grupos de la sección elegida. */
+/* La cabecera de la sección (su foto y su nombre) va ENCIMA de la barra,
+   en su propio contenedor. Debajo de la barra quedan solo los grupos. */
 function pintarPanel() {
   const lista = secciones();
-  const i = indiceActivo();
-  const sec = lista[i];
+  const sec = lista[indiceActivo()];
   const carta = $('#carta');
+  const cabeceraSeccion = $('#cabeceraSeccion');
 
-  if (!sec) { carta.innerHTML = ''; return; }
+  if (!sec) { cabeceraSeccion.innerHTML = ''; carta.innerHTML = ''; return; }
 
   carta.setAttribute('aria-labelledby', `tab-${sec.id}`);
 
@@ -340,7 +339,7 @@ function pintarPanel() {
   // sección nunca desaparece.
   // Si el interruptor de imágenes está apagado, se va siempre por la rama
   // de abajo, la de toda la vida: título y línea fina.
-  const cabecera = (app.imagenes && sec.imagen)
+  cabeceraSeccion.innerHTML = (app.imagenes && sec.imagen)
     ? `<header class="panel__cabecera panel__cabecera--imagen">
         <img class="panel__imagen" src="${escapar(sec.imagen)}" alt=""
              loading="lazy" decoding="async"
@@ -355,16 +354,16 @@ function pintarPanel() {
         <span class="panel__filo" aria-hidden="true"></span>
       </header>`;
 
-  carta.innerHTML = `${cabecera}${(sec.grupos ?? []).map(pintarGrupo).join('')}`;
+  carta.innerHTML = (sec.grupos ?? []).map(pintarGrupo).join('');
 }
 
 /* El grupo funciona igual que la sección: si tiene foto, el título va
    superpuesto sobre una banda; si no, se queda el encabezado de siempre
-   (título en cursiva, línea fina y recuento de platos). */
+   (título en cursiva y línea fina). En los dos casos el título arranca
+   en el mismo punto: el del carril de lectura. */
 function pintarGrupo(grupo) {
   const items = grupo.items ?? [];
   const titulo = `<h3 class="grupo__titulo">${escapar(t(grupo.nombre))}</h3>`;
-  const conteo = `<span class="grupo__conteo">${ui().unidades(items.length)}</span>`;
 
   const cabecera = (app.imagenes && grupo.imagen)
     ? `<header class="grupo__cabecera grupo__cabecera--imagen">
@@ -372,12 +371,11 @@ function pintarGrupo(grupo) {
              loading="lazy" decoding="async"
              style="object-position:${posicionFoco(grupo.foco)}"
              onerror="this.closest('.grupo__cabecera').classList.add('grupo__cabecera--sin-imagen');this.remove()">
-        <div class="grupo__rotulo columna">${titulo}${conteo}</div>
+        <div class="grupo__rotulo columna">${titulo}</div>
       </header>`
     : `<header class="grupo__cabecera grupo__cabecera--simple columna">
         ${titulo}
         <span class="grupo__regla" aria-hidden="true"></span>
-        ${conteo}
       </header>`;
 
   return `
@@ -482,10 +480,15 @@ function elegirSeccion(id, { moverFoco = false } = {}) {
   }
 
   // Si se estaba leyendo a media página, volvemos al principio de la sección
-  // nueva, dejando hueco para la barra pegada arriba.
+  // nueva. Como su cabecera está por encima de la barra, subimos hasta ella
+  // para que se vea la foto; si no hubiera cabecera, nos quedamos justo
+  // debajo de la barra, como antes.
   const barra = $('#barra');
   const lienzo = $('#carta');
-  const tope = lienzo.getBoundingClientRect().top + window.scrollY - barra.offsetHeight - 12;
+  const cabeceraSeccion = $('#cabeceraSeccion');
+  const tope = cabeceraSeccion.offsetHeight
+    ? cabeceraSeccion.getBoundingClientRect().top + window.scrollY
+    : lienzo.getBoundingClientRect().top + window.scrollY - barra.offsetHeight - 12;
   if (window.scrollY > tope) {
     const suave = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollTo({ top: tope, behavior: suave ? 'smooth' : 'auto' });

@@ -25,7 +25,8 @@
   --display: "Fraunces", Georgia, "Times New Roman", serif;
   --ui:      "Space Grotesk", system-ui, -apple-system, sans-serif;
 
-  --ancho: 1080px;
+  --ancho: 1080px;        /* carril de lectura: texto y platos */
+  --ancho-banda: 1200px;  /* bandas de grupo en escritorio: un poco más anchas */
 }
 
 *,*::before,*::after{ box-sizing:border-box; }
@@ -246,10 +247,13 @@ body{
 
 /* ---------- Encabezado de la sección ---------- */
 
-/* Sin foto: título normal, con su filo ámbar debajo. */
+/* Sin foto: título normal, con su filo ámbar debajo. El margen lateral
+   va en 'auto' a propósito: la clase .columna lo pone así para centrar el
+   carril, y un margen abreviado con 0 lo pisaría y lo tiraría al borde. */
 .panel__cabecera--simple{
-  margin:0 0 34px;
-  padding-top:38px;
+  margin:0 auto;
+  padding-top:34px;
+  padding-bottom:24px;
 }
 .panel__titulo{
   margin:0;
@@ -263,19 +267,21 @@ body{
   background:var(--ambar);
 }
 
-/* Con foto: banda a todo el ancho de la pantalla, pegada a la barra de
-   secciones (sin hueco arriba) y con el título superpuesto abajo.
-   El degradado oscuro de la base garantiza que el texto se lea sea cual
-   sea la foto. */
+/* Con foto: banda a todo el ancho de la pantalla, con el título
+   superpuesto abajo. Va ENCIMA de la barra de secciones y pegada a ella,
+   sin margen por debajo: por eso vive en .cabecera-seccion y no dentro
+   del lienzo. El degradado oscuro de la base garantiza que el texto se
+   lea sea cual sea la foto. */
+.cabecera-seccion{ position:relative; z-index:1; }
+
 .panel__cabecera--imagen{
   position:relative;
   height:clamp(120px, 30vw, 230px);
-  margin:0 0 30px;
+  margin:0;
   overflow:hidden;
   display:flex;
   align-items:flex-end;
   background:var(--noche-alto);
-  border-bottom:1px solid var(--borde);
 }
 .panel__imagen{
   position:absolute; inset:0;
@@ -305,9 +311,11 @@ body{
    normal: el nombre de la sección nunca desaparece. */
 .panel__cabecera--sin-imagen{
   height:auto;
+  margin:0;
   background:none;
   border-bottom:none;
-  padding-top:38px;
+  padding-top:34px;
+  padding-bottom:24px;
 }
 .panel__cabecera--sin-imagen::after{ display:none; }
 .panel__cabecera--sin-imagen .panel__rotulo{ padding-bottom:0; }
@@ -316,10 +324,11 @@ body{
 /* ---------- Grupo ---------- */
 .grupo{ margin:32px 0 0; }
 
-/* Sin foto: título en cursiva, línea fina y recuento, como hasta ahora. */
+/* Sin foto: título en cursiva y línea fina. El margen lateral en 'auto'
+   mantiene el título en el mismo sitio que cuando el grupo lleva foto. */
 .grupo__cabecera--simple{
   display:flex; align-items:baseline; gap:16px;
-  margin:0 0 6px;
+  margin:0 auto 6px;
 }
 .grupo__titulo{
   margin:0;
@@ -330,13 +339,6 @@ body{
 .grupo__regla{
   flex:1; height:1px; background:var(--borde);
 }
-.grupo__conteo{
-  flex-shrink:0;
-  font-size:.62rem; font-weight:500;
-  letter-spacing:.18em; text-transform:uppercase;
-  color:var(--hueso-suave);
-}
-
 /* Con foto: misma idea que la sección, pero en una banda más baja para
    que se note la jerarquía (sección grande, grupo mediano). */
 .grupo__cabecera--imagen{
@@ -374,12 +376,6 @@ body{
   font-size:1.5rem;
   text-shadow:0 2px 12px rgba(0,0,0,.6);
 }
-.grupo__cabecera--imagen .grupo__conteo{
-  margin-left:auto;
-  color:var(--hueso-medio);
-  text-shadow:0 2px 12px rgba(0,0,0,.6);
-}
-
 /* Si la foto del grupo falla, se cae al encabezado de siempre. */
 .grupo__cabecera--sin-imagen{
   height:auto;
@@ -390,7 +386,6 @@ body{
 .grupo__cabecera--sin-imagen::after{ display:none; }
 .grupo__cabecera--sin-imagen .grupo__rotulo{ padding-bottom:0; }
 .grupo__cabecera--sin-imagen .grupo__titulo{ font-size:1.3rem; text-shadow:none; }
-.grupo__cabecera--sin-imagen .grupo__conteo{ text-shadow:none; }
 
 .grupo__items{ display:grid; }
 
@@ -505,7 +500,29 @@ body{
   .lienzo{ padding:0 0 84px; }
   .columna{ padding-inline:24px; }
   .panel__cabecera--simple,
-  .panel__cabecera--sin-imagen{ padding-top:56px; }
+  .panel__cabecera--sin-imagen{ padding-top:46px; padding-bottom:32px; }
+
+  /* En escritorio la banda del grupo deja de ir de borde a borde: se queda
+     algo más ancha que el carril de lectura y crece a lo alto con su propio
+     ancho, así la foto no sale estirada en una tira. En móvil no cambia
+     nada: sigue ocupando toda la pantalla. */
+  .grupo__cabecera--imagen{
+    width:min(100%, var(--ancho-banda));
+    margin-inline:auto;
+    height:auto;
+    aspect-ratio:5/1;
+    max-height:220px;
+    border:1px solid var(--borde);
+    border-radius:14px;
+  }
+  /* Si la foto del grupo falla, se deshace todo lo anterior. */
+  .grupo__cabecera--sin-imagen{
+    width:auto;
+    aspect-ratio:auto;
+    max-height:none;
+    border:none;
+    border-radius:0;
+  }
   .barra__lista{ padding:0 16px; }
   .barra__btn{ padding:20px 18px 18px; }
   .barra__btn::after{ left:18px; right:18px; }
