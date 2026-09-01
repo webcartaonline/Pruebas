@@ -1,23 +1,20 @@
 {
   "colores": {
-    "principal": "#00ffee",
-    "fondo": "#132d49",
+    "principal": "#00ccff",
+    "fondo": "#0b1023",
     "texto": "auto"
   },
   "identidad": {
-    "titulo": "Hello World",
+    "titulo": "",
     "eslogan": {
       "es": "Esta es una prueba de texto",
       "en": "this is a lab concept text"
     },
-    "logo": "img/logo.jpg?v=mtiytjed"
+    "logo": "img/logo.png?v=mtizci1d"
   },
   "fuentes": {
     "titulo": null,
-    "texto": {
-      "archivo": "fuentes/texto.ttf?v=mtiyy7fa",
-      "nombre": "GoogleSans-VariableFont_GRAD,opsz,wght.ttf"
-    }
+    "texto": null
   },
-  "actualizado": "2026-09-01T17:56:58.431Z"
+  "actualizado": "2026-09-01T18:09:17.138Z"
 }
