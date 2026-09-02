@@ -10,7 +10,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-02T17:39:04.409Z"
+    "actualizado": "2026-09-02T20:02:08.266Z"
   },
   "secciones": [
     {
@@ -19,7 +19,7 @@
         "es": "Tapas",
         "en": "Tapas"
       },
-      "imagen": "img/secciones/s-dulce.jpg",
+      "imagen": "img/secciones/s-tapas.jpg?v=mtkimg08",
       "foco": "centro",
       "grupos": [
         {
@@ -187,8 +187,8 @@
                     "es": "6 unidades",
                     "en": "6 pieces"
                   },
-                  "posicion": "arriba",
-                  "fondo": "principal",
+                  "posicion": "abajo",
+                  "fondo": "secundario",
                   "color": "auto"
                 },
                 {
@@ -196,7 +196,7 @@
                     "es": "Caseras",
                     "en": "Homemade"
                   },
-                  "posicion": "arriba",
+                  "posicion": "abajo",
                   "fondo": "secundario",
                   "color": "auto"
                 },
@@ -205,8 +205,8 @@
                     "es": "Preguntar disponibilidad",
                     "en": "Ask availability"
                   },
-                  "posicion": "abajo",
-                  "fondo": "secundario",
+                  "posicion": "arriba",
+                  "fondo": "#3c2e20",
                   "color": "auto"
                 }
               ]
@@ -231,15 +231,6 @@
                   },
                   "posicion": "arriba",
                   "fondo": "#B3261E",
-                  "color": "#FFFFFF"
-                },
-                {
-                  "texto": {
-                    "es": "Vegana",
-                    "en": "Vegan"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "#2E7D32",
                   "color": "#FFFFFF"
                 },
                 {
@@ -283,7 +274,7 @@
                     "en": "Extra bread +€0.80"
                   },
                   "posicion": "abajo",
-                  "fondo": "principal",
+                  "fondo": "secundario",
                   "color": "auto"
                 }
               ]
@@ -301,7 +292,8 @@
               "precio": 5.6,
               "alergenos": [
                 "sulfitos"
-              ]
+              ],
+              "etiquetas": []
             },
             {
               "id": "i-pimientos",
@@ -408,7 +400,7 @@
                     "es": "Para 2 o 3 personas",
                     "en": "Serves 2–3"
                   },
-                  "posicion": "arriba",
+                  "posicion": "abajo",
                   "fondo": "secundario",
                   "color": "auto"
                 }
@@ -431,20 +423,11 @@
               "etiquetas": [
                 {
                   "texto": {
-                    "es": "8 raciones",
-                    "en": "8 portions"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "principal",
-                  "color": "auto"
-                },
-                {
-                  "texto": {
-                    "es": "También bien cuajada",
-                    "en": "Also well done"
+                    "es": "Con cebolla",
+                    "en": "With onion"
                   },
                   "posicion": "abajo",
-                  "fondo": "secundario",
+                  "fondo": "#3d2c0a",
                   "color": "auto"
                 }
               ]
