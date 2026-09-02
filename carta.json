@@ -10,7 +10,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-02T20:02:08.266Z"
+    "actualizado": "2026-09-02T21:23:54.530Z"
   },
   "secciones": [
     {
@@ -19,7 +19,7 @@
         "es": "Tapas",
         "en": "Tapas"
       },
-      "imagen": "img/secciones/s-tapas.jpg?v=mtkimg08",
+      "imagen": "img/secciones/s-tapas.jpg?v=mtklpmqh",
       "foco": "centro",
       "grupos": [
         {
@@ -146,7 +146,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "imagen": "img/grupos/g-tapas-frias.jpg?v=mtklq7w4"
         },
         {
           "id": "g-tapas-calientes",
@@ -162,7 +163,7 @@
             "fondo": "secundario",
             "color": "auto"
           },
-          "imagen": "img/grupos/g-tortitas.jpg",
+          "imagen": "img/grupos/g-tapas-calientes.jpg?v=mtklqrcb",
           "foco": "centro",
           "items": [
             {
