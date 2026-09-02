@@ -10,7 +10,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-02T10:00:00.000Z"
+    "actualizado": "2026-09-02T17:08:29.951Z"
   },
   "secciones": [
     {
@@ -420,7 +420,7 @@
                 "es": "Cebolla sí. Poco cuajada, como debe ser.",
                 "en": "With onion. Runny in the middle, as it should be."
               },
-              "precio": 12.0,
+              "precio": 12,
               "alergenos": [
                 "huevos"
               ],
@@ -1349,7 +1349,8 @@
                   "fondo": "secundario",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-aceitunas.jpg?v=mtkcng5m"
             },
             {
               "id": "i-banderillas",
@@ -1384,7 +1385,8 @@
                   "fondo": "secundario",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-banderillas.jpg?v=mtkcnoo4"
             },
             {
               "id": "i-berberechos",
@@ -1412,7 +1414,9 @@
                 }
               ]
             }
-          ]
+          ],
+          "foco": "centro",
+          "imagen": "img/grupos/g-encurtidos.jpg?v=mtkcmw3k"
         },
         {
           "id": "g-snacks",
@@ -1539,7 +1543,9 @@
             }
           ]
         }
-      ]
+      ],
+      "foco": "derecha",
+      "imagen": "img/secciones/s-picar.jpg?v=mtkckpj7"
     }
   ]
 }
