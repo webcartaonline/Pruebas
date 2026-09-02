@@ -888,9 +888,7 @@
                 }
               ]
             }
-          ],
-          "foco": "derecha",
-          "imagen": "img/grupos/g-hamburguesas.jpg?v=mtkdcbvr"
+          ]
         },
         {
           "id": "g-complementos",
