@@ -13,7 +13,10 @@
     "logo": "img/logo.png?v=mtjy9stg"
   },
   "fuentes": {
-    "titulo": null,
+    "titulo": {
+      "archivo": "fuentes/titulo.ttf?v=mtjzyeu2",
+      "nombre": "Gorditas-Bold.ttf"
+    },
     "texto": {
       "archivo": "fuentes/texto.ttf?v=mtjzw23k",
       "nombre": "Gorditas-Regular.ttf"
@@ -43,5 +46,5 @@
       "snapchat": ""
     }
   },
-  "actualizado": "2026-09-02T11:10:45.254Z"
+  "actualizado": "2026-09-02T11:12:49.983Z"
 }
