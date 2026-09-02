@@ -7,8 +7,8 @@
   "identidad": {
     "titulo": "Pruebas Lab",
     "eslogan": {
-      "es": "Este es un concepto de texto",
-      "en": "this is a lab concept text"
+      "es": "Esto es un texto a modo de concepto",
+      "en": ""
     },
     "logo": ""
   },
@@ -19,22 +19,22 @@
   "pie": {
     "bloques": [
       {
-        "titulo": "Horario de verano",
-        "texto": "Mañanas: 9:00 - 16:00 (Cocina: 9:00 - 15:00)\n\nTardes: 20:00 - 00:00 (Cocina: 20:00 - 23:30)"
+        "titulo": "Texto de ejemplo",
+        "texto": "Este es un ejemplo de texto"
       },
       {
-        "titulo": "Muchas gracias por su visita",
-        "texto": "Esperamos volver a verle pronto"
+        "titulo": "Segundo texto de ejemplo",
+        "texto": "Este es otro texto de ejemplo"
       }
     ],
     "redes": {
-      "tiktok": "",
-      "instagram": "",
-      "x": "https://x.com/SpaceX",
-      "youtube": "https://www.youtube.com/@VeritasiumES",
-      "facebook": "",
-      "snapchat": ""
+      "tiktok": "https://www.tiktok.com",
+      "instagram": "https://www.instagram.com",
+      "x": "https://www.x.com",
+      "youtube": "https://youtube.com",
+      "facebook": "https://facebook.com",
+      "snapchat": "https://snapchat.com"
     }
   },
-  "actualizado": "2026-09-01T18:58:38.650Z"
+  "actualizado": "2026-09-02T14:48:56.191Z"
 }
