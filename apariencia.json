@@ -15,8 +15,8 @@
   "fuentes": {
     "titulo": null,
     "texto": {
-      "archivo": "fuentes/texto.ttf?v=mtjzbw1y",
-      "nombre": "GoogleSans-VariableFont_GRAD,opsz,wght.ttf"
+      "archivo": "fuentes/texto.ttf?v=mtjzmpj1",
+      "nombre": "Gorditas-Regular.ttf"
     }
   },
   "pie": {
@@ -43,5 +43,5 @@
       "snapchat": ""
     }
   },
-  "actualizado": "2026-09-02T10:55:14.496Z"
+  "actualizado": "2026-09-02T11:03:28.428Z"
 }
