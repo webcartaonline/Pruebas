@@ -12,7 +12,7 @@
     },
     "logo": "",
     "fondo": {
-      "imagen": "img/secciones/s-desayunar.jpg",
+      "imagen": "img/portada.jpg?v=mtkg6vpm",
       "foco": "centro"
     }
   },
@@ -40,5 +40,5 @@
       "snapchat": "https://snapchat.com"
     }
   },
-  "actualizado": "2026-09-02T14:48:56.191Z"
+  "actualizado": "2026-09-02T18:47:13.666Z"
 }
