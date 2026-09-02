@@ -14,7 +14,10 @@
   },
   "fuentes": {
     "titulo": null,
-    "texto": null
+    "texto": {
+      "archivo": "fuentes/texto.ttf?v=mtjzbw1y",
+      "nombre": "GoogleSans-VariableFont_GRAD,opsz,wght.ttf"
+    }
   },
   "pie": {
     "bloques": [
@@ -40,5 +43,5 @@
       "snapchat": ""
     }
   },
-  "actualizado": "2026-09-02T10:25:32.950Z"
+  "actualizado": "2026-09-02T10:55:14.496Z"
 }
