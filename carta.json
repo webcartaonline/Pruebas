@@ -10,7 +10,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-02T17:08:29.951Z"
+    "actualizado": "2026-09-02T17:30:31.841Z"
   },
   "secciones": [
     {
@@ -731,30 +731,12 @@
                 },
                 {
                   "texto": {
-                    "es": "Al punto",
-                    "en": "Medium"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "secundario",
-                  "color": "auto"
-                },
-                {
-                  "texto": {
-                    "es": "Con patatas",
-                    "en": "Fries included"
+                    "es": "Extra de beicon +0,50 €",
+                    "en": "Beacon +0,50€"
                   },
                   "posicion": "abajo",
                   "fondo": "secundario",
-                  "color": "auto"
-                },
-                {
-                  "texto": {
-                    "es": "Extra de aguacate +0,50 €",
-                    "en": "Extra avocado +€0.50"
-                  },
-                  "posicion": "abajo",
-                  "fondo": "principal",
-                  "color": "auto"
+                  "color": "#e9b44c"
                 }
               ]
             },
@@ -898,7 +880,9 @@
                 }
               ]
             }
-          ]
+          ],
+          "foco": "derecha",
+          "imagen": "img/grupos/g-hamburguesas.jpg?v=mtkdcbvr"
         },
         {
           "id": "g-complementos",
@@ -1448,21 +1432,12 @@
               "etiquetas": [
                 {
                   "texto": {
-                    "es": "Bolsa de 150 g",
-                    "en": "150 g bag"
+                    "es": "Con limón y pimienta",
+                    "en": "Whit lemon and spici"
                   },
                   "posicion": "arriba",
-                  "fondo": "principal",
+                  "fondo": "secundario",
                   "color": "auto"
-                },
-                {
-                  "texto": {
-                    "es": "Vegana",
-                    "en": "Vegan"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "#2E7D32",
-                  "color": "#FFFFFF"
                 }
               ]
             },
@@ -1477,7 +1452,8 @@
                 "en": "Crunchy and salty, the classic ones."
               },
               "precio": 2.4,
-              "alergenos": []
+              "alergenos": [],
+              "etiquetas": []
             },
             {
               "id": "i-frutos-secos",
@@ -1541,7 +1517,9 @@
                 }
               ]
             }
-          ]
+          ],
+          "foco": "derecha",
+          "imagen": "img/grupos/g-snacks.jpg?v=mtkd8gm2"
         }
       ],
       "foco": "derecha",
