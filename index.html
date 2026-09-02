@@ -16,7 +16,10 @@
 <body>
 
   <!-- Cabecera: rótulo del negocio -->
-  <header class="cabecera">
+  <header class="cabecera" id="cabecera">
+    <!-- Foto de fondo de la portada, si el negocio la pone (negocio.portada
+         en carta.json). Si no hay, queda el halo de siempre. -->
+    <img class="cabecera__fondo" id="cabeceraFondo" alt="" hidden>
     <div class="cabecera__halo" aria-hidden="true"></div>
 
     <div class="idioma" role="group" aria-label="Idioma / Language">

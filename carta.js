@@ -625,7 +625,41 @@ function pintarNegocio() {
 
   // El nombre de la pestaña del navegador nunca va vacío.
   document.title = titulo || n.nombre || 'Carta';
+
+  pintarPortada();
 }
+
+/* La foto de fondo de la portada. La eligen los ajustes de la página y
+   vive con el resto de la marca, en apariencia.json:
+     "identidad": { …, "fondo": { "imagen": "img/portada.jpg", "foco": "centro" } }
+   Se admite además la forma antigua, en carta.json (negocio.portada),
+   por si alguna carta la trae escrita a mano.
+   Manda el interruptor general de imágenes, como siempre. Con foto se
+   apaga el halo de color y el título pasa a blanco, para que se lea
+   sobre cualquier foto. */
+function pintarPortada() {
+  const portada = app.apariencia?.identidad?.fondo?.imagen
+    ? app.apariencia.identidad.fondo
+    : app.datos?.negocio?.portada;
+  const cabecera = $('#cabecera');
+  const img = $('#cabeceraFondo');
+  const hay = app.imagenes && portada?.imagen;
+  cabecera.classList.toggle('cabecera--con-fondo', !!hay);
+  if (!hay) {
+    img.hidden = true;
+    img.removeAttribute('src');
+    return;
+  }
+  if (img.getAttribute('src') !== portada.imagen) img.src = portada.imagen;
+  img.style.objectPosition = posicionFoco(portada.foco);
+  img.hidden = false;
+}
+
+/* Si la foto de la portada no llega a cargar, vuelve el halo de siempre. */
+$('#cabeceraFondo').addEventListener('error', () => {
+  $('#cabeceraFondo').hidden = true;
+  $('#cabecera').classList.remove('cabecera--con-fondo');
+});
 
 /* Si el archivo del logotipo no llega a cargar, se esconde y se
    recupera el título: la portada nunca se queda vacía. */

@@ -19,6 +19,8 @@
         "es": "Tapas",
         "en": "Tapas"
       },
+      "imagen": "img/secciones/s-dulce.jpg",
+      "foco": "centro",
       "grupos": [
         {
           "id": "g-tapas-frias",
@@ -160,6 +162,8 @@
             "fondo": "secundario",
             "color": "auto"
           },
+          "imagen": "img/grupos/g-tortitas.jpg",
+          "foco": "centro",
           "items": [
             {
               "id": "i-croquetas",
@@ -686,6 +690,8 @@
         "es": "Hamburguesas",
         "en": "Burgers"
       },
+      "imagen": "img/secciones/s-cafe.jpg",
+      "foco": "abajo",
       "grupos": [
         {
           "id": "g-hamburguesas",
@@ -701,6 +707,8 @@
             "fondo": "secundario",
             "color": "auto"
           },
+          "imagen": "img/grupos/g-cafe.jpg",
+          "foco": "arriba",
           "items": [
             {
               "id": "i-hamburguesa-angus",

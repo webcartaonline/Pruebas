@@ -67,6 +67,25 @@ body{
   /* En móvil el idioma va en el flujo, centrado sobre el rótulo. */
   display:flex; flex-direction:column; align-items:center;
 }
+
+/* Foto de fondo de la portada. Se oscurece un poco, sin degradado,
+   lo justo para que el título en blanco se lea encima. Sin borde por
+   debajo: si la sección también lleva foto, las dos van seguidas. */
+.cabecera__fondo{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  display:block;
+  object-fit:cover;
+  filter:brightness(.62);
+}
+.cabecera--con-fondo{ border-bottom:none; }
+.cabecera--con-fondo .cabecera__halo{ display:none; }
+.cabecera--con-fondo .cabecera__nombre{
+  color:#FFFFFF;
+  text-shadow:0 2px 16px rgba(0,0,0,.55);
+}
+.cabecera--con-fondo .cabecera__lema{ text-shadow:0 1px 8px rgba(0,0,0,.6); }
+
 .cabecera__halo{
   position:absolute; inset:-60% 0 auto 0; height:200%;
   background:radial-gradient(58% 46% at 50% 34%, var(--acento-halo), transparent 68%);
@@ -75,7 +94,7 @@ body{
 .cabecera__interior{
   position:relative; width:100%;
   max-width:var(--ancho); margin:0 auto;
-  padding:20px 20px 44px;
+  padding:30px 20px 66px;
   text-align:center;
 }
 .cabecera__lema{
@@ -120,7 +139,7 @@ body{
    Escritorio: anclado arriba a la derecha (ver media query). */
 .idioma{
   position:relative; z-index:3;
-  margin-top:26px;
+  margin-top:36px;
   display:inline-flex; align-items:center; gap:2px;
 }
 .idioma__separador{
@@ -296,6 +315,7 @@ body{
   width:100%; height:100%;
   display:block;
   object-fit:cover;
+  filter:brightness(.62);   /* la misma penumbra que la portada: van seguidas */
 }
 
 /* ---------- Grupo ----------
@@ -340,21 +360,16 @@ body{
   width:100%; height:100%;
   display:block;
   object-fit:cover;
-  filter:grayscale(20%) brightness(.5) saturate(.85);
+  filter:brightness(.75);   /* solo atenuada, sin degradado */
 }
-.grupo__cabecera--imagen::after{
-  content:"";
-  position:absolute; inset:0;
-  z-index:1;
-  background:linear-gradient(180deg, rgba(12,10,9,0) 30%, rgba(12,10,9,.85) 100%);
-  pointer-events:none;
-}
+/* El rótulo va apilado: el título y, justo debajo y alineada con él,
+   la alerta del grupo si la hay. */
 .grupo__rotulo{
   position:relative;
   z-index:2;
   width:100%;
   padding-bottom:13px;
-  display:flex; align-items:baseline; gap:14px;
+  display:flex; flex-direction:column; align-items:flex-start; gap:8px;
 }
 .grupo__cabecera--imagen .grupo__titulo{
   font-size:1.5rem;
@@ -367,7 +382,6 @@ body{
   border-block:none;
   margin-bottom:26px;
 }
-.grupo__cabecera--sin-imagen::after{ display:none; }
 .grupo__cabecera--sin-imagen .grupo__rotulo{ padding-bottom:0; }
 .grupo__cabecera--sin-imagen .grupo__titulo{ font-size:1.3rem; text-shadow:none; }
 
@@ -500,11 +514,7 @@ body{
    que va en fila, la manda al extremo derecho.
    Es 'order', así que solo cambia lo que se ve: en el HTML sigue detrás
    del título, que es lo que leen los lectores de pantalla. */
-.grupo__cabecera--con-alerta .alerta{ order:3; }
-
-/* Con foto no hay línea que partir: la alerta se pone junto al título,
-   sobre la banda, y baja de renglón si no cabe. */
-.grupo__rotulo{ flex-wrap:wrap; row-gap:8px; }
+.grupo__cabecera--simple.grupo__cabecera--con-alerta .alerta{ order:3; }
 
 /* =========================================================
    PIE
@@ -589,7 +599,7 @@ body{
   }
   .grupo__regla{ flex:1; width:auto; }
   .item__foto{ width:104px; }
-  .cabecera__interior{ padding:78px 24px 62px; }
+  .cabecera__interior{ padding:96px 24px 88px; }
   .idioma{ position:absolute; top:18px; right:24px; margin-top:0; }
   .lienzo{ padding:0 0 84px; }
   .columna{ padding-inline:24px; }
@@ -624,8 +634,8 @@ body{
   /* En fila, la línea empuja la alerta hasta el borde derecho. Los tres
      se centran entre sí para que la píldora quede a la altura del título
      y no colgando por debajo. */
-  .grupo__cabecera--con-alerta{ align-items:center; }
-  .grupo__cabecera--con-alerta .alerta{
+  .grupo__cabecera--simple.grupo__cabecera--con-alerta{ align-items:center; }
+  .grupo__cabecera--simple.grupo__cabecera--con-alerta .alerta{
     flex-shrink:1;
     min-width:0;
   }

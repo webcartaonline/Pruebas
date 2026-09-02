@@ -10,7 +10,11 @@
       "es": "Esto es un texto a modo de concepto",
       "en": ""
     },
-    "logo": ""
+    "logo": "",
+    "fondo": {
+      "imagen": "img/secciones/s-desayunar.jpg",
+      "foco": "centro"
+    }
   },
   "fuentes": {
     "titulo": null,
