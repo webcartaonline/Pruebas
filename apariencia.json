@@ -1,7 +1,7 @@
 {
   "colores": {
-    "principal": "#ff00ff",
-    "fondo": "#fec9ff",
+    "principal": "#ffffff",
+    "fondo": "#ff8c96",
     "texto": "auto"
   },
   "identidad": {
@@ -40,5 +40,5 @@
       "snapchat": ""
     }
   },
-  "actualizado": "2026-09-01T22:16:14.861Z"
+  "actualizado": "2026-09-02T09:59:01.146Z"
 }
