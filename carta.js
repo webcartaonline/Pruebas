@@ -311,6 +311,7 @@ function aplicarColores(colores) {
   raiz.setProperty('--hueso-suave', mezclar(texto, fondo, 0.48));
   raiz.setProperty('--acento-halo', conTransparencia(principal, 0.16));
   raiz.setProperty('--barra-fondo', conTransparencia(hondo, 0.9));
+  raiz.setProperty('--barra-velo', conTransparencia(fondo, 0.55));
   $('meta[name="theme-color"]')?.setAttribute('content', fondo);
 
   // Las etiquetas y las alertas se pintan con color escrito a mano en cada
@@ -562,6 +563,7 @@ function pintarTodo() {
   pintarNegocio();
   pintarPie();
   pintarBarra();
+  medirBarra();
   pintarPanel();
   pintarLeyenda();
   actualizarFiltro();
@@ -714,11 +716,40 @@ function pintarPanel() {
         <img class="panel__imagen" src="${escapar(sec.imagen)}" alt=""
              loading="lazy" decoding="async"
              style="object-position:${posicionFoco(sec.foco)}"
-             onerror="this.closest('.panel__cabecera').remove()">
+             onerror="quitarBandaSeccion(this)">
       </header>`
     : '';
 
+  marcarBandaSeccion();
   carta.innerHTML = (sec.grupos ?? []).map(pintarGrupo).join('');
+}
+
+/* La barra de secciones se superpone al pie de la foto de la sección,
+   pero solo cuando esa foto existe: si no, se quedaría montada sobre la
+   portada. Se avisa con una clase en el <body>, que es lo que mira el CSS. */
+function marcarBandaSeccion() {
+  const hay = !!$('#cabeceraSeccion').firstElementChild;
+  document.body.classList.toggle('con-banda-seccion', hay);
+}
+
+/* Si la foto de la sección no llega a cargar, la banda se va entera y la
+   barra vuelve a su sitio de siempre. */
+function quitarBandaSeccion(img) {
+  img.closest('.panel__cabecera')?.remove();
+  marcarBandaSeccion();
+}
+
+/* Cuánto hay que subir la barra para que quede pegada al pie de la foto:
+   su propio alto, que cambia con la letra del negocio y con el ancho de
+   la pantalla. Se mide en vivo en lugar de dejarlo escrito a mano. */
+function medirBarra() {
+  const barra = $('#barra');
+  if (!barra) return;
+  const alto = barra.offsetHeight;
+  // Antes de que existan las pestañas la barra mide casi nada; en ese rato
+  // vale más el valor de reserva del CSS que una medida sin sentido.
+  if (alto < 24) return;
+  document.documentElement.style.setProperty('--barra-alto', `${alto}px`);
 }
 
 /* El grupo funciona igual que la sección: si tiene foto, el título va
@@ -935,6 +966,17 @@ $('#indice').addEventListener('keydown', (ev) => {
 
   elegirSeccion(lista[i].id, { moverFoco: true });
 });
+
+/* La barra se vuelve a medir sola cuando cambia de alto: al girar el
+   móvil, al cambiar el ancho de la ventana o cuando termina de cargarse
+   la letra del negocio y las pestañas crecen un pelo. */
+(function vigilarBarra() {
+  const barra = $('#barra');
+  if (!barra) return;
+  medirBarra();
+  if (window.ResizeObserver) new ResizeObserver(medirBarra).observe(barra);
+  else window.addEventListener('resize', medirBarra);
+})();
 
 /* ---------- Arranque: idioma guardado o el del navegador ---------- */
 (function idiomaInicial() {

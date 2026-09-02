@@ -27,6 +27,8 @@
      cuando el negocio elige sus propios colores en apariencia.json. */
   --acento-halo: rgba(233,180,76,.16);   /* iluminación de la cabecera */
   --barra-fondo: rgba(12,10,9,.9);       /* fondo translúcido de la barra */
+  --barra-velo:  rgba(18,16,14,.55);     /* la misma barra, pero sobre la foto */
+  --barra-alto:  57px;                   /* lo mide carta.js en vivo */
 
   --display: "Fraunces", Georgia, "Times New Roman", serif;
   --ui:      "Space Grotesk", system-ui, -apple-system, sans-serif;
@@ -94,7 +96,7 @@ body{
 .cabecera__interior{
   position:relative; width:100%;
   max-width:var(--ancho); margin:0 auto;
-  padding:30px 20px 66px;
+  padding:44px 20px 92px;
   text-align:center;
 }
 .cabecera__lema{
@@ -155,6 +157,20 @@ body{
 .idioma__btn:hover{ color:var(--hueso-medio); }
 .idioma__btn[aria-pressed="true"]{ color:var(--ambar); }
 
+/* Sobre la foto de la portada los dos rótulos se pierden, así que se les
+   pone una píldora oscura y borrosa por debajo. Sin foto no hace falta:
+   el fondo ya es liso y la píldora solo sería ruido. */
+.cabecera--con-fondo .idioma{
+  padding:2px 6px;
+  border-radius:100px;
+  background:rgba(0,0,0,.38);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.14);
+}
+.cabecera--con-fondo .idioma__separador{ background:rgba(255,255,255,.3); }
+.cabecera--con-fondo .idioma__btn:not([aria-pressed="true"]){ color:rgba(255,255,255,.78); }
+.cabecera--con-fondo .idioma__btn:not([aria-pressed="true"]):hover{ color:#FFFFFF; }
+
 /* =========================================================
    BARRA SUPERIOR DE SECCIONES
    Pegada arriba. En móvil se desliza con el dedo.
@@ -164,6 +180,19 @@ body{
   background:var(--barra-fondo);
   backdrop-filter:blur(12px) saturate(1.4);
   border-bottom:1px solid var(--borde);
+}
+
+/* Cuando la sección trae foto, la barra se sube sobre el pie de esa foto
+   en lugar de ir debajo. Se sube exactamente su propio alto, así su borde
+   inferior cae justo en el borde inferior de la foto. El fondo pasa a ser
+   un velo del color de fondo del negocio, bastante transparente y muy
+   desenfocado: la foto se sigue intuyendo detrás, borrosa, y las pestañas
+   se leen igual. La clase la pone carta.js solo si hay banda. */
+.con-banda-seccion .barra{
+  margin-top:calc(-1 * var(--barra-alto));
+  background:var(--barra-velo);
+  backdrop-filter:blur(20px) saturate(1.2);
+  border-bottom:1px solid rgba(255,255,255,.1);
 }
 .barra__lista{
   max-width:var(--ancho); margin:0 auto;
@@ -303,9 +332,11 @@ body{
    Si la sección no tiene foto, aquí no se pinta nada. */
 .cabecera-seccion{ position:relative; z-index:1; }
 
+/* El alto lleva sumado el de la barra, que se le monta encima: así la
+   parte de foto que queda a la vista es mayor que antes, no menor. */
 .panel__cabecera--imagen{
   position:relative;
-  height:clamp(120px, 30vw, 230px);
+  height:clamp(185px, 40vw, 300px);
   margin:0;
   overflow:hidden;
   background:var(--noche-alto);
@@ -347,11 +378,11 @@ body{
    que se note la jerarquía (sección grande, grupo mediano). */
 .grupo__cabecera--imagen{
   position:relative;
-  height:clamp(88px, 21vw, 160px);
+  height:clamp(118px, 26vw, 190px);
   margin:0 0 24px;
   overflow:hidden;
   display:flex;
-  align-items:flex-end;
+  align-items:center;      /* el rótulo, a media altura de la banda */
   background:var(--noche-alto);
   border-block:1px solid var(--borde);
 }
@@ -360,15 +391,16 @@ body{
   width:100%; height:100%;
   display:block;
   object-fit:cover;
-  filter:brightness(.75);   /* solo atenuada, sin degradado */
+  filter:brightness(.48);   /* bien apagada: el título tiene que ganar */
 }
-/* El rótulo va apilado: el título y, justo debajo y alineada con él,
-   la alerta del grupo si la hay. */
+/* El rótulo va apilado: el título y, justo debajo y alineada con él, la
+   alerta del grupo si la hay. Los dos juntos se pegan a la izquierda y
+   quedan a media altura de la banda: la misma distancia al borde de
+   arriba que al de abajo. De ahí que no lleve relleno vertical. */
 .grupo__rotulo{
   position:relative;
   z-index:2;
   width:100%;
-  padding-bottom:13px;
   display:flex; flex-direction:column; align-items:flex-start; gap:8px;
 }
 .grupo__cabecera--imagen .grupo__titulo{
@@ -382,7 +414,7 @@ body{
   border-block:none;
   margin-bottom:26px;
 }
-.grupo__cabecera--sin-imagen .grupo__rotulo{ padding-bottom:0; }
+.grupo__cabecera--sin-imagen{ align-items:flex-start; }
 .grupo__cabecera--sin-imagen .grupo__titulo{ font-size:1.3rem; text-shadow:none; }
 
 .grupo__items{ display:grid; }
@@ -609,8 +641,8 @@ body{
      ventana (con tope, para que en un monitor muy alto no se desmadre)
      y el rótulo se queda centrado dentro. El relleno sigue haciendo de
      suelo: si el nombre es largo o hay logotipo, la portada crece sola. */
-  .cabecera{ justify-content:center; min-height:min(64vh, 620px); }
-  .cabecera__interior{ padding:120px 24px 112px; }
+  .cabecera{ justify-content:center; min-height:min(76vh, 740px); }
+  .cabecera__interior{ padding:144px 24px 138px; }
   .idioma{ position:absolute; top:18px; right:24px; margin-top:0; }
   .lienzo{ padding:0 0 84px; }
   .columna{ padding-inline:24px; }
@@ -623,8 +655,8 @@ body{
     width:min(100%, var(--ancho-banda));
     margin-inline:auto;
     height:auto;
-    aspect-ratio:5/1;
-    max-height:220px;
+    aspect-ratio:4/1;
+    max-height:260px;
     border:1px solid var(--borde);
     border-radius:14px;
   }
