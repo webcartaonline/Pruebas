@@ -10,7 +10,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-02T17:30:31.841Z"
+    "actualizado": "2026-09-02T17:39:04.409Z"
   },
   "secciones": [
     {
@@ -58,8 +58,8 @@
                     "en": "Sells out fast"
                   },
                   "posicion": "abajo",
-                  "fondo": "secundario",
-                  "color": "auto"
+                  "fondo": "#3d0000",
+                  "color": "#ff0000"
                 }
               ]
             },
