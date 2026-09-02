@@ -1,50 +1,40 @@
 {
   "colores": {
-    "principal": "#8b3dff",
-    "fondo": "#ffdef4",
+    "principal": "#E9B44C",
+    "fondo": "#12100E",
     "texto": "auto"
   },
   "identidad": {
-    "titulo": "",
+    "titulo": "Pruebas Lab",
     "eslogan": {
-      "es": "",
+      "es": "Esto es un texto a modo de concepto",
       "en": ""
     },
-    "logo": "img/logo.png?v=mtjy9stg"
+    "logo": ""
   },
   "fuentes": {
-    "titulo": {
-      "archivo": "fuentes/titulo.ttf?v=mtjzyeu2",
-      "nombre": "Gorditas-Bold.ttf"
-    },
-    "texto": {
-      "archivo": "fuentes/texto.ttf?v=mtjzw23k",
-      "nombre": "Gorditas-Regular.ttf"
-    }
+    "titulo": null,
+    "texto": null
   },
   "pie": {
     "bloques": [
       {
-        "titulo": "Lunes - Jueves",
-        "texto": "Mañanas: Cerrado\n\nTardes: 16:30 - 21:30"
+        "titulo": "Texto de ejemplo",
+        "texto": "Este es un ejemplo de texto"
       },
       {
-        "titulo": "Viernes",
-        "texto": "Mañanas: Cerrado\n\nTardes: 15:00 - 22:00"
-      },
-      {
-        "titulo": "Sabado - Domingo",
-        "texto": "Mañanas: 10:00 - 13:30\n\nTardes: 15:00 - 22:00"
+        "titulo": "Segundo texto de ejemplo",
+        "texto": "Este es otro texto de ejemplo"
       }
     ],
     "redes": {
-      "tiktok": "https://www.tiktok.com/@kawaiicafe.es?lang=es&is_from_webapp=1&sender_device=mobile&sender_web_id=7640633224611563030",
-      "instagram": "https://www.instagram.com/kawaiicafe.es?igsi=bndlNW1rZmRpNm5i",
-      "x": "",
-      "youtube": "https://youtube.com/@kawaiicafespain?si=n2WVLSu3ph5vFTpi",
-      "facebook": "",
-      "snapchat": ""
+      "tiktok": "https://www.tiktok.com",
+      "instagram": "https://www.instagram.com",
+      "x": "https://www.x.com",
+      "youtube": "https://youtube.com",
+      "facebook": "https://facebook.com",
+      "snapchat": "https://snapchat.com"
     }
   },
-  "actualizado": "2026-09-02T11:16:19.498Z"
+  "actualizado": "2026-09-02T14:48:56.191Z"
 }
