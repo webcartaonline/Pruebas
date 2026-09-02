@@ -5,12 +5,12 @@
     "texto": "auto"
   },
   "identidad": {
-    "titulo": "KAWAY KAFÉ",
+    "titulo": "",
     "eslogan": {
       "es": "",
       "en": ""
     },
-    "logo": "img/logo.png?v=mtj7x21w"
+    "logo": "img/logo.png?v=mtjxx6cv"
   },
   "fuentes": {
     "titulo": null,
@@ -32,13 +32,13 @@
       }
     ],
     "redes": {
-      "tiktok": "",
-      "instagram": "",
-      "x": "https://x.com/SpaceX",
-      "youtube": "https://www.youtube.com/VeritasiumES",
+      "tiktok": "https://www.tiktok.com/@kawaiicafe.es?lang=es&is_from_webapp=1&sender_device=mobile&sender_web_id=7640633224611563030",
+      "instagram": "https://www.instagram.com/kawaiicafe.es?igsi=bndlNW1rZmRpNm5i",
+      "x": "",
+      "youtube": "https://youtube.com/@kawaiicafespain?si=n2WVLSu3ph5vFTpi",
       "facebook": "",
       "snapchat": ""
     }
   },
-  "actualizado": "2026-09-02T10:08:01.418Z"
+  "actualizado": "2026-09-02T10:15:39.362Z"
 }
