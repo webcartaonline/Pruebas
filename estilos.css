@@ -484,6 +484,12 @@ body{
   display:flex; flex-wrap:wrap; gap:6px;
   margin:9px 0 0; padding:0; list-style:none;
 }
+/* Cada plato puede llevar etiquetas encima y debajo de la descripción,
+   y cada montón necesita su propio aire: el de arriba cuelga de la
+   línea del nombre y el precio, y el de abajo va detrás de un párrafo,
+   que pide un poco más de separación. */
+.etiquetas--arriba{ margin-top:9px; }
+.etiquetas--abajo{ margin-top:12px; }
 .etiqueta{
   display:inline-block;
   max-width:100%;
@@ -599,7 +605,12 @@ body{
   }
   .grupo__regla{ flex:1; width:auto; }
   .item__foto{ width:104px; }
-  .cabecera__interior{ padding:96px 24px 88px; }
+  /* La portada gana altura: se le pone un alto mínimo que crece con la
+     ventana (con tope, para que en un monitor muy alto no se desmadre)
+     y el rótulo se queda centrado dentro. El relleno sigue haciendo de
+     suelo: si el nombre es largo o hay logotipo, la portada crece sola. */
+  .cabecera{ justify-content:center; min-height:min(64vh, 620px); }
+  .cabecera__interior{ padding:120px 24px 112px; }
   .idioma{ position:absolute; top:18px; right:24px; margin-top:0; }
   .lienzo{ padding:0 0 84px; }
   .columna{ padding-inline:24px; }
