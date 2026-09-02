@@ -1,524 +1,1545 @@
 {
   "negocio": {
-    "nombre": "Plantilla Lab",
+    "nombre": "Bar El Rincón",
     "lema": {
-      "es": "Desayunos con sol · a cualquier hora",
-      "en": "Sunny brunch · any time of day"
+      "es": "Tapas de barrio · desde 1978",
+      "en": "Neighbourhood tapas · since 1978"
     },
     "idiomas": [
       "es",
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-01T10:18:16.370Z"
+    "actualizado": "2026-09-02T10:00:00.000Z"
   },
   "secciones": [
     {
-      "id": "s-desayunar",
+      "id": "s-tapas",
       "nombre": {
-        "es": "Para desayunar",
-        "en": "Breakfast"
+        "es": "Tapas",
+        "en": "Tapas"
       },
-      "imagen": "img/secciones/s-desayunar.jpg",
-      "foco": "derecha",
       "grupos": [
         {
-          "id": "g-tostas",
+          "id": "g-tapas-frias",
           "nombre": {
-            "es": "Tostas",
-            "en": "Toasts"
-          },
-          "foco": "centro",
-          "items": [
-            {
-              "id": "i-tosta-aguacate",
-              "nombre": {
-                "es": "Tosta de aguacate",
-                "en": "Avocado toast"
-              },
-              "descripcion": {
-                "es": "Pan de masa madre, aguacate, tomate cherry y semillas",
-                "en": "Sourdough bread, avocado, cherry tomato and seeds"
-              },
-              "imagen": "img/items/i-tosta-aguacate.jpg?v=mt98p9y1",
-              "precio": 7.9,
-              "alergenos": [
-                "gluten",
-                "sesamo"
-              ]
-            },
-            {
-              "id": "i-tosta-salmon",
-              "nombre": {
-                "es": "Tosta de salmón",
-                "en": "Salmon toast"
-              },
-              "descripcion": {
-                "es": "Queso crema, salmón ahumado y eneldo",
-                "en": "Cream cheese, smoked salmon and dill"
-              },
-              "imagen": "img/items/i-tosta-salmon.jpg?v=mt98qp6i",
-              "precio": 9.5,
-              "alergenos": [
-                "gluten",
-                "pescado",
-                "lacteos"
-              ]
-            },
-            {
-              "id": "i-tosta-tomate",
-              "nombre": {
-                "es": "Tosta de tomate y jamón",
-                "en": "Tomato & ham toast"
-              },
-              "descripcion": {
-                "es": "Tomate rallado, jamón curado y aceite de oliva",
-                "en": "Grated tomato, cured ham and olive oil"
-              },
-              "precio": 6.5,
-              "alergenos": [
-                "gluten"
-              ],
-              "imagen": "img/items/i-tosta-tomate.jpg?v=mta63kcd"
-            },
-            {
-              "id": "i-tosta-cacao",
-              "nombre": {
-                "es": "Brioche con cacao",
-                "en": "Cocoa brioche"
-              },
-              "descripcion": {
-                "es": "Brioche templado con crema de cacao y avellana",
-                "en": "Warm brioche with cocoa-hazelnut spread"
-              },
-              "precio": 5.9,
-              "alergenos": [
-                "gluten",
-                "lacteos",
-                "frutos-secos",
-                "soja"
-              ],
-              "imagen": "img/items/i-tosta-cacao.jpg?v=mtatvqja"
-            }
-          ],
-          "imagen": "img/grupos/g-tostas.jpg?v=mtg9x81e"
-        },
-        {
-          "id": "g-cafe",
-          "nombre": {
-            "es": "Café",
-            "en": "Cofee"
+            "es": "Tapas frías",
+            "en": "Cold tapas"
           },
           "items": [
             {
-              "id": "i-espresso-ef5q",
+              "id": "i-ensaladilla",
               "nombre": {
-                "es": "Espresso",
-                "en": "Espresso"
+                "es": "Ensaladilla rusa",
+                "en": "Russian salad"
               },
               "descripcion": {
-                "es": "De tueste natural",
-                "en": "Naturally roasted"
+                "es": "La de siempre, con atún y mayonesa hecha en casa.",
+                "en": "The classic one, with tuna and homemade mayonnaise."
               },
-              "precio": 1.4,
-              "alergenos": []
-            },
-            {
-              "id": "i-flat-white-72wv",
-              "nombre": {
-                "es": "Con leche",
-                "en": "Flat white"
-              },
-              "descripcion": {
-                "es": "Con leche entera, de avena o de soja",
-                "en": "With whole, oat or soy milk"
-              },
-              "precio": 2.6,
-              "alergenos": [
-                "lacteos",
-                "soja"
-              ]
-            },
-            {
-              "id": "i-cappuccino-cixo",
-              "nombre": {
-                "es": "Cappuccino",
-                "en": "Cappuccino"
-              },
-              "descripcion": {
-                "es": "Espuma cremosa y cacao por encima",
-                "en": "Creamy foam dusted with cocoa"
-              },
-              "precio": 2.2,
-              "alergenos": [
-                "lacteos"
-              ]
-            },
-            {
-              "id": "i-chai-latte-dilq",
-              "nombre": {
-                "es": "Chai latte",
-                "en": "Chai latte"
-              },
-              "descripcion": {
-                "es": "Especias y leche vaporizada",
-                "en": "Spices and steamed milk"
-              },
-              "precio": 3.2,
-              "alergenos": [
-                "lacteos"
-              ]
-            }
-          ],
-          "imagen": "img/grupos/g-cafe.jpg?v=mtiihwfc",
-          "foco": "derecha"
-        },
-        {
-          "id": "g-grupo-h050",
-          "nombre": {
-            "es": "Bollería",
-            "en": ""
-          },
-          "items": [
-            {
-              "id": "i-item-n5b8",
-              "nombre": {
-                "es": "Croassant",
-                "en": "Croaassant"
-              },
-              "descripcion": {
-                "es": "",
-                "en": ""
-              },
-              "precio": 2.5,
+              "precio": 4.2,
               "alergenos": [
                 "huevos",
-                "gluten",
-                "lacteos"
+                "pescado"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "La más pedida",
+                    "en": "Most ordered"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "principal",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "Se acaba pronto",
+                    "en": "Sells out fast"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
               ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "s-dulce",
-      "nombre": {
-        "es": "Dulce",
-        "en": "Something sweet"
-      },
-      "imagen": "img/secciones/s-dulce.jpg",
-      "foco": "arriba",
-      "grupos": [
-        {
-          "id": "g-tortitas",
-          "nombre": {
-            "es": "Tortitas y gofres",
-            "en": "Pancakes & waffles"
-          },
-          "foco": "arriba-izquierda",
-          "items": [
+            },
             {
-              "id": "i-tortitas-clasicas",
+              "id": "i-boquerones",
               "nombre": {
-                "es": "Tortitas clásicas",
-                "en": "Classic pancakes"
+                "es": "Boquerones en vinagre",
+                "en": "Anchovies in vinegar"
               },
               "descripcion": {
-                "es": "Con sirope de arce y mantequilla",
-                "en": "With maple syrup and butter"
+                "es": "Con ajo, perejil y un chorrito de aceite de oliva.",
+                "en": "With garlic, parsley and a drizzle of olive oil."
+              },
+              "precio": 4.8,
+              "alergenos": [
+                "pescado",
+                "sulfitos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Ración de 8",
+                    "en": "8 pieces"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-pulpo-vinagreta",
+              "nombre": {
+                "es": "Pulpo a la vinagreta",
+                "en": "Octopus vinaigrette"
+              },
+              "descripcion": {
+                "es": "Pulpo cocido con pimiento, cebolla y aceite de oliva.",
+                "en": "Boiled octopus with pepper, onion and olive oil."
               },
               "precio": 7.5,
               "alergenos": [
-                "gluten",
-                "huevos"
+                "moluscos",
+                "sulfitos"
               ],
-              "imagen": "img/items/i-tortitas-clasicas.jpg?v=mta7sqhu"
-            },
-            {
-              "id": "i-gofre-rojos",
-              "nombre": {
-                "es": "Gofre de frutos rojos",
-                "en": "Berry waffle"
-              },
-              "descripcion": {
-                "es": "Nata montada y frutos rojos de temporada",
-                "en": "Whipped cream and seasonal berries"
-              },
-              "precio": 8.2,
-              "alergenos": [
-                "gluten",
-                "huevos",
-                "lacteos"
-              ],
-              "imagen": "img/items/i-gofre-rojos.jpg?v=mtd2edf9"
-            },
-            {
-              "id": "i-tortitas-veganas",
-              "nombre": {
-                "es": "Tortitas veganas",
-                "en": "Vegan pancakes"
-              },
-              "descripcion": {
-                "es": "De avena y plátano, con sirope de agave",
-                "en": "Oat and banana, with agave syrup"
-              },
-              "precio": 7.9,
-              "alergenos": [
-                "gluten"
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Preguntar disponibilidad",
+                    "en": "Ask availability"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
               ]
-            }
-          ],
-          "imagen": "img/grupos/g-tortitas.jpg?v=mtg9ymdm"
-        },
-        {
-          "id": "g-bolleria",
-          "nombre": {
-            "es": "Bollería",
-            "en": "Pastries"
-          },
-          "imagen": "img/grupos/g-bolleria.jpg?v=mtg9z0jj",
-          "foco": "abajo",
-          "items": [
+            },
             {
-              "id": "i-croissant",
+              "id": "i-queso-curado",
               "nombre": {
-                "es": "Croissant artesano",
-                "en": "Artisan croissant"
+                "es": "Tabla de queso curado",
+                "en": "Cured cheese board"
               },
               "descripcion": {
-                "es": "De mantequilla, horneado cada mañana",
-                "en": "All-butter, baked every morning"
+                "es": "Queso manchego curado con picos y membrillo.",
+                "en": "Aged manchego cheese with breadsticks and quince."
               },
-              "precio": 2.2,
+              "precio": 6.9,
               "alergenos": [
-                "gluten",
                 "lacteos",
-                "huevos"
-              ]
-            },
-            {
-              "id": "i-muffin",
-              "nombre": {
-                "es": "Muffin de arándanos",
-                "en": "Blueberry muffin"
-              },
-              "descripcion": {
-                "es": "Esponjoso, con arándanos frescos",
-                "en": "Fluffy, with fresh blueberries"
-              },
-              "precio": 3.1,
-              "alergenos": [
-                "gluten",
-                "huevos",
-                "lacteos"
+                "gluten"
               ],
-              "imagen": "img/items/i-muffin.jpg?v=mtedcwyj"
-            },
-            {
-              "id": "i-roll-canela",
-              "nombre": {
-                "es": "Roll de canela",
-                "en": "Cinnamon roll"
-              },
-              "descripcion": {
-                "es": "Con glaseado de queso crema",
-                "en": "With cream cheese glaze"
-              },
-              "precio": 3.8,
-              "alergenos": [
-                "gluten",
-                "huevos",
-                "lacteos"
-              ],
-              "imagen": "img/items/i-roll-canela.jpg?v=mtg9znxg"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "s-zumos",
-      "nombre": {
-        "es": "Zumos y batidos",
-        "en": "Juices & smoothies"
-      },
-      "imagen": "img/secciones/s-zumos.jpg",
-      "foco": "derecha",
-      "grupos": [
-        {
-          "id": "g-zumos",
-          "nombre": {
-            "es": "Zumos naturales",
-            "en": "Fresh juices"
-          },
-          "items": [
-            {
-              "id": "i-naranja",
-              "nombre": {
-                "es": "Naranja exprimida",
-                "en": "Fresh orange"
-              },
-              "descripcion": {
-                "es": "Exprimido al momento",
-                "en": "Squeezed to order"
-              },
-              "precio": 2.2,
-              "alergenos": []
-            },
-            {
-              "id": "i-verde",
-              "nombre": {
-                "es": "Verde detox",
-                "en": "Green detox"
-              },
-              "descripcion": {
-                "es": "Manzana, apio, pepino y jengibre",
-                "en": "Apple, celery, cucumber and ginger"
-              },
-              "precio": 4.5,
-              "alergenos": [
-                "apio"
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "12 meses de curación",
+                    "en": "12 months aged"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
               ]
-            },
-            {
-              "id": "i-sandia",
-              "nombre": {
-                "es": "Sandía y menta",
-                "en": "Watermelon & mint"
-              },
-              "descripcion": {
-                "es": "Refrescante, sin azúcares añadidos",
-                "en": "Refreshing, no added sugar"
-              },
-              "precio": 4.2,
-              "alergenos": []
             }
           ]
         },
         {
-          "id": "g-batidos",
+          "id": "g-tapas-calientes",
           "nombre": {
-            "es": "Batidos y bowls",
-            "en": "Smoothies & bowls"
+            "es": "Tapas calientes",
+            "en": "Hot tapas"
+          },
+          "alerta": {
+            "texto": {
+              "es": "También en media ración",
+              "en": "Also as a half portion"
+            },
+            "fondo": "secundario",
+            "color": "auto"
           },
           "items": [
-            {
-              "id": "i-fresa-platano",
-              "nombre": {
-                "es": "Batido de fresa y plátano",
-                "en": "Strawberry-banana smoothie"
-              },
-              "descripcion": {
-                "es": "Con leche de avena",
-                "en": "With oat milk"
-              },
-              "precio": 5,
-              "alergenos": [
-                "gluten"
-              ]
-            },
-            {
-              "id": "i-acai-bowl",
-              "nombre": {
-                "es": "Bowl de açaí",
-                "en": "Açaí bowl"
-              },
-              "descripcion": {
-                "es": "Açaí, granola, plátano y coco",
-                "en": "Açaí, granola, banana and coconut"
-              },
-              "precio": 2.2,
-              "alergenos": [
-                "gluten",
-                "frutos-secos",
-                "cacahuetes"
-              ]
-            },
-            {
-              "id": "i-proteico",
-              "nombre": {
-                "es": "Batido proteico",
-                "en": "Protein shake"
-              },
-              "descripcion": {
-                "es": "Cacao, plátano y crema de cacahuete",
-                "en": "Cocoa, banana and peanut butter"
-              },
-              "precio": 5.5,
-              "alergenos": [
-                "cacahuetes",
-                "soja"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "s-cafe",
-      "nombre": {
-        "es": "Café y algo salado",
-        "en": "Coffee & savory"
-      },
-      "grupos": [
-        {
-          "id": "g-picar",
-          "nombre": {
-            "es": "Para picar",
-            "en": "Savory bites"
-          },
-          "items": [
-            {
-              "id": "i-bikini",
-              "nombre": {
-                "es": "Bikini de la casa",
-                "en": "Ham & cheese toastie"
-              },
-              "descripcion": {
-                "es": "Jamón, queso fundido y un toque de trufa",
-                "en": "Ham, melted cheese and a touch of truffle"
-              },
-              "precio": 99.99,
-              "alergenos": [
-                "gluten",
-                "lacteos"
-              ]
-            },
-            {
-              "id": "i-nachos",
-              "nombre": {
-                "es": "Nachos con guacamole",
-                "en": "Nachos with guacamole"
-              },
-              "descripcion": {
-                "es": "Maíz crujiente y guacamole fresco",
-                "en": "Crunchy corn chips and fresh guacamole"
-              },
-              "precio": 7.2,
-              "alergenos": []
-            },
             {
               "id": "i-croquetas",
               "nombre": {
-                "es": "Croquetas caseras",
-                "en": "Homemade croquettes"
+                "es": "Croquetas de jamón",
+                "en": "Ham croquettes"
               },
               "descripcion": {
-                "es": "Seis unidades de jamón",
-                "en": "Six ham croquettes"
+                "es": "Hechas cada mañana con jamón ibérico picado a cuchillo.",
+                "en": "Made fresh every morning with hand-cut ibérico ham."
               },
-              "precio": 7.9,
+              "precio": 5.4,
               "alergenos": [
                 "gluten",
                 "lacteos",
                 "huevos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "6 unidades",
+                    "en": "6 pieces"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "principal",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "Caseras",
+                    "en": "Homemade"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "secundario",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "Preguntar disponibilidad",
+                    "en": "Ask availability"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-patatas-bravas",
+              "nombre": {
+                "es": "Patatas bravas",
+                "en": "Patatas bravas"
+              },
+              "descripcion": {
+                "es": "Patata frita en aceite de oliva con nuestra salsa brava.",
+                "en": "Potatoes fried in olive oil with our own brava sauce."
+              },
+              "precio": 4.5,
+              "alergenos": [],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Picante",
+                    "en": "Spicy"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#B3261E",
+                  "color": "#FFFFFF"
+                },
+                {
+                  "texto": {
+                    "es": "Vegana",
+                    "en": "Vegan"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2E7D32",
+                  "color": "#FFFFFF"
+                },
+                {
+                  "texto": {
+                    "es": "Alioli aparte sin coste",
+                    "en": "Alioli on the side"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-gambas-ajillo",
+              "nombre": {
+                "es": "Gambas al ajillo",
+                "en": "Garlic prawns"
+              },
+              "descripcion": {
+                "es": "En cazuela de barro, con guindilla y mucho ajo.",
+                "en": "In a clay dish, with chilli and plenty of garlic."
+              },
+              "precio": 8.9,
+              "alergenos": [
+                "crustaceos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Picante",
+                    "en": "Spicy"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#B3261E",
+                  "color": "#FFFFFF"
+                },
+                {
+                  "texto": {
+                    "es": "Extra de pan +0,80 €",
+                    "en": "Extra bread +€0.80"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "principal",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-chorizo-sidra",
+              "nombre": {
+                "es": "Chorizo a la sidra",
+                "en": "Chorizo in cider"
+              },
+              "descripcion": {
+                "es": "Chorizo casero cocinado a fuego lento en sidra natural.",
+                "en": "Homemade chorizo slow-cooked in natural cider."
+              },
+              "precio": 5.6,
+              "alergenos": [
+                "sulfitos"
+              ]
+            },
+            {
+              "id": "i-pimientos",
+              "nombre": {
+                "es": "Pimientos de Padrón",
+                "en": "Padrón peppers"
+              },
+              "descripcion": {
+                "es": "Fritos con sal gorda. Unos pican y otros no.",
+                "en": "Fried with coarse salt. Some are hot, some are not."
+              },
+              "precio": 5.2,
+              "alergenos": [],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Vegana",
+                    "en": "Vegan"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2E7D32",
+                  "color": "#FFFFFF"
+                },
+                {
+                  "texto": {
+                    "es": "De temporada",
+                    "en": "Seasonal"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g-raciones",
+          "nombre": {
+            "es": "Raciones para compartir",
+            "en": "Sharing platters"
+          },
+          "items": [
+            {
+              "id": "i-jamon",
+              "nombre": {
+                "es": "Jamón ibérico de bellota",
+                "en": "Ibérico bellota ham"
+              },
+              "descripcion": {
+                "es": "Cortado a cuchillo en el momento.",
+                "en": "Hand-carved to order."
+              },
+              "precio": 18.5,
+              "alergenos": [],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "100 g",
+                    "en": "100 g"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "principal",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "Cortado a mano",
+                    "en": "Hand-carved"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "El corte tarda 10 min",
+                    "en": "10 min to carve"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-tabla-mixta",
+              "nombre": {
+                "es": "Tabla mixta de embutidos",
+                "en": "Mixed charcuterie board"
+              },
+              "descripcion": {
+                "es": "Jamón, lomo, chorizo y salchichón con pan de cristal.",
+                "en": "Ham, loin, chorizo and salchichón with cristal bread."
+              },
+              "precio": 14.9,
+              "alergenos": [
+                "gluten",
+                "sulfitos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Para 2 o 3 personas",
+                    "en": "Serves 2–3"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-tortilla",
+              "nombre": {
+                "es": "Tortilla de patata entera",
+                "en": "Whole potato omelette"
+              },
+              "descripcion": {
+                "es": "Cebolla sí. Poco cuajada, como debe ser.",
+                "en": "With onion. Runny in the middle, as it should be."
+              },
+              "precio": 12.0,
+              "alergenos": [
+                "huevos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "8 raciones",
+                    "en": "8 portions"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "principal",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "También bien cuajada",
+                    "en": "Also well done"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
               ]
             }
           ]
         }
-      ],
-      "imagen": "img/secciones/s-cafe.jpg?v=mtb8gnd9"
+      ]
+    },
+    {
+      "id": "s-bocadillos",
+      "nombre": {
+        "es": "Bocadillos",
+        "en": "Sandwiches"
+      },
+      "grupos": [
+        {
+          "id": "g-bocadillos",
+          "nombre": {
+            "es": "Bocadillos",
+            "en": "Sandwiches"
+          },
+          "alerta": {
+            "texto": {
+              "es": "Pan sin gluten +0,60 €",
+              "en": "Gluten-free bread +€0.60"
+            },
+            "fondo": "principal",
+            "color": "auto"
+          },
+          "items": [
+            {
+              "id": "i-boca-lomo",
+              "nombre": {
+                "es": "Bocadillo de lomo con queso",
+                "en": "Pork loin & cheese roll"
+              },
+              "descripcion": {
+                "es": "Lomo a la plancha con queso fundido y pimientos verdes.",
+                "en": "Grilled pork loin with melted cheese and green peppers."
+              },
+              "precio": 6.5,
+              "alergenos": [
+                "gluten",
+                "lacteos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Pan de 25 cm",
+                    "en": "25 cm roll"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "principal",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "Extra de queso +0,70 €",
+                    "en": "Extra cheese +€0.70"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "principal",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-boca-calamares",
+              "nombre": {
+                "es": "Bocadillo de calamares",
+                "en": "Calamari roll"
+              },
+              "descripcion": {
+                "es": "Calamares rebozados y alioli suave.",
+                "en": "Battered calamari with mild alioli."
+              },
+              "precio": 6.9,
+              "alergenos": [
+                "gluten",
+                "moluscos",
+                "huevos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "De jueves a domingo",
+                    "en": "Thursday to Sunday"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-boca-vegetal",
+              "nombre": {
+                "es": "Bocadillo vegetal",
+                "en": "Veggie roll"
+              },
+              "descripcion": {
+                "es": "Lechuga, tomate, zanahoria, espárragos y mayonesa.",
+                "en": "Lettuce, tomato, carrot, asparagus and mayonnaise."
+              },
+              "precio": 5.8,
+              "alergenos": [
+                "gluten",
+                "huevos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Vegetariano",
+                    "en": "Vegetarian"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2E7D32",
+                  "color": "#FFFFFF"
+                },
+                {
+                  "texto": {
+                    "es": "Vegano sin mayonesa",
+                    "en": "Vegan without mayo"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "#2E7D32",
+                  "color": "#FFFFFF"
+                }
+              ]
+            },
+            {
+              "id": "i-boca-tortilla",
+              "nombre": {
+                "es": "Bocadillo de tortilla",
+                "en": "Omelette roll"
+              },
+              "descripcion": {
+                "es": "De nuestra tortilla de patata, con o sin pan tostado.",
+                "en": "Made with our potato omelette, toasted bread optional."
+              },
+              "precio": 5.2,
+              "alergenos": [
+                "gluten",
+                "huevos"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g-montaditos",
+          "nombre": {
+            "es": "Montaditos",
+            "en": "Small open sandwiches"
+          },
+          "items": [
+            {
+              "id": "i-montadito-lomo",
+              "nombre": {
+                "es": "Montadito de lomo",
+                "en": "Pork loin montadito"
+              },
+              "descripcion": {
+                "es": "Pan tostado con lomo y pimiento asado.",
+                "en": "Toasted bread with pork loin and roasted pepper."
+              },
+              "precio": 2.6,
+              "alergenos": [
+                "gluten"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "3 x 7 €",
+                    "en": "3 for €7"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "principal",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-montadito-anchoa",
+              "nombre": {
+                "es": "Montadito de anchoa y tomate",
+                "en": "Anchovy & tomato montadito"
+              },
+              "descripcion": {
+                "es": "Anchoa del Cantábrico sobre pan con tomate.",
+                "en": "Cantabrian anchovy on bread with tomato."
+              },
+              "precio": 3.2,
+              "alergenos": [
+                "gluten",
+                "pescado"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "3 x 7 €",
+                    "en": "3 for €7"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "principal",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-montadito-morcilla",
+              "nombre": {
+                "es": "Montadito de morcilla",
+                "en": "Blood sausage montadito"
+              },
+              "descripcion": {
+                "es": "Morcilla de Burgos con cebolla caramelizada.",
+                "en": "Burgos blood sausage with caramelised onion."
+              },
+              "precio": 2.9,
+              "alergenos": [
+                "gluten",
+                "sulfitos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "3 x 7 €",
+                    "en": "3 for €7"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "principal",
+                  "color": "auto"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-hamburguesas",
+      "nombre": {
+        "es": "Hamburguesas",
+        "en": "Burgers"
+      },
+      "grupos": [
+        {
+          "id": "g-hamburguesas",
+          "nombre": {
+            "es": "Hamburguesas",
+            "en": "Burgers"
+          },
+          "alerta": {
+            "texto": {
+              "es": "Con patatas y salsa a elegir",
+              "en": "Fries and a sauce included"
+            },
+            "fondo": "secundario",
+            "color": "auto"
+          },
+          "items": [
+            {
+              "id": "i-hamburguesa-angus",
+              "nombre": {
+                "es": "Hamburguesa de angus",
+                "en": "Angus burger"
+              },
+              "descripcion": {
+                "es": "Carne de angus, cheddar, cebolla morada y salsa de la casa.",
+                "en": "Angus beef, cheddar, red onion and house sauce."
+              },
+              "precio": 11.9,
+              "alergenos": [
+                "gluten",
+                "lacteos",
+                "huevos",
+                "mostaza"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "250 g de carne",
+                    "en": "250 g patty"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "principal",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "Al punto",
+                    "en": "Medium"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "secundario",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "Con patatas",
+                    "en": "Fries included"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "Extra de aguacate +0,50 €",
+                    "en": "Extra avocado +€0.50"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "principal",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-hamburguesa-pollo",
+              "nombre": {
+                "es": "Hamburguesa de pollo crujiente",
+                "en": "Crispy chicken burger"
+              },
+              "descripcion": {
+                "es": "Pollo empanado, lechuga, tomate y mayonesa de lima.",
+                "en": "Breaded chicken, lettuce, tomato and lime mayo."
+              },
+              "precio": 10.5,
+              "alergenos": [
+                "gluten",
+                "huevos",
+                "lacteos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "180 g",
+                    "en": "180 g"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "principal",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "Con patatas",
+                    "en": "Fries included"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "También picante",
+                    "en": "Spicy option"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "#B3261E",
+                  "color": "#FFFFFF"
+                }
+              ]
+            },
+            {
+              "id": "i-hamburguesa-vegana",
+              "nombre": {
+                "es": "Hamburguesa vegana",
+                "en": "Vegan burger"
+              },
+              "descripcion": {
+                "es": "De garbanzo y remolacha, con hummus y rúcula.",
+                "en": "Chickpea and beetroot patty with hummus and rocket."
+              },
+              "precio": 10.9,
+              "alergenos": [
+                "gluten",
+                "sesamo",
+                "soja"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Vegana",
+                    "en": "Vegan"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2E7D32",
+                  "color": "#FFFFFF"
+                },
+                {
+                  "texto": {
+                    "es": "200 g",
+                    "en": "200 g"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "principal",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "Con patatas",
+                    "en": "Fries included"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-hamburguesa-doble",
+              "nombre": {
+                "es": "Doble de la casa",
+                "en": "House double"
+              },
+              "descripcion": {
+                "es": "Dos carnes, doble cheddar, bacon y pepinillo.",
+                "en": "Two patties, double cheddar, bacon and pickle."
+              },
+              "precio": 14.5,
+              "alergenos": [
+                "gluten",
+                "lacteos",
+                "huevos",
+                "mostaza",
+                "sulfitos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "2 x 150 g",
+                    "en": "2 x 150 g"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "principal",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "Nuevo",
+                    "en": "New"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#B3261E",
+                  "color": "#FFFFFF"
+                },
+                {
+                  "texto": {
+                    "es": "Extra de bacon +1,20 €",
+                    "en": "Extra bacon +€1.20"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "principal",
+                  "color": "auto"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g-complementos",
+          "nombre": {
+            "es": "Complementos",
+            "en": "Sides"
+          },
+          "items": [
+            {
+              "id": "i-patatas-gajo",
+              "nombre": {
+                "es": "Patatas gajo",
+                "en": "Potato wedges"
+              },
+              "descripcion": {
+                "es": "Con especias cajún y salsa de yogur.",
+                "en": "With cajun spices and yoghurt sauce."
+              },
+              "precio": 4.2,
+              "alergenos": [
+                "lacteos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Picante suave",
+                    "en": "Mildly spicy"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#B3261E",
+                  "color": "#FFFFFF"
+                }
+              ]
+            },
+            {
+              "id": "i-aros-cebolla",
+              "nombre": {
+                "es": "Aros de cebolla",
+                "en": "Onion rings"
+              },
+              "descripcion": {
+                "es": "Rebozados en cerveza, ocho unidades.",
+                "en": "Beer-battered, eight pieces."
+              },
+              "precio": 4.6,
+              "alergenos": [
+                "gluten",
+                "sulfitos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "8 unidades",
+                    "en": "8 pieces"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-salsas",
+              "nombre": {
+                "es": "Salsas extra",
+                "en": "Extra sauces"
+              },
+              "descripcion": {
+                "es": "Brava, alioli, barbacoa o mostaza y miel.",
+                "en": "Brava, alioli, barbecue or honey mustard."
+              },
+              "precio": 0.8,
+              "alergenos": [
+                "huevos",
+                "mostaza"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Por unidad",
+                    "en": "Each"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-cervezas",
+      "nombre": {
+        "es": "Cervezas",
+        "en": "Beers"
+      },
+      "grupos": [
+        {
+          "id": "g-barril",
+          "nombre": {
+            "es": "De barril",
+            "en": "On tap"
+          },
+          "alerta": {
+            "texto": {
+              "es": "Tapa gratis con cada caña",
+              "en": "Free tapa with every beer"
+            },
+            "fondo": "principal",
+            "color": "auto"
+          },
+          "items": [
+            {
+              "id": "i-cana",
+              "nombre": {
+                "es": "Caña",
+                "en": "Small draught beer"
+              },
+              "descripcion": {
+                "es": "Tirada del tirón, en vaso frío de 20 cl.",
+                "en": "Poured in one go, in a chilled 20 cl glass."
+              },
+              "precio": 1.8,
+              "alergenos": [
+                "gluten"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "20 cl",
+                    "en": "20 cl"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2F6F8F",
+                  "color": "#FFFFFF"
+                }
+              ]
+            },
+            {
+              "id": "i-doble",
+              "nombre": {
+                "es": "Doble",
+                "en": "Large draught beer"
+              },
+              "descripcion": {
+                "es": "La misma caña, en vaso de 33 cl.",
+                "en": "The same beer, in a 33 cl glass."
+              },
+              "precio": 2.7,
+              "alergenos": [
+                "gluten"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "33 cl",
+                    "en": "33 cl"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2F6F8F",
+                  "color": "#FFFFFF"
+                }
+              ]
+            },
+            {
+              "id": "i-jarra",
+              "nombre": {
+                "es": "Jarra",
+                "en": "Beer stein"
+              },
+              "descripcion": {
+                "es": "Medio litro bien fría.",
+                "en": "Half a litre, properly cold."
+              },
+              "precio": 3.9,
+              "alergenos": [
+                "gluten"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "50 cl",
+                    "en": "50 cl"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2F6F8F",
+                  "color": "#FFFFFF"
+                }
+              ]
+            },
+            {
+              "id": "i-tostada-barril",
+              "nombre": {
+                "es": "Tostada de barril",
+                "en": "Draught dark beer"
+              },
+              "descripcion": {
+                "es": "Cerveza tostada, más dulce y con más cuerpo.",
+                "en": "Amber beer, sweeter and fuller bodied."
+              },
+              "precio": 2.9,
+              "alergenos": [
+                "gluten"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "33 cl",
+                    "en": "33 cl"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2F6F8F",
+                  "color": "#FFFFFF"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g-botellin",
+          "nombre": {
+            "es": "Botellín y tercio",
+            "en": "Bottled beer"
+          },
+          "items": [
+            {
+              "id": "i-botellin",
+              "nombre": {
+                "es": "Botellín",
+                "en": "Small bottle"
+              },
+              "descripcion": {
+                "es": "Botella de 25 cl de nuestra rubia de siempre.",
+                "en": "25 cl bottle of our usual lager."
+              },
+              "precio": 2.2,
+              "alergenos": [
+                "gluten"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "25 cl",
+                    "en": "25 cl"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2F6F8F",
+                  "color": "#FFFFFF"
+                }
+              ]
+            },
+            {
+              "id": "i-tercio",
+              "nombre": {
+                "es": "Tercio",
+                "en": "Third of a litre"
+              },
+              "descripcion": {
+                "es": "Botella de 33 cl.",
+                "en": "33 cl bottle."
+              },
+              "precio": 2.8,
+              "alergenos": [
+                "gluten"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "33 cl",
+                    "en": "33 cl"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2F6F8F",
+                  "color": "#FFFFFF"
+                }
+              ]
+            },
+            {
+              "id": "i-artesana",
+              "nombre": {
+                "es": "Cerveza artesana del mes",
+                "en": "Craft beer of the month"
+              },
+              "descripcion": {
+                "es": "Cambia cada mes. Pregunta cuál tenemos hoy.",
+                "en": "Changes every month. Ask what we have today."
+              },
+              "precio": 4.2,
+              "alergenos": [
+                "gluten"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Edición limitada",
+                    "en": "Limited edition"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#B3261E",
+                  "color": "#FFFFFF"
+                },
+                {
+                  "texto": {
+                    "es": "Preguntar disponibilidad",
+                    "en": "Ask availability"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g-sin-alcohol",
+          "nombre": {
+            "es": "Sin alcohol y refrescos",
+            "en": "Alcohol-free & soft drinks"
+          },
+          "items": [
+            {
+              "id": "i-sin-alcohol",
+              "nombre": {
+                "es": "Cerveza sin alcohol",
+                "en": "Alcohol-free beer"
+              },
+              "descripcion": {
+                "es": "Botellín de 25 cl, también en versión tostada.",
+                "en": "25 cl bottle, also available amber."
+              },
+              "precio": 2.2,
+              "alergenos": [
+                "gluten"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "0,0 %",
+                    "en": "0.0 %"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2E7D32",
+                  "color": "#FFFFFF"
+                }
+              ]
+            },
+            {
+              "id": "i-clara",
+              "nombre": {
+                "es": "Clara con limón",
+                "en": "Shandy"
+              },
+              "descripcion": {
+                "es": "Mitad cerveza, mitad limón. En caña o en jarra.",
+                "en": "Half beer, half lemon. Small glass or stein."
+              },
+              "precio": 2.1,
+              "alergenos": [
+                "gluten"
+              ]
+            },
+            {
+              "id": "i-refresco",
+              "nombre": {
+                "es": "Refrescos",
+                "en": "Soft drinks"
+              },
+              "descripcion": {
+                "es": "Cola, naranja, limón, tónica y gaseosa.",
+                "en": "Cola, orange, lemon, tonic and lemonade."
+              },
+              "precio": 2.3,
+              "alergenos": [],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "33 cl",
+                    "en": "33 cl"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2F6F8F",
+                  "color": "#FFFFFF"
+                }
+              ]
+            },
+            {
+              "id": "i-agua",
+              "nombre": {
+                "es": "Agua mineral",
+                "en": "Mineral water"
+              },
+              "descripcion": {
+                "es": "Con o sin gas.",
+                "en": "Still or sparkling."
+              },
+              "precio": 1.6,
+              "alergenos": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-picar",
+      "nombre": {
+        "es": "Para picar",
+        "en": "Nibbles"
+      },
+      "grupos": [
+        {
+          "id": "g-encurtidos",
+          "nombre": {
+            "es": "Encurtidos y aceitunas",
+            "en": "Pickles & olives"
+          },
+          "items": [
+            {
+              "id": "i-aceitunas",
+              "nombre": {
+                "es": "Aceitunas aliñadas",
+                "en": "Marinated olives"
+              },
+              "descripcion": {
+                "es": "Manzanilla con ajo, tomillo y un poco de naranja.",
+                "en": "Manzanilla olives with garlic, thyme and a touch of orange."
+              },
+              "precio": 2.5,
+              "alergenos": [],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Vegana",
+                    "en": "Vegan"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2E7D32",
+                  "color": "#FFFFFF"
+                },
+                {
+                  "texto": {
+                    "es": "Aliño de la casa",
+                    "en": "House marinade"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-banderillas",
+              "nombre": {
+                "es": "Banderillas picantes",
+                "en": "Spicy pickle skewers"
+              },
+              "descripcion": {
+                "es": "Guindilla, aceituna, pepinillo y cebolleta.",
+                "en": "Chilli, olive, gherkin and pickled onion."
+              },
+              "precio": 2.8,
+              "alergenos": [
+                "sulfitos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Picante",
+                    "en": "Spicy"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#B3261E",
+                  "color": "#FFFFFF"
+                },
+                {
+                  "texto": {
+                    "es": "4 unidades",
+                    "en": "4 pieces"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-berberechos",
+              "nombre": {
+                "es": "Berberechos al natural",
+                "en": "Cockles in brine"
+              },
+              "descripcion": {
+                "es": "Lata de 16/20 piezas, con limón.",
+                "en": "Tin of 16/20 pieces, served with lemon."
+              },
+              "precio": 9.8,
+              "alergenos": [
+                "moluscos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Preguntar disponibilidad",
+                    "en": "Ask availability"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g-snacks",
+          "nombre": {
+            "es": "Snacks de bolsa",
+            "en": "Packet snacks"
+          },
+          "alerta": {
+            "texto": {
+              "es": "También para llevar",
+              "en": "Also to take away"
+            },
+            "fondo": "secundario",
+            "color": "auto"
+          },
+          "items": [
+            {
+              "id": "i-patatas-bolsa",
+              "nombre": {
+                "es": "Patatas fritas de bolsa",
+                "en": "Crisps"
+              },
+              "descripcion": {
+                "es": "Fritas en aceite de oliva, bolsa grande para compartir.",
+                "en": "Fried in olive oil, large sharing bag."
+              },
+              "precio": 2.9,
+              "alergenos": [],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Bolsa de 150 g",
+                    "en": "150 g bag"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "principal",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "Vegana",
+                    "en": "Vegan"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2E7D32",
+                  "color": "#FFFFFF"
+                }
+              ]
+            },
+            {
+              "id": "i-cortezas",
+              "nombre": {
+                "es": "Cortezas de cerdo",
+                "en": "Pork scratchings"
+              },
+              "descripcion": {
+                "es": "Crujientes y saladas, de toda la vida.",
+                "en": "Crunchy and salty, the classic ones."
+              },
+              "precio": 2.4,
+              "alergenos": []
+            },
+            {
+              "id": "i-frutos-secos",
+              "nombre": {
+                "es": "Frutos secos surtidos",
+                "en": "Mixed nuts"
+              },
+              "descripcion": {
+                "es": "Almendra, anacardo, avellana y cacahuete tostado.",
+                "en": "Almond, cashew, hazelnut and roasted peanut."
+              },
+              "precio": 3.6,
+              "alergenos": [
+                "frutos-secos",
+                "cacahuetes"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "100 g",
+                    "en": "100 g"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "principal",
+                  "color": "auto"
+                },
+                {
+                  "texto": {
+                    "es": "Puede llevar trazas",
+                    "en": "May contain traces"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ]
+            },
+            {
+              "id": "i-altramuces",
+              "nombre": {
+                "es": "Altramuces",
+                "en": "Lupin beans"
+              },
+              "descripcion": {
+                "es": "En salmuera, en cuenco para compartir.",
+                "en": "In brine, served in a sharing bowl."
+              },
+              "precio": 2.2,
+              "alergenos": [
+                "altramuces"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Vegana",
+                    "en": "Vegan"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "#2E7D32",
+                  "color": "#FFFFFF"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

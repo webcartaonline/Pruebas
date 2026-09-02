@@ -111,6 +111,7 @@ const ICONO_DESCONOCIDO = '<circle cx="12" cy="12" r="8.5"/><path d="M9.8 9.4a2.
 const app = {
   datos: null,
   apariencia: null,  // colores, marca y fuentes elegidos por el negocio (apariencia.json)
+  paleta: null,      // los colores ya resueltos, para las etiquetas y las alertas
   idioma: 'es',
   idiomas: ['es'],   // se rellena al cargar el JSON
   imagenes: false,   // se rellena al cargar el JSON
@@ -311,6 +312,10 @@ function aplicarColores(colores) {
   raiz.setProperty('--acento-halo', conTransparencia(principal, 0.16));
   raiz.setProperty('--barra-fondo', conTransparencia(hondo, 0.9));
   $('meta[name="theme-color"]')?.setAttribute('content', fondo);
+
+  // Las etiquetas y las alertas se pintan con color escrito a mano en cada
+  // una, no con variables de CSS, así que necesitan la paleta ya resuelta.
+  app.paleta = { principal, fondo, texto, superficie: mezclar(fondo, texto, 0.05) };
 }
 
 /* ---------- Fuentes del negocio ----------
@@ -400,6 +405,122 @@ async function cargarApariencia() {
 function aplicarApariencia(apariencia) {
   aplicarColores(apariencia?.colores);
   aplicarFuentes(apariencia?.fuentes);
+}
+
+/* =========================================================
+   ETIQUETAS Y ALERTAS
+   Dos formas de destacar algo, las dos escritas a mano por
+   el negocio desde el editor:
+
+   - ETIQUETA: una palabra corta pegada al plato («250 g»,
+     «Nuevo», «Picante»). Cada una elige si va encima o
+     debajo de la descripción, así que en un mismo plato
+     puede haber de las dos, y tantas como haga falta.
+   - ALERTA: una frase para el grupo entero («Todas las
+     tapas se pueden pedir en media ración»). Va montada
+     sobre la línea que separa el título del grupo, y solo
+     se admite UNA: dos alertas romperían esa línea.
+     Los platos no llevan alertas; para eso están las
+     etiquetas.
+
+   Las dos guardan lo mismo: el texto (bilingüe), el color
+   de fondo y el color de la letra. El fondo puede ser
+   "principal" (el color de la marca), "secundario" (el tono
+   del fondo de la carta) o un color escrito a mano. La
+   letra puede ir en "auto", y entonces se elige sola clara
+   u oscura según lo que se lea mejor.
+   ========================================================= */
+
+const DESTACADO_DEFECTO = { fondo: 'principal', color: 'auto' };
+const POSICIONES_ETIQUETA = ['arriba', 'abajo'];
+
+/* La paleta puede no estar lista si apariencia.json no cargó:
+   en ese caso valen los colores de siempre. */
+function paleta() {
+  return app.paleta ?? {
+    principal: COLORES_DEFECTO.principal,
+    fondo: COLORES_DEFECTO.fondo,
+    texto: '#F4EFE7',
+    superficie: '#1A1613'
+  };
+}
+
+function esHex(valor) {
+  return hexARgb(valor) !== null;
+}
+
+/* El fondo elegido, traducido a un color de verdad. */
+function fondoDeDestacado(destacado) {
+  const elegido = String(destacado?.fondo ?? DESTACADO_DEFECTO.fondo).trim();
+  if (elegido === 'secundario') return paleta().superficie;
+  if (esHex(elegido)) return elegido;
+  return paleta().principal;   // "principal" y cualquier cosa rara
+}
+
+/* La letra: la que se haya escrito, o la que mejor se lea encima. */
+function letraDeDestacado(destacado, fondo) {
+  const elegido = String(destacado?.color ?? DESTACADO_DEFECTO.color).trim();
+  if (esHex(elegido)) return elegido;
+  return esColorClaro(fondo) ? '#17140F' : '#FFF8EC';
+}
+
+function coloresDeDestacado(destacado) {
+  const fondo = fondoDeDestacado(destacado);
+  return { fondo, letra: letraDeDestacado(destacado, fondo) };
+}
+
+/* La etiqueta va a pelo: solo su color de fondo, sin filo alrededor. */
+function estiloEtiqueta(destacado) {
+  const { fondo, letra } = coloresDeDestacado(destacado);
+  return `background:${fondo};color:${letra}`;
+}
+
+/* La alerta sí lleva un filo apenas visible, mezcla del fondo con su
+   propia letra: va montada sobre la línea del grupo y sin él se
+   confundiría con ella. */
+function estiloAlerta(destacado) {
+  const { fondo, letra } = coloresDeDestacado(destacado);
+  return `background:${fondo};color:${letra};border-color:${mezclar(fondo, letra, 0.18)}`;
+}
+
+/* Solo se pintan las que tengan algo escrito en el idioma activo. */
+function destacadosVisibles(lista) {
+  return (Array.isArray(lista) ? lista : [])
+    .filter((d) => String(t(d?.texto)).trim());
+}
+
+function posicionDeEtiqueta(etiqueta) {
+  const p = normalizar(etiqueta?.posicion);
+  return POSICIONES_ETIQUETA.includes(p) ? p : 'arriba';
+}
+
+/* ---------- Componentes ---------- */
+
+function etiqueta(destacado) {
+  return `<li class="etiqueta" style="${estiloEtiqueta(destacado)}">${
+    escapar(t(destacado.texto).trim())}</li>`;
+}
+
+function listaEtiquetas(lista, posicion) {
+  const visibles = destacadosVisibles(lista)
+    .filter((e) => posicionDeEtiqueta(e) === posicion);
+  if (!visibles.length) return '';
+  return `<ul class="etiquetas etiquetas--${posicion}">${visibles.map(etiqueta).join('')}</ul>`;
+}
+
+const ICONO_ALERTA = '<circle cx="12" cy="12" r="8.5"/><path d="M12 8.2v4.6"/>'
+  + '<circle cx="12" cy="16" r=".9" fill="currentColor" stroke="none"/>';
+
+/* La alerta del grupo. Se admite escrita de dos formas: como un solo
+   objeto (lo que escribe el editor) o como lista, por si viniera de una
+   carta antigua; en ese caso se coge la primera y se ignora el resto. */
+function alertaDeGrupo(grupo) {
+  const escrito = grupo?.alerta ?? grupo?.alertas;
+  const primera = destacadosVisibles(Array.isArray(escrito) ? escrito : [escrito])[0];
+  if (!primera) return '';
+  return `<span class="alerta" style="${estiloAlerta(primera)}">
+    ${svg(ICONO_ALERTA)}<span>${escapar(t(primera.texto).trim())}</span>
+  </span>`;
 }
 
 /* ---------- Carga ---------- */
@@ -547,26 +668,21 @@ function pintarPanel() {
 
   carta.setAttribute('aria-labelledby', `tab-${sec.id}`);
 
-  // Con imagen: banda de borde a borde de la pantalla, con el nombre de la
-  // sección superpuesto abajo. Si la foto no llega a cargar, la clase
-  // --sin-imagen convierte la banda en un título normal: el nombre de la
-  // sección nunca desaparece.
-  // Si el interruptor de imágenes está apagado, se va siempre por la rama
-  // de abajo, la de toda la vida: título y línea fina.
+  // La sección se anuncia sola en la barra de pestañas, así que aquí no
+  // se repite su nombre: si tiene foto se enseña la foto y nada más, de
+  // borde a borde de la pantalla y sin oscurecer.
+  // Sin foto —o con el interruptor de imágenes apagado— no hay banda:
+  // la sección empieza directamente por su primer grupo.
+  // Si la foto no llega a cargar, la banda se quita entera; no queda un
+  // hueco vacío esperando algo que no va a venir.
   cabeceraSeccion.innerHTML = (app.imagenes && sec.imagen)
     ? `<header class="panel__cabecera panel__cabecera--imagen">
         <img class="panel__imagen" src="${escapar(sec.imagen)}" alt=""
              loading="lazy" decoding="async"
              style="object-position:${posicionFoco(sec.foco)}"
-             onerror="this.closest('.panel__cabecera').classList.add('panel__cabecera--sin-imagen');this.remove()">
-        <div class="panel__rotulo columna">
-          <h2 class="panel__titulo">${escapar(t(sec.nombre))}</h2>
-        </div>
+             onerror="this.closest('.panel__cabecera').remove()">
       </header>`
-    : `<header class="panel__cabecera panel__cabecera--simple columna">
-        <h2 class="panel__titulo">${escapar(t(sec.nombre))}</h2>
-        <span class="panel__filo" aria-hidden="true"></span>
-      </header>`;
+    : '';
 
   carta.innerHTML = (sec.grupos ?? []).map(pintarGrupo).join('');
 }
@@ -578,17 +694,24 @@ function pintarPanel() {
 function pintarGrupo(grupo) {
   const items = grupo.items ?? [];
   const titulo = `<h3 class="grupo__titulo">${escapar(t(grupo.nombre))}</h3>`;
+  const alerta = alertaDeGrupo(grupo);
+
+  // La alerta va pegada al título, antes de la línea: es una nota del
+  // grupo, así que se lee junto a su nombre. La línea sigue entera
+  // hasta el borde, como en los grupos que no llevan alerta.
+  const conAlerta = alerta ? ' grupo__cabecera--con-alerta' : '';
 
   const cabecera = (app.imagenes && grupo.imagen)
-    ? `<header class="grupo__cabecera grupo__cabecera--imagen">
+    ? `<header class="grupo__cabecera grupo__cabecera--imagen${conAlerta}">
         <img class="grupo__imagen" src="${escapar(grupo.imagen)}" alt=""
              loading="lazy" decoding="async"
              style="object-position:${posicionFoco(grupo.foco)}"
              onerror="this.closest('.grupo__cabecera').classList.add('grupo__cabecera--sin-imagen');this.remove()">
-        <div class="grupo__rotulo columna">${titulo}</div>
+        <div class="grupo__rotulo columna">${titulo}${alerta}</div>
       </header>`
-    : `<header class="grupo__cabecera grupo__cabecera--simple columna">
+    : `<header class="grupo__cabecera grupo__cabecera--simple columna${conAlerta}">
         ${titulo}
+        ${alerta}
         <span class="grupo__regla" aria-hidden="true"></span>
       </header>`;
 
@@ -620,6 +743,12 @@ function pintarItem(item) {
 
   const descripcion = t(item.descripcion);
 
+  // Las etiquetas se reparten solas: cada una lleva escrito si quiere ir
+  // encima o debajo de la descripción, así que en un mismo plato puede
+  // haber de las dos.
+  const etiquetasArriba = listaEtiquetas(item.etiquetas, 'arriba');
+  const etiquetasAbajo = listaEtiquetas(item.etiquetas, 'abajo');
+
   // Foto cuadrada del plato. Va a la derecha a propósito: como solo algunos
   // platos tendrán foto, así el texto de todos empieza siempre alineado.
   const foto = (app.imagenes && item.imagen)
@@ -636,7 +765,9 @@ function pintarItem(item) {
           <h4 class="item__nombre">${escapar(t(item.nombre))}</h4>
           <span class="item__precio">${euros(item.precio)}</span>
         </div>
+        ${etiquetasArriba}
         ${descripcion ? `<p class="item__descripcion">${escapar(descripcion)}</p>` : ''}
+        ${etiquetasAbajo}
         ${listaFichas}
         ${aviso}
       </div>

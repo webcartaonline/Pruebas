@@ -274,33 +274,14 @@ body{
 }
 .estado--error{ color:var(--ladrillo); font-weight:500; }
 
-/* ---------- Encabezado de la sección ---------- */
+/* ---------- Encabezado de la sección ----------
+   Una banda con la foto de la sección y nada más: ni título ni línea,
+   porque el nombre ya lo canta la barra de pestañas de justo debajo.
+   La foto se ve tal cual, sin filtros ni degradado encima.
 
-/* Sin foto: título normal, con su filo ámbar debajo. El margen lateral
-   va en 'auto' a propósito: la clase .columna lo pone así para centrar el
-   carril, y un margen abreviado con 0 lo pisaría y lo tiraría al borde. */
-.panel__cabecera--simple{
-  margin:0 auto;
-  padding-top:34px;
-  padding-bottom:24px;
-}
-.panel__titulo{
-  margin:0;
-  font-family:var(--display); font-weight:600;
-  font-size:clamp(2rem, 7vw, 3.1rem);
-  line-height:1.04; letter-spacing:-.015em;
-  color:var(--hueso);
-}
-.panel__filo{
-  display:block; width:52px; height:2px; margin-top:18px;
-  background:var(--ambar);
-}
-
-/* Con foto: banda a todo el ancho de la pantalla, con el título
-   superpuesto abajo. Va ENCIMA de la barra de secciones y pegada a ella,
-   sin margen por debajo: por eso vive en .cabecera-seccion y no dentro
-   del lienzo. El degradado oscuro de la base garantiza que el texto se
-   lea sea cual sea la foto. */
+   Va ENCIMA de la barra de secciones y pegada a ella, sin margen por
+   debajo: por eso vive en .cabecera-seccion y no dentro del lienzo.
+   Si la sección no tiene foto, aquí no se pinta nada. */
 .cabecera-seccion{ position:relative; z-index:1; }
 
 .panel__cabecera--imagen{
@@ -308,8 +289,6 @@ body{
   height:clamp(120px, 30vw, 230px);
   margin:0;
   overflow:hidden;
-  display:flex;
-  align-items:flex-end;
   background:var(--noche-alto);
 }
 .panel__imagen{
@@ -317,63 +296,39 @@ body{
   width:100%; height:100%;
   display:block;
   object-fit:cover;
-  filter:grayscale(20%) brightness(.55) saturate(.85);
-}
-.panel__cabecera--imagen::after{
-  content:"";
-  position:absolute; inset:0;
-  z-index:1;
-  background:linear-gradient(180deg, rgba(12,10,9,0) 30%, rgba(12,10,9,.85) 100%);
-  pointer-events:none;
-}
-.panel__rotulo{
-  position:relative;
-  z-index:2;
-  width:100%;
-  padding-bottom:16px;
-}
-.panel__cabecera--imagen .panel__titulo{
-  text-shadow:0 2px 14px rgba(0,0,0,.55);
 }
 
-/* Si la foto no llega a cargar, la banda se convierte en un título
-   normal: el nombre de la sección nunca desaparece. */
-.panel__cabecera--sin-imagen{
-  height:auto;
-  margin:0;
-  background:none;
-  border-bottom:none;
-  padding-top:34px;
-  padding-bottom:24px;
-}
-.panel__cabecera--sin-imagen::after{ display:none; }
-.panel__cabecera--sin-imagen .panel__rotulo{ padding-bottom:0; }
-.panel__cabecera--sin-imagen .panel__titulo{ text-shadow:none; }
+/* ---------- Grupo ----------
+   El margen de arriba es lo que separa el último ítem de un grupo del
+   título del siguiente: cuanto más generoso, más claro queda dónde
+   acaba una cosa y empieza otra. */
+.grupo{ margin:58px 0 0; }
 
-/* ---------- Grupo ---------- */
-.grupo{ margin:32px 0 0; }
-
-/* Sin foto: título en cursiva y línea fina. El margen lateral en 'auto'
-   mantiene el título en el mismo sitio que cuando el grupo lleva foto. */
+/* Sin foto: título en cursiva y línea fina.
+   En el móvil el encabezado se apila y se centra —título, la línea de
+   lado a lado y, debajo de ella, la alerta—, que es como mejor se lee en
+   una columna estrecha. En escritorio vuelve a ser una sola fila. */
 .grupo__cabecera--simple{
-  display:flex; align-items:baseline; gap:16px;
-  margin:0 auto 6px;
+  display:flex; flex-direction:column; align-items:center;
+  text-align:center; gap:10px;
+  margin:0 auto 26px;
 }
 .grupo__titulo{
   margin:0;
+  flex-shrink:0;
   font-family:var(--display); font-style:italic; font-weight:500;
   font-size:1.3rem; letter-spacing:-.01em;
   color:var(--ambar);
 }
 .grupo__regla{
-  flex:1; height:1px; background:var(--borde);
+  flex:none; width:100%; height:1px; background:var(--borde);
 }
 /* Con foto: misma idea que la sección, pero en una banda más baja para
    que se note la jerarquía (sección grande, grupo mediano). */
 .grupo__cabecera--imagen{
   position:relative;
   height:clamp(88px, 21vw, 160px);
-  margin:0 0 18px;
+  margin:0 0 24px;
   overflow:hidden;
   display:flex;
   align-items:flex-end;
@@ -410,7 +365,7 @@ body{
   height:auto;
   background:none;
   border-block:none;
-  margin-bottom:6px;
+  margin-bottom:26px;
 }
 .grupo__cabecera--sin-imagen::after{ display:none; }
 .grupo__cabecera--sin-imagen .grupo__rotulo{ padding-bottom:0; }
@@ -500,6 +455,57 @@ body{
   background:var(--ladrillo); flex-shrink:0;
 }
 
+
+/* ---------- Etiquetas y alertas ----------
+   Las escribe el negocio desde el editor, una a una, y elige sus
+   colores. Por eso aquí solo se define la FORMA: el color llega
+   escrito en el propio elemento (carta.js lo calcula).
+
+   - .etiqueta: píldora corta y en versalitas («250 g», «Nuevo»).
+     Solo fondo, sin filo. Van en fila y saltan de línea solas
+     cuando no caben.
+   - .alerta: una sola por grupo, montada sobre la línea que sigue
+     al título. Lleva un filo tenue para no confundirse con ella. */
+.etiquetas{
+  display:flex; flex-wrap:wrap; gap:6px;
+  margin:9px 0 0; padding:0; list-style:none;
+}
+.etiqueta{
+  display:inline-block;
+  max-width:100%;
+  padding:3px 10px;
+  border:none;
+  border-radius:999px;
+  font-size:.67rem; font-weight:600; line-height:1.55;
+  letter-spacing:.09em; text-transform:uppercase;
+  overflow-wrap:anywhere;
+}
+
+.alerta{
+  display:inline-flex; align-items:center; gap:7px;
+  max-width:100%;
+  padding:4px 12px 4px 10px;
+  border:1px solid transparent;
+  border-radius:999px;
+  font-size:.72rem; font-weight:500; line-height:1.45;
+  overflow-wrap:anywhere;
+}
+.alerta svg{
+  width:14px; height:14px;
+  display:block; flex-shrink:0;
+}
+
+/* La alerta va siempre la última del encabezado del grupo. En el móvil,
+   que se apila en columna, eso la deja debajo de la línea; en escritorio,
+   que va en fila, la manda al extremo derecho.
+   Es 'order', así que solo cambia lo que se ve: en el HTML sigue detrás
+   del título, que es lo que leen los lectores de pantalla. */
+.grupo__cabecera--con-alerta .alerta{ order:3; }
+
+/* Con foto no hay línea que partir: la alerta se pone junto al título,
+   sobre la banda, y baja de renglón si no cabe. */
+.grupo__rotulo{ flex-wrap:wrap; row-gap:8px; }
+
 /* =========================================================
    PIE
    ========================================================= */
@@ -567,13 +573,26 @@ body{
    ========================================================= */
 @media (min-width:760px){
   .grupo__items{ grid-template-columns:1fr 1fr; column-gap:56px; }
+
+  /* Con más pantalla, más aire alrededor del bloque de ítems: el
+     encabezado del grupo respira y se distingue mejor de la lista. */
+  .grupo{ margin-top:76px; }
+  .grupo__cabecera--simple,
+  .grupo__cabecera--sin-imagen{ margin-bottom:34px; }
+  .grupo__cabecera--imagen{ margin-bottom:38px; }
+
+  /* Aquí ya cabe todo en una fila: el título a la izquierda y la línea
+     estirándose hasta el final. */
+  .grupo__cabecera--simple{
+    flex-direction:row; align-items:baseline;
+    text-align:left; gap:16px;
+  }
+  .grupo__regla{ flex:1; width:auto; }
   .item__foto{ width:104px; }
   .cabecera__interior{ padding:78px 24px 62px; }
   .idioma{ position:absolute; top:18px; right:24px; margin-top:0; }
   .lienzo{ padding:0 0 84px; }
   .columna{ padding-inline:24px; }
-  .panel__cabecera--simple,
-  .panel__cabecera--sin-imagen{ padding-top:46px; padding-bottom:32px; }
 
   /* En escritorio la banda del grupo deja de ir de borde a borde: se queda
      algo más ancha que el carril de lectura y crece a lo alto con su propio
@@ -601,6 +620,15 @@ body{
   .barra__btn::after{ left:18px; right:18px; }
   .filtro__resumen,
   .filtro__cuerpo{ padding-left:24px; padding-right:24px; }
+
+  /* En fila, la línea empuja la alerta hasta el borde derecho. Los tres
+     se centran entre sí para que la píldora quede a la altura del título
+     y no colgando por debajo. */
+  .grupo__cabecera--con-alerta{ align-items:center; }
+  .grupo__cabecera--con-alerta .alerta{
+    flex-shrink:1;
+    min-width:0;
+  }
 }
 
 /* Encima de 1128px la barra se centra bajo el rótulo */
