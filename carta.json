@@ -10,7 +10,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-03T00:01:21.417Z"
+    "actualizado": "2026-09-03T08:37:44.303Z"
   },
   "secciones": [
     {
@@ -45,15 +45,6 @@
                 "pescado"
               ],
               "etiquetas": [
-                {
-                  "texto": {
-                    "es": "La más pedida",
-                    "en": "Most ordered"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "principal",
-                  "color": "auto"
-                },
                 {
                   "texto": {
                     "es": "Se acaba pronto",
@@ -193,15 +184,6 @@
                     "en": "New"
                   },
                   "posicion": "arriba",
-                  "fondo": "#00ffff",
-                  "color": "auto"
-                },
-                {
-                  "texto": {
-                    "es": "Caseras",
-                    "en": "Homemade"
-                  },
-                  "posicion": "arriba",
                   "fondo": "principal",
                   "color": "auto"
                 },
@@ -238,15 +220,6 @@
                   "posicion": "arriba",
                   "fondo": "#B3261E",
                   "color": "#FFFFFF"
-                },
-                {
-                  "texto": {
-                    "es": "Alioli aparte sin coste",
-                    "en": "Alioli on the side"
-                  },
-                  "posicion": "abajo",
-                  "fondo": "secundario",
-                  "color": "auto"
                 }
               ],
               "imagen": "img/items/i-patatas-bravas.jpg?v=mtkr32qv"
@@ -277,11 +250,11 @@
                 },
                 {
                   "texto": {
-                    "es": "Extra de pan +0,80 €",
-                    "en": "Extra bread +€0.80"
+                    "es": "Extra de pan +0,20 €",
+                    "en": "Extra bread +€0.20"
                   },
-                  "posicion": "arriba",
-                  "fondo": "principal",
+                  "posicion": "abajo",
+                  "fondo": "secundario",
                   "color": "auto"
                 }
               ],
@@ -319,15 +292,6 @@
               "etiquetas": [
                 {
                   "texto": {
-                    "es": "Vegana",
-                    "en": "Vegan"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "#2b382d",
-                  "color": "#46b043"
-                },
-                {
-                  "texto": {
                     "es": "De temporada",
                     "en": "Seasonal"
                   },
@@ -350,8 +314,8 @@
             {
               "id": "i-jamon",
               "nombre": {
-                "es": "Jamón ibérico de bellota",
-                "en": "Ibérico bellota ham"
+                "es": "100g de jamón ibérico de bellota",
+                "en": "100g of ibérico bellota ham"
               },
               "descripcion": {
                 "es": "Cortado a cuchillo en el momento.",
@@ -360,15 +324,6 @@
               "precio": 18.5,
               "alergenos": [],
               "etiquetas": [
-                {
-                  "texto": {
-                    "es": "100 g",
-                    "en": "100 g"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "principal",
-                  "color": "auto"
-                },
                 {
                   "texto": {
                     "es": "Cortado a mano",
