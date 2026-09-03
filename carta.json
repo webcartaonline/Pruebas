@@ -10,7 +10,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-02T21:23:54.530Z"
+    "actualizado": "2026-09-03T00:01:21.417Z"
   },
   "secciones": [
     {
@@ -60,10 +60,11 @@
                     "en": "Sells out fast"
                   },
                   "posicion": "abajo",
-                  "fondo": "#3d0000",
-                  "color": "#ff0000"
+                  "fondo": "#2b0000",
+                  "color": "#b01e1e"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-ensaladilla.jpg?v=mtkqs7ad"
             },
             {
               "id": "i-boquerones",
@@ -86,11 +87,12 @@
                     "es": "Ración de 8",
                     "en": "8 pieces"
                   },
-                  "posicion": "arriba",
+                  "posicion": "abajo",
                   "fondo": "secundario",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-boquerones.jpg?v=mtkqtspf"
             },
             {
               "id": "i-pulpo-vinagreta",
@@ -115,9 +117,10 @@
                   },
                   "posicion": "abajo",
                   "fondo": "secundario",
-                  "color": "auto"
+                  "color": "#b56a1f"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-pulpo-vinagreta.jpg?v=mtkqv3nm"
             },
             {
               "id": "i-queso-curado",
@@ -140,11 +143,12 @@
                     "es": "12 meses de curación",
                     "en": "12 months aged"
                   },
-                  "posicion": "abajo",
-                  "fondo": "secundario",
+                  "posicion": "arriba",
+                  "fondo": "principal",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-queso-curado.jpg?v=mtkqxor2"
             }
           ],
           "imagen": "img/grupos/g-tapas-frias.jpg?v=mtklq7w4"
@@ -185,11 +189,11 @@
               "etiquetas": [
                 {
                   "texto": {
-                    "es": "6 unidades",
-                    "en": "6 pieces"
+                    "es": "Nuevo",
+                    "en": "New"
                   },
-                  "posicion": "abajo",
-                  "fondo": "secundario",
+                  "posicion": "arriba",
+                  "fondo": "#00ffff",
                   "color": "auto"
                 },
                 {
@@ -197,20 +201,21 @@
                     "es": "Caseras",
                     "en": "Homemade"
                   },
-                  "posicion": "abajo",
-                  "fondo": "secundario",
+                  "posicion": "arriba",
+                  "fondo": "principal",
                   "color": "auto"
                 },
                 {
                   "texto": {
-                    "es": "Preguntar disponibilidad",
-                    "en": "Ask availability"
+                    "es": "6 unidades",
+                    "en": "6 pieces"
                   },
-                  "posicion": "arriba",
-                  "fondo": "#3c2e20",
+                  "posicion": "abajo",
+                  "fondo": "secundario",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-croquetas.jpg?v=mtkr0o2v"
             },
             {
               "id": "i-patatas-bravas",
@@ -243,7 +248,8 @@
                   "fondo": "secundario",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-patatas-bravas.jpg?v=mtkr32qv"
             },
             {
               "id": "i-gambas-ajillo",
@@ -274,11 +280,12 @@
                     "es": "Extra de pan +0,80 €",
                     "en": "Extra bread +€0.80"
                   },
-                  "posicion": "abajo",
-                  "fondo": "secundario",
+                  "posicion": "arriba",
+                  "fondo": "principal",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-gambas-ajillo.jpg?v=mtkr3t4a"
             },
             {
               "id": "i-chorizo-sidra",
@@ -294,7 +301,8 @@
               "alergenos": [
                 "sulfitos"
               ],
-              "etiquetas": []
+              "etiquetas": [],
+              "imagen": "img/items/i-chorizo-sidra.jpg?v=mtkr63qm"
             },
             {
               "id": "i-pimientos",
@@ -315,8 +323,8 @@
                     "en": "Vegan"
                   },
                   "posicion": "arriba",
-                  "fondo": "#2E7D32",
-                  "color": "#FFFFFF"
+                  "fondo": "#2b382d",
+                  "color": "#46b043"
                 },
                 {
                   "texto": {
@@ -327,7 +335,8 @@
                   "fondo": "secundario",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-pimientos.jpg?v=mtkr6dhj"
             }
           ]
         },
@@ -378,7 +387,8 @@
                   "fondo": "secundario",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-jamon.jpg?v=mtkr9qsb"
             },
             {
               "id": "i-tabla-mixta",
@@ -405,7 +415,8 @@
                   "fondo": "secundario",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-tabla-mixta.jpg?v=mtkrbrx3"
             },
             {
               "id": "i-tortilla",
@@ -415,7 +426,7 @@
               },
               "descripcion": {
                 "es": "Cebolla sí. Poco cuajada, como debe ser.",
-                "en": "With onion. Runny in the middle, as it should be."
+                "en": "With onion. Runny in the middle, as it sould be."
               },
               "precio": 12,
               "alergenos": [
@@ -431,9 +442,12 @@
                   "fondo": "#3d2c0a",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-tortilla.jpg?v=mtkrc54h"
             }
-          ]
+          ],
+          "foco": "centro",
+          "imagen": "img/grupos/g-raciones.jpg?v=mtkr9dx9"
         }
       ]
     },
