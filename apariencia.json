@@ -5,12 +5,12 @@
     "texto": "auto"
   },
   "identidad": {
-    "titulo": "",
+    "titulo": "Prueba Lab",
     "eslogan": {
       "es": "",
       "en": ""
     },
-    "logo": "img/logo.png?v=mtn1mu7d",
+    "logo": "",
     "fondo": {
       "imagen": "img/portada.jpg?v=mtkrhwbs",
       "foco": "centro"
@@ -40,5 +40,5 @@
       "snapchat": "https://snapchat.com"
     }
   },
-  "actualizado": "2026-09-04T14:23:14.900Z"
+  "actualizado": "2026-09-04T14:28:30.540Z"
 }
