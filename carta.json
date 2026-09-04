@@ -10,7 +10,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-03T08:37:44.303Z"
+    "actualizado": "2026-09-04T18:10:33.281Z"
   },
   "secciones": [
     {
@@ -462,7 +462,8 @@
                   "fondo": "principal",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-boca-lomo.jpg?v=mtn9om6x"
             },
             {
               "id": "i-boca-calamares",
@@ -490,7 +491,8 @@
                   "fondo": "secundario",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-boca-calamares.jpg?v=mtn9osjl"
             },
             {
               "id": "i-boca-vegetal",
@@ -526,7 +528,8 @@
                   "fondo": "#2E7D32",
                   "color": "#FFFFFF"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-boca-vegetal.jpg?v=mtn9ozgn"
             },
             {
               "id": "i-boca-tortilla",
@@ -542,7 +545,9 @@
               "alergenos": [
                 "gluten",
                 "huevos"
-              ]
+              ],
+              "etiquetas": [],
+              "imagen": "img/items/i-boca-tortilla.jpg?v=mtn9p6bu"
             }
           ]
         },
@@ -577,7 +582,8 @@
                   "fondo": "principal",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-montadito-lomo.jpg?v=mtn9plcz"
             },
             {
               "id": "i-montadito-anchoa",
@@ -604,7 +610,8 @@
                   "fondo": "principal",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-montadito-anchoa.jpg?v=mtn9pxwc"
             },
             {
               "id": "i-montadito-morcilla",
@@ -631,7 +638,8 @@
                   "fondo": "principal",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-montadito-morcilla.jpg?v=mtn9q8ei"
             }
           ]
         }
