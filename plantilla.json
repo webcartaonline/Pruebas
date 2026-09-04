@@ -1,0 +1,6 @@
+{
+    "id": "plantilla-1",
+    "nombre": "Plantilla 1",
+    "version": "1.0.0",
+    "archivos": ["index.html", "carta.js", "estilos.css"]
+}
