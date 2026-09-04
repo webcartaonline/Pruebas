@@ -10,7 +10,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-04T18:10:33.281Z"
+    "actualizado": "2026-09-04T18:20:12.811Z"
   },
   "secciones": [
     {
@@ -443,26 +443,7 @@
                 "gluten",
                 "lacteos"
               ],
-              "etiquetas": [
-                {
-                  "texto": {
-                    "es": "Pan de 25 cm",
-                    "en": "25 cm roll"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "principal",
-                  "color": "auto"
-                },
-                {
-                  "texto": {
-                    "es": "Extra de queso +0,70 €",
-                    "en": "Extra cheese +€0.70"
-                  },
-                  "posicion": "abajo",
-                  "fondo": "principal",
-                  "color": "auto"
-                }
-              ],
+              "etiquetas": [],
               "imagen": "img/items/i-boca-lomo.jpg?v=mtn9om6x"
             },
             {
@@ -484,8 +465,8 @@
               "etiquetas": [
                 {
                   "texto": {
-                    "es": "De jueves a domingo",
-                    "en": "Thursday to Sunday"
+                    "es": "Solo de Sábados y domingos",
+                    "en": "Saturdays and Sundays only"
                   },
                   "posicion": "abajo",
                   "fondo": "secundario",
@@ -518,15 +499,6 @@
                   "posicion": "arriba",
                   "fondo": "#2E7D32",
                   "color": "#FFFFFF"
-                },
-                {
-                  "texto": {
-                    "es": "Vegano sin mayonesa",
-                    "en": "Vegan without mayo"
-                  },
-                  "posicion": "abajo",
-                  "fondo": "#2E7D32",
-                  "color": "#FFFFFF"
                 }
               ],
               "imagen": "img/items/i-boca-vegetal.jpg?v=mtn9ozgn"
@@ -546,7 +518,17 @@
                 "gluten",
                 "huevos"
               ],
-              "etiquetas": [],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "Tortilla con cebolla",
+                    "en": "onion omelet"
+                  },
+                  "posicion": "abajo",
+                  "fondo": "secundario",
+                  "color": "auto"
+                }
+              ],
               "imagen": "img/items/i-boca-tortilla.jpg?v=mtn9p6bu"
             }
           ]
@@ -575,10 +557,10 @@
               "etiquetas": [
                 {
                   "texto": {
-                    "es": "3 x 7 €",
-                    "en": "3 for €7"
+                    "es": "3 x 6,5 €",
+                    "en": "3 for 6,5 €"
                   },
-                  "posicion": "abajo",
+                  "posicion": "arriba",
                   "fondo": "principal",
                   "color": "auto"
                 }
@@ -600,17 +582,7 @@
                 "gluten",
                 "pescado"
               ],
-              "etiquetas": [
-                {
-                  "texto": {
-                    "es": "3 x 7 €",
-                    "en": "3 for €7"
-                  },
-                  "posicion": "abajo",
-                  "fondo": "principal",
-                  "color": "auto"
-                }
-              ],
+              "etiquetas": [],
               "imagen": "img/items/i-montadito-anchoa.jpg?v=mtn9pxwc"
             },
             {
@@ -628,20 +600,18 @@
                 "gluten",
                 "sulfitos"
               ],
-              "etiquetas": [
-                {
-                  "texto": {
-                    "es": "3 x 7 €",
-                    "en": "3 for €7"
-                  },
-                  "posicion": "abajo",
-                  "fondo": "principal",
-                  "color": "auto"
-                }
-              ],
+              "etiquetas": [],
               "imagen": "img/items/i-montadito-morcilla.jpg?v=mtn9q8ei"
             }
-          ]
+          ],
+          "alerta": {
+            "texto": {
+              "es": "Pan sin gluten + 0,60 €",
+              "en": "Gluten-free bread + €0.60"
+            },
+            "fondo": "principal",
+            "color": "auto"
+          }
         }
       ]
     },
