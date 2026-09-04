@@ -194,6 +194,19 @@ body{
   backdrop-filter:blur(20px) saturate(1.2);
   border-bottom:1px solid rgba(255,255,255,.1);
 }
+
+/* Barra apoyada en el borde de ARRIBA de la foto (ajuste "superior").
+   Aquí la barra NO sube: es la foto la que sube para montarse bajo ella,
+   de modo que la barra separa la portada de la foto de la sección. El
+   velo (fondo translúcido y desenfoque) se hereda del bloque de arriba;
+   solo cambia quién lleva el margen negativo. carta.js pone la clase en
+   el <body> y coloca la barra antes de la foto en el HTML. */
+.con-banda-seccion.barra-superior .barra{
+  margin-top:0;
+}
+.con-banda-seccion.barra-superior .cabecera-seccion{
+  margin-top:calc(-1 * var(--barra-alto));   /* la foto sube bajo la barra */
+}
 .barra__lista{
   max-width:var(--ancho); margin:0 auto;
   padding:0 8px;
@@ -231,6 +244,14 @@ body{
 .filtro{
   border-top:1px solid var(--borde);
   background:var(--noche-alto);
+}
+
+/* Filtro colocado ARRIBA, justo debajo de la foto de la sección (ajuste
+   "arriba"). La línea cambia de lado: va debajo, separándolo de los
+   grupos, en vez de encima. Lo mueve de sitio carta.js. */
+.filtro--arriba{
+  border-top:none;
+  border-bottom:1px solid var(--borde);
 }
 .filtro__resumen{
   display:flex; align-items:center; gap:10px;

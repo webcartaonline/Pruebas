@@ -20,6 +20,10 @@
     "titulo": null,
     "texto": null
   },
+  "pagina": {
+    "barra": "inferior",
+    "alergenos": "abajo"
+  },
   "pie": {
     "bloques": [
       {

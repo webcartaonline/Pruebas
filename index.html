@@ -44,7 +44,10 @@
        Va ENCIMA de la barra y pegada a ella. Lo rellena carta.js. -->
   <div class="cabecera-seccion" id="cabeceraSeccion"></div>
 
-  <!-- Barra superior: se elige una sección y debajo salen sus grupos -->
+  <!-- Barra de secciones: se elige una sección y debajo salen sus grupos.
+       Según los ajustes de la página, carta.js la deja aquí (apoyada en el
+       borde de abajo de la foto de la sección) o la sube antes de la foto
+       (apoyada en el borde de arriba). -->
   <nav class="barra" id="barra">
     <div class="barra__lista" id="indice" role="tablist" aria-label="Secciones de la carta"></div>
   </nav>
@@ -54,8 +57,9 @@
     <p class="estado" id="estado" data-t="cargando">Cargando la carta…</p>
   </main>
 
-  <!-- Filtro de alérgenos, plegado por defecto.
-       Va al final de la página, pegado al pie. -->
+  <!-- Filtro de alérgenos, plegado por defecto. Según los ajustes de la
+       página, carta.js lo deja aquí (al final, pegado al pie) o lo sube
+       justo debajo de la foto de la sección, antes de los grupos. -->
   <details class="filtro" id="filtro">
     <summary class="filtro__resumen">
       <span class="filtro__etiqueta" data-t="alergenosTitulo">Alérgenos</span>

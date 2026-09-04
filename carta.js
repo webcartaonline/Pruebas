@@ -115,6 +115,9 @@ const app = {
   idioma: 'es',
   idiomas: ['es'],   // se rellena al cargar el JSON
   imagenes: false,   // se rellena al cargar el JSON
+  // Dónde van la barra de secciones y el filtro de alérgenos. Lo elige el
+  // negocio en los ajustes de la página; se rellena al leer apariencia.json.
+  pagina: { barra: 'inferior', alergenos: 'abajo' },
   evitar: new Set(),
   seccionActiva: null
 };
@@ -406,6 +409,27 @@ async function cargarApariencia() {
 function aplicarApariencia(apariencia) {
   aplicarColores(apariencia?.colores);
   aplicarFuentes(apariencia?.fuentes);
+  app.pagina = ajustesPagina(apariencia);   // dónde van la barra y los alérgenos
+}
+
+/* Ajustes de colocación de la página (apariencia.json → "pagina").
+   Son dos elecciones del negocio, cada una con su valor de siempre por
+   defecto para que las cartas ya publicadas no cambien de aspecto:
+
+   - barra:     "inferior" (actual) | "superior"
+                Dónde se apoya la barra de secciones sobre la foto de la
+                sección: pegada a su borde de abajo o al de arriba.
+   - alergenos: "abajo" (actual)    | "arriba"
+                Si el filtro de alérgenos va al final de la página o
+                justo debajo de la foto de la sección.
+
+   Cualquier valor raro o ausente cuenta como el de siempre. */
+function ajustesPagina(apariencia) {
+  const p = apariencia?.pagina ?? {};
+  return {
+    barra:     p.barra === 'superior' ? 'superior' : 'inferior',
+    alergenos: p.alergenos === 'arriba' ? 'arriba' : 'abajo'
+  };
 }
 
 /* =========================================================
@@ -563,6 +587,7 @@ function pintarTodo() {
   pintarNegocio();
   pintarPie();
   pintarBarra();
+  colocarPagina();
   medirBarra();
   pintarPanel();
   pintarLeyenda();
@@ -750,6 +775,45 @@ function medirBarra() {
   // vale más el valor de reserva del CSS que una medida sin sentido.
   if (alto < 24) return;
   document.documentElement.style.setProperty('--barra-alto', `${alto}px`);
+}
+
+/* ---------- Colocación de la barra y del filtro ----------
+   Coloca dos piezas de la página según lo que haya elegido el negocio
+   (app.pagina). No cambia lo que se ve dentro de ellas, solo dónde van.
+   Basta llamarla una vez; el CSS hace el resto con clases en el <body>. */
+function colocarPagina() {
+  colocarBarra(app.pagina.barra);
+  colocarFiltro(app.pagina.alergenos);
+}
+
+/* La barra de secciones puede apoyarse en el borde de ABAJO de la foto de
+   la sección (por defecto) o en el de ARRIBA. Para poder montarse sobre el
+   borde de arriba tiene que ir en el HTML ANTES de la foto; para el de
+   abajo, después. El velo y el solape los pone el CSS con la clase. */
+function colocarBarra(donde) {
+  const barra = $('#barra');
+  const seccion = $('#cabeceraSeccion');
+  if (!barra || !seccion) return;
+
+  const superior = donde === 'superior';
+  document.body.classList.toggle('barra-superior', superior);
+  if (superior) seccion.before(barra);
+  else          seccion.after(barra);
+}
+
+/* El filtro de alérgenos puede ir al final de la página, sobre el pie (por
+   defecto), o arriba, justo debajo de la foto de la sección y antes de los
+   grupos. Se mueve el bloque entero de sitio. */
+function colocarFiltro(donde) {
+  const filtro = $('#filtro');
+  const carta = $('#carta');
+  if (!filtro || !carta) return;
+
+  const arriba = donde === 'arriba';
+  document.body.classList.toggle('filtro-arriba', arriba);
+  filtro.classList.toggle('filtro--arriba', arriba);
+  if (arriba) carta.before(filtro);
+  else        carta.after(filtro);
 }
 
 /* El grupo funciona igual que la sección: si tiene foto, el título va
