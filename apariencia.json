@@ -21,8 +21,8 @@
     "texto": null
   },
   "pagina": {
-    "barra": "inferior",
-    "alergenos": "abajo"
+    "barra": "superior",
+    "alergenos": "arriba"
   },
   "pie": {
     "bloques": [
@@ -44,5 +44,5 @@
       "snapchat": "https://snapchat.com"
     }
   },
-  "actualizado": "2026-09-04T14:28:30.540Z"
+  "actualizado": "2026-09-04T19:52:48.460Z"
 }
