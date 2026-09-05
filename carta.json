@@ -10,7 +10,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-05T15:54:02.043Z"
+    "actualizado": "2026-09-05T16:06:56.652Z"
   },
   "secciones": [
     {
@@ -682,7 +682,7 @@
             {
               "id": "i-hamburguesa-pollo",
               "nombre": {
-                "es": "Hamburguesa de pollo crujiente",
+                "es": "Hamburguesa de pollo crujiente y picante",
                 "en": "Crispy chicken burger"
               },
               "descripcion": {
