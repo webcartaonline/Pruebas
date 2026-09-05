@@ -10,7 +10,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-05T17:05:14.443Z"
+    "actualizado": "2026-09-05T17:09:40.558Z"
   },
   "secciones": [
     {
@@ -429,6 +429,24 @@
           },
           "items": [
             {
+              "id": "i-boca-lomo",
+              "nombre": {
+                "es": "Bocadillo de lomo con queso",
+                "en": "Pork loin & cheese roll"
+              },
+              "descripcion": {
+                "es": "Lomo a la plancha con queso fundido y pimientos verdes.",
+                "en": "Grilled pork loin with melted cheese and green peppers."
+              },
+              "precio": 6.5,
+              "alergenos": [
+                "gluten",
+                "lacteos"
+              ],
+              "etiquetas": [],
+              "imagen": "img/items/i-boca-lomo.jpg?v=mtn9om6x"
+            },
+            {
               "id": "i-boca-calamares",
               "nombre": {
                 "es": "Bocadillo de calamares",
@@ -455,25 +473,7 @@
                   "color": "auto"
                 }
               ],
-              "imagen": "img/items/i-boca-calamares.jpg?v=mtomtffu"
-            },
-            {
-              "id": "i-boca-lomo",
-              "nombre": {
-                "es": "Bocadillo de lomo con queso",
-                "en": "Pork loin & cheese roll"
-              },
-              "descripcion": {
-                "es": "Lomo a la plancha con queso fundido y pimientos verdes.",
-                "en": "Grilled pork loin with melted cheese and green peppers."
-              },
-              "precio": 6.5,
-              "alergenos": [
-                "gluten",
-                "lacteos"
-              ],
-              "etiquetas": [],
-              "imagen": "img/items/i-boca-lomo.jpg?v=mtn9om6x"
+              "imagen": "img/items/i-boca-calamares.jpg?v=mton0ecw"
             },
             {
               "id": "i-boca-vegetal",
