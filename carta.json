@@ -10,7 +10,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-05T20:56:48.840Z"
+    "actualizado": "2026-09-07T16:31:55.264Z"
   },
   "secciones": [
     {
@@ -164,7 +164,7 @@
             {
               "id": "i-croquetas",
               "nombre": {
-                "es": "Croquetas de jamón",
+                "es": "Hola caracola",
                 "en": "Ham croquettes"
               },
               "descripcion": {
