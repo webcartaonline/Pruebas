@@ -10,7 +10,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-04T18:33:35.097Z"
+    "actualizado": "2026-09-07T16:31:55.264Z"
   },
   "secciones": [
     {
@@ -19,7 +19,7 @@
         "es": "Tapas",
         "en": "Tapas"
       },
-      "imagen": "img/secciones/s-tapas.jpg?v=mtklpmqh",
+      "imagen": "img/secciones/s-tapas.jpg?v=mtov54dw",
       "foco": "centro",
       "grupos": [
         {
@@ -39,7 +39,7 @@
                 "es": "La de siempre, con atún y mayonesa hecha en casa.",
                 "en": "The classic one, with tuna and homemade mayonnaise."
               },
-              "precio": 4.6,
+              "precio": 4.2,
               "alergenos": [
                 "huevos",
                 "pescado"
@@ -95,7 +95,7 @@
                 "es": "Pulpo cocido con pimiento, cebolla y aceite de oliva.",
                 "en": "Boiled octopus with pepper, onion and olive oil."
               },
-              "precio": 7.5,
+              "precio": 6.95,
               "alergenos": [
                 "moluscos",
                 "sulfitos"
@@ -164,7 +164,7 @@
             {
               "id": "i-croquetas",
               "nombre": {
-                "es": "Croquetas de jamón",
+                "es": "Hola caracola",
                 "en": "Ham croquettes"
               },
               "descripcion": {
@@ -473,7 +473,7 @@
                   "color": "auto"
                 }
               ],
-              "imagen": "img/items/i-boca-calamares.jpg?v=mtn9osjl"
+              "imagen": "img/items/i-boca-calamares.jpg?v=mton0ecw"
             },
             {
               "id": "i-boca-vegetal",
@@ -682,7 +682,7 @@
             {
               "id": "i-hamburguesa-pollo",
               "nombre": {
-                "es": "Hamburguesa de pollo crujiente",
+                "es": "Hamburguesa de pollo crujiente y picante",
                 "en": "Crispy chicken burger"
               },
               "descripcion": {
