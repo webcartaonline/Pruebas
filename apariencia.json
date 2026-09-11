@@ -11,7 +11,7 @@
       "en": ""
     },
     "logo": "",
-    "favicon": "",
+    "favicon": "img/favicon.png?v=mtxhks0g",
     "fondo": {
       "imagen": "img/portada.jpg?v=mtkrhwbs",
       "foco": "centro"
@@ -45,5 +45,5 @@
       "snapchat": "https://snapchat.com"
     }
   },
-  "actualizado": "2026-09-11T21:30:00.766Z"
+  "actualizado": "2026-09-11T21:47:13.367Z"
 }
