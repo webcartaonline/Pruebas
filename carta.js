@@ -409,7 +409,25 @@ async function cargarApariencia() {
 function aplicarApariencia(apariencia) {
   aplicarColores(apariencia?.colores);
   aplicarFuentes(apariencia?.fuentes);
-  app.pagina = ajustesPagina(apariencia);   // dónde van la barra y los alérgenos
+  aplicarFavicon(apariencia?.identidad);     // el iconito de la pestaña del navegador
+  app.pagina = ajustesPagina(apariencia);    // dónde van la barra y los alérgenos
+}
+
+/* El iconito que sale en la pestaña del navegador (el "favicon"). Lo
+   elige el negocio en los ajustes de la página y se guarda con el resto
+   de la identidad, en apariencia.json:
+     "identidad": { …, "favicon": "img/favicon.png" }
+   Si no ha puesto ninguno, se deja el icono que traiga el navegador. */
+function aplicarFavicon(identidad) {
+  const icono = String(identidad?.favicon ?? '').trim();
+  if (!icono) return;
+  let enlace = $('link[rel="icon"]');
+  if (!enlace) {
+    enlace = document.createElement('link');
+    enlace.rel = 'icon';
+    document.head.appendChild(enlace);
+  }
+  if (enlace.getAttribute('href') !== icono) enlace.setAttribute('href', icono);
 }
 
 /* Ajustes de colocación de la página (apariencia.json → "pagina").
