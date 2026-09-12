@@ -11,7 +11,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-12T12:11:28.213Z"
+    "actualizado": "2026-09-12T12:19:59.030Z"
   },
   "secciones": [
     {
@@ -609,52 +609,6 @@
             "texto": {
               "es": "Pan sin gluten + 0,60 €",
               "en": "Gluten-free bread + €0.60"
-            },
-            "fondo": "principal",
-            "color": "auto"
-          }
-        },
-        {
-          "id": "g-grupo-yk5j",
-          "nombre": {
-            "es": "Nuevo grupo",
-            "en": "New group"
-          },
-          "items": [
-            {
-              "id": "i-item-uvbh",
-              "nombre": {
-                "es": "Nuevo ítem",
-                "en": "New item"
-              },
-              "descripcion": {
-                "es": "¡Hola mundo!",
-                "en": "Hello world!"
-              },
-              "precio": 99.99,
-              "alergenos": [
-                "gluten",
-                "lacteos"
-              ],
-              "etiquetas": [
-                {
-                  "texto": {
-                    "es": "NUEVO",
-                    "en": "NEW"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "principal",
-                  "color": "auto"
-                }
-              ]
-            }
-          ],
-          "foco": "abajo",
-          "imagen": "img/grupos/g-grupo-yk5j.jpg?v=mtycfsoq",
-          "alerta": {
-            "texto": {
-              "es": "NUEVO",
-              "en": "NEW"
             },
             "fondo": "principal",
             "color": "auto"
