@@ -11,7 +11,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-12T12:19:59.030Z"
+    "actualizado": "2026-09-12T14:32:04.236Z"
   },
   "secciones": [
     {
@@ -48,12 +48,12 @@
               "etiquetas": [
                 {
                   "texto": {
-                    "es": "Se acaba pronto",
-                    "en": "Sells out fast"
+                    "es": "Preguntar disponibilidad",
+                    "en": "Check availability"
                   },
                   "posicion": "abajo",
-                  "fondo": "#2b0000",
-                  "color": "#b01e1e"
+                  "fondo": "secundario",
+                  "color": "#ffb638"
                 }
               ],
               "imagen": "img/items/i-ensaladilla.jpg?v=mtkqs7ad"
@@ -109,7 +109,7 @@
                   },
                   "posicion": "abajo",
                   "fondo": "secundario",
-                  "color": "#b56a1f"
+                  "color": "#ffb638"
                 }
               ],
               "imagen": "img/items/i-pulpo-vinagreta.jpg?v=mtkqv3nm"
@@ -288,7 +288,7 @@
                 "es": "Fritos con sal gorda. Unos pican y otros no.",
                 "en": "Fried with coarse salt. Some are hot, some are not."
               },
-              "precio": 5.2,
+              "precio": 2.3,
               "alergenos": [],
               "etiquetas": [
                 {
@@ -297,7 +297,7 @@
                     "en": "Seasonal"
                   },
                   "posicion": "abajo",
-                  "fondo": "secundario",
+                  "fondo": "principal",
                   "color": "auto"
                 }
               ],
@@ -395,7 +395,7 @@
                     "en": "With onion"
                   },
                   "posicion": "abajo",
-                  "fondo": "#3d2c0a",
+                  "fondo": "#664400",
                   "color": "auto"
                 }
               ],
