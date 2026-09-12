@@ -11,7 +11,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-12T15:07:12.958Z"
+    "actualizado": "2026-09-12T15:11:24.436Z"
   },
   "secciones": [
     {
@@ -958,17 +958,7 @@
               "alergenos": [
                 "gluten"
               ],
-              "etiquetas": [
-                {
-                  "texto": {
-                    "es": "20 cl",
-                    "en": "20 cl"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "#2F6F8F",
-                  "color": "#FFFFFF"
-                }
-              ]
+              "etiquetas": []
             },
             {
               "id": "i-doble",
@@ -984,17 +974,7 @@
               "alergenos": [
                 "gluten"
               ],
-              "etiquetas": [
-                {
-                  "texto": {
-                    "es": "33 cl",
-                    "en": "33 cl"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "#2F6F8F",
-                  "color": "#FFFFFF"
-                }
-              ]
+              "etiquetas": []
             },
             {
               "id": "i-jarra",
@@ -1010,17 +990,7 @@
               "alergenos": [
                 "gluten"
               ],
-              "etiquetas": [
-                {
-                  "texto": {
-                    "es": "50 cl",
-                    "en": "50 cl"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "#2F6F8F",
-                  "color": "#FFFFFF"
-                }
-              ]
+              "etiquetas": []
             },
             {
               "id": "i-tostada-barril",
@@ -1036,17 +1006,7 @@
               "alergenos": [
                 "gluten"
               ],
-              "etiquetas": [
-                {
-                  "texto": {
-                    "es": "33 cl",
-                    "en": "33 cl"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "#2F6F8F",
-                  "color": "#FFFFFF"
-                }
-              ]
+              "etiquetas": []
             }
           ]
         },
