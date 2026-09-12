@@ -11,7 +11,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-12T14:32:04.236Z"
+    "actualizado": "2026-09-12T15:07:12.958Z"
   },
   "secciones": [
     {
@@ -466,8 +466,8 @@
               "etiquetas": [
                 {
                   "texto": {
-                    "es": "Solo de Sábados y domingos",
-                    "en": "Saturdays and Sundays only"
+                    "es": "Solo disponible los Sábados y domingos",
+                    "en": "Saturdays and Sundays only aviable"
                   },
                   "posicion": "abajo",
                   "fondo": "secundario",
@@ -526,13 +526,15 @@
                     "en": "onion omelet"
                   },
                   "posicion": "abajo",
-                  "fondo": "secundario",
+                  "fondo": "#664400",
                   "color": "auto"
                 }
               ],
               "imagen": "img/items/i-boca-tortilla.jpg?v=mtn9p6bu"
             }
-          ]
+          ],
+          "foco": "derecha",
+          "imagen": "img/grupos/g-bocadillos.jpg?v=mtyhqgwi"
         },
         {
           "id": "g-montaditos",
@@ -612,10 +614,11 @@
             },
             "fondo": "principal",
             "color": "auto"
-          }
+          },
+          "imagen": "img/grupos/g-montaditos.jpg?v=mtyhzsh1",
+          "foco": "derecha"
         }
-      ],
-      "imagen": "img/secciones/s-bocadillos.jpg?v=mtycdhv8"
+      ]
     },
     {
       "id": "s-hamburguesas",
@@ -623,8 +626,8 @@
         "es": "Hamburguesas",
         "en": "Burgers"
       },
-      "imagen": "img/secciones/s-cafe.jpg",
-      "foco": "abajo",
+      "imagen": "img/secciones/s-hamburguesas.jpg?v=mtyi39dq",
+      "foco": "centro",
       "grupos": [
         {
           "id": "g-hamburguesas",
@@ -640,8 +643,6 @@
             "fondo": "secundario",
             "color": "auto"
           },
-          "imagen": "img/grupos/g-cafe.jpg",
-          "foco": "arriba",
           "items": [
             {
               "id": "i-hamburguesa-angus",
@@ -679,7 +680,8 @@
                   "fondo": "secundario",
                   "color": "#e9b44c"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-hamburguesa-angus.jpg?v=mtyi60wm"
             },
             {
               "id": "i-hamburguesa-pollo",
@@ -725,7 +727,8 @@
                   "fondo": "#B3261E",
                   "color": "#FFFFFF"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-hamburguesa-pollo.jpg?v=mtyi6avx"
             },
             {
               "id": "i-hamburguesa-vegana",
@@ -771,7 +774,8 @@
                   "fondo": "secundario",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-hamburguesa-vegana.jpg?v=mtyi6ojz"
             },
             {
               "id": "i-hamburguesa-doble",
@@ -819,7 +823,8 @@
                   "fondo": "principal",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-hamburguesa-doble.jpg?v=mtyi8r7q"
             }
           ]
         },
@@ -854,7 +859,8 @@
                   "fondo": "#B3261E",
                   "color": "#FFFFFF"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-patatas-gajo.jpg?v=mtyieikd"
             },
             {
               "id": "i-aros-cebolla",
@@ -881,7 +887,8 @@
                   "fondo": "secundario",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-aros-cebolla.jpg?v=mtyieygf"
             },
             {
               "id": "i-salsas",
@@ -908,7 +915,8 @@
                   "fondo": "secundario",
                   "color": "auto"
                 }
-              ]
+              ],
+              "imagen": "img/items/i-salsas.jpg?v=mtyifaxq"
             }
           ]
         }
@@ -1063,17 +1071,7 @@
               "alergenos": [
                 "gluten"
               ],
-              "etiquetas": [
-                {
-                  "texto": {
-                    "es": "25 cl",
-                    "en": "25 cl"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "#2F6F8F",
-                  "color": "#FFFFFF"
-                }
-              ]
+              "etiquetas": []
             },
             {
               "id": "i-tercio",
@@ -1089,17 +1087,7 @@
               "alergenos": [
                 "gluten"
               ],
-              "etiquetas": [
-                {
-                  "texto": {
-                    "es": "33 cl",
-                    "en": "33 cl"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "#2F6F8F",
-                  "color": "#FFFFFF"
-                }
-              ]
+              "etiquetas": []
             },
             {
               "id": "i-artesana",
@@ -1115,26 +1103,7 @@
               "alergenos": [
                 "gluten"
               ],
-              "etiquetas": [
-                {
-                  "texto": {
-                    "es": "Edición limitada",
-                    "en": "Limited edition"
-                  },
-                  "posicion": "arriba",
-                  "fondo": "#B3261E",
-                  "color": "#FFFFFF"
-                },
-                {
-                  "texto": {
-                    "es": "Preguntar disponibilidad",
-                    "en": "Ask availability"
-                  },
-                  "posicion": "abajo",
-                  "fondo": "secundario",
-                  "color": "auto"
-                }
-              ]
+              "etiquetas": []
             }
           ]
         },
@@ -1184,7 +1153,8 @@
               "precio": 2.1,
               "alergenos": [
                 "gluten"
-              ]
+              ],
+              "etiquetas": []
             },
             {
               "id": "i-refresco",
@@ -1221,7 +1191,8 @@
                 "en": "Still or sparkling."
               },
               "precio": 1.6,
-              "alergenos": []
+              "alergenos": [],
+              "etiquetas": []
             }
           ]
         }
@@ -1272,8 +1243,7 @@
                   "fondo": "secundario",
                   "color": "auto"
                 }
-              ],
-              "imagen": "img/items/i-aceitunas.jpg?v=mtkcng5m"
+              ]
             },
             {
               "id": "i-banderillas",
@@ -1308,8 +1278,7 @@
                   "fondo": "secundario",
                   "color": "auto"
                 }
-              ],
-              "imagen": "img/items/i-banderillas.jpg?v=mtkcnoo4"
+              ]
             },
             {
               "id": "i-berberechos",
@@ -1337,9 +1306,7 @@
                 }
               ]
             }
-          ],
-          "foco": "centro",
-          "imagen": "img/grupos/g-encurtidos.jpg?v=mtkcmw3k"
+          ]
         },
         {
           "id": "g-snacks",
@@ -1456,13 +1423,9 @@
                 }
               ]
             }
-          ],
-          "foco": "derecha",
-          "imagen": "img/grupos/g-snacks.jpg?v=mtkd8gm2"
+          ]
         }
-      ],
-      "foco": "derecha",
-      "imagen": "img/secciones/s-picar.jpg?v=mtkckpj7"
+      ]
     }
   ]
 }
