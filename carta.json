@@ -11,7 +11,7 @@
       "en"
     ],
     "imagenes": true,
-    "actualizado": "2026-09-11T21:47:10.314Z"
+    "actualizado": "2026-09-12T12:11:28.213Z"
   },
   "secciones": [
     {
@@ -613,8 +613,55 @@
             "fondo": "principal",
             "color": "auto"
           }
+        },
+        {
+          "id": "g-grupo-yk5j",
+          "nombre": {
+            "es": "Nuevo grupo",
+            "en": "New group"
+          },
+          "items": [
+            {
+              "id": "i-item-uvbh",
+              "nombre": {
+                "es": "Nuevo ítem",
+                "en": "New item"
+              },
+              "descripcion": {
+                "es": "¡Hola mundo!",
+                "en": "Hello world!"
+              },
+              "precio": 99.99,
+              "alergenos": [
+                "gluten",
+                "lacteos"
+              ],
+              "etiquetas": [
+                {
+                  "texto": {
+                    "es": "NUEVO",
+                    "en": "NEW"
+                  },
+                  "posicion": "arriba",
+                  "fondo": "principal",
+                  "color": "auto"
+                }
+              ]
+            }
+          ],
+          "foco": "abajo",
+          "imagen": "img/grupos/g-grupo-yk5j.jpg?v=mtycfsoq",
+          "alerta": {
+            "texto": {
+              "es": "NUEVO",
+              "en": "NEW"
+            },
+            "fondo": "principal",
+            "color": "auto"
+          }
         }
-      ]
+      ],
+      "imagen": "img/secciones/s-bocadillos.jpg?v=mtycdhv8"
     },
     {
       "id": "s-hamburguesas",
